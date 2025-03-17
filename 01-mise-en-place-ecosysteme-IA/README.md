@@ -1,1 +1,13 @@
 
+- git
+- linux
+- docker
+- elasticSearch
+- cpuVsGpu
+- streamlit
+- fastapi
+- mLops
+- projetComplet-mLops
+- projetCompletcirclCI
+- projetCompletSagemaker (SageMaker)
+- projetLowCodeAutoMLAzure (Microsoft Azure)
