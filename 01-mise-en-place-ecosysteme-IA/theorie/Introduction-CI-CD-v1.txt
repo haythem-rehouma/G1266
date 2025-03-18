@@ -1,0 +1,38 @@
+
+CI/CD
+
+Jenkins (plugins)
+Azure Devops
+AWS Code commit / Code deploy
+Circle CI 
+
+Dev (python3.7)/ops (python3.13)
+Dev/Sec/ops
+
+Alain front-end
+Amine module payement
+Florin module ressources humaines
+
+Après 6 mois, module1+module2+module3
+
+CI = intégration continue
+
+Build = compile 
+Build = compile + tests unitaires
+Build = compile + tests unitaires + tests d'intégration
+Build = compile + tests unitaires + tests d'intégration + Tests de sécurité
+
+- erreurs de compilation
+- erreurs de runtime 
+- erreurs de logique somme
+
+
+(Machine locale ) git push ==> github ==> deploiement sur AWS
+
+Hudson ==> Jenkins
+Jenkins 
+/ Azure devops 
+/ AWS code commit - code pipeline
+/ Gitlab
+
+
