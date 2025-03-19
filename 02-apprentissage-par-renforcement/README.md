@@ -32,6 +32,7 @@
 
 ---
 
-# Travaux d'équipe pour le Chapitre 4 (1 quiz)
+# Travaux d'équipe pour le Chapitre 4 (2 quiz)
 
 ### 4.6 - Quiz 1 du Chapitre 4 *(6)*
+### 4.6 - Quiz 2 du Chapitre 4 *(7)*
