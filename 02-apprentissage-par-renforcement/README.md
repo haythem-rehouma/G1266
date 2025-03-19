@@ -16,7 +16,7 @@
 
 ---
 
-## Travaux d'équipe pour le Chapitre 2 (2 pratiques, 1 quiz)
+# Travaux d'équipe pour le Chapitre 2 (2 pratiques, 1 quiz)
 
 ### 2.4 - Quiz 1 du Chapitre 2 *(2)*  
 ### 2.5 - Pratique 1 *(1) - Choix de l'approche (supervisé, non supervisé ou RL)*  
@@ -24,7 +24,7 @@
 
 ---
 
-## Travaux d'équipe pour le Chapitre 3 (3 quizs)
+# Travaux d'équipe pour le Chapitre 3 (3 quizs)
 
 ### 3.2 - Quiz 1 du Chapitre 3 *(3)*  
 ### 3.4 - Quiz 2 du Chapitre 3 *(4)*  
@@ -32,6 +32,6 @@
 
 ---
 
-## Travaux d'équipe pour le Chapitre 4 (1 quiz)
+# Travaux d'équipe pour le Chapitre 4 (1 quiz)
 
 ### 4.6 - Quiz 1 du Chapitre 4 *(6)*
