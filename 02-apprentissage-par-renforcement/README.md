@@ -8,7 +8,7 @@
 
 ---
 
-# Travaux d'équipe pour le Chapitre 1 (1 pratique, 1 quiz)
+# Travaux d'équipe pour le Chapitre 1 (1 pratique, 2 quiz)
 
 ### 1.2 - Quiz 1 du Chapitre 1  
 ### 1.4 - Quiz 2 du Chapitre 1 
@@ -32,7 +32,10 @@
 
 ---
 
-# Travaux d'équipe pour le Chapitre 4 (2 quiz)
+# Travaux d'équipe pour le Chapitre 4 (2 quiz et 3 pratiques)
 
 ### 4.6 - Quiz 1 du Chapitre 4 *(6)*
-### 4.6 - Quiz 2 du Chapitre 4 *(7)*
+### 4.7 - Quiz 2 du Chapitre 4 *(7)*
+### 4.8 - 
+### 4.9.1 - 
+### 4.9.2 - 
