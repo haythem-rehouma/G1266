@@ -159,3 +159,11 @@ Pour tester chaque point de terminaison :
 ### Conclusion
 
 Vous avez maintenant une API de calculatrice simple avec FastAPI, et vous pouvez utiliser Swagger UI pour tester et documenter vos points de terminaison. Cette API peut être facilement étendue pour inclure des fonctionnalités supplémentaires selon vos besoins. Pour plus d'informations, consultez la [documentation officielle de FastAPI](https://fastapi.tiangolo.com/).
+
+
+# Annexe 1
+
+- /add?a=2&b=5
+- /subtract?a=2&b=5
+- /multiply?a=2&b=5
+- /divide?a=2&b=5
