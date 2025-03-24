@@ -1,5 +1,6 @@
 *Projet simple utilisant TensorFlow, FastAPI pour le backend, et Streamlit pour le frontend*
-Le projet entraînera un modèle de classification simple avec TensorFlow et exposera une API via FastAPI pour faire des prédictions. Le frontend avec Streamlit permettra de saisir des données et d'afficher les prédictions.
+
+- Le projet entraînera un modèle de classification simple avec TensorFlow et exposera une API via FastAPI pour faire des prédictions. Le frontend avec Streamlit permettra de saisir des données et d'afficher les prédictions.
 
 # 1 - Structure du projet
 
