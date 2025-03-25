@@ -8,7 +8,7 @@ Nous allons transformer le projet de détection d'objets utilisant Streamlit et 
 Créez la structure suivante pour votre projet :
 
 ```
-4_WEBAPP/
+WEBAPP/
 ├── backend/
 │   ├── Dockerfile
 │   ├── main.py
