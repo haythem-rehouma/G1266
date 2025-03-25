@@ -1,4 +1,4 @@
-### Tutoriel Étape par Étape pour Développer une Application Web de Détection d'Objets avec Streamlit et YOLO
+### (sur VM) Développer une Application Web de Détection d'Objets avec Streamlit et YOLO
 
 Ce tutoriel vous guidera pour créer une application web utilisant Streamlit et YOLO pour la détection d'objets. Nous allons procéder étape par étape pour configurer l'environnement, créer les fichiers nécessaires et implémenter les fonctionnalités, en ajoutant des commentaires détaillés pour chaque partie du code.
 
