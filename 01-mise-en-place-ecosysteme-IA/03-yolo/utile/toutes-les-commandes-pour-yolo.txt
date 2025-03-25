@@ -1,0 +1,135 @@
+------------------------------------------------
+RESSOURCES pour les 3 démonstrations de YOLO 
+------------------------------------------------
+https://drive.google.com/drive/folders/1rxoAHemNQD3t3C9PhVM6c3yDiBkyYfsy?usp=sharing
+
+
+
+------------------------------------------------
+1 - RESSOURCES pour la démo 1 yolo7
+------------------------------------------------
+https://drive.google.com/drive/folders/1eG7w9ZT7subxZQ9hwcvk3b85dCdL_R6S?usp=sharing
+
+python3.9 -m venv venvyolo7
+venvyolo7\Scripts\activate
+pip install -r requirements.txt
+python detection.py --weights yolov7.onnx --source data\videos\road.mp4
+python detection.py --weights yolov7-tiny.onnx --source data\videos\road.mp4
+python detection.py --weights yolov7.onnx --source data\images\horses.jpg
+python detection.py --weights yolov7.onnx --source 0
+deactivate
+
+
+
+------------------------------------------------
+2 - RESSOURCES pour la démo 2 yolo8
+------------------------------------------------
+
+https://drive.google.com/drive/folders/1-O2maCmNsMKwGejuyzOYix3bHOAfMFFB?usp=sharing
+
+python3.9 -m venv venvyolo8
+venvyolo8\Scripts\activate
+pip install -r requirements.txt
+python detection.py --model yolov8n.onnx --source data\images\horses.jpg
+python detection.py --model yolov8n.onnx --source data\videos\road.mp4
+python detection.py --model yolov8n.onnx --source 0
+
+
+------------------------------------------------
+3 - RESSOURCES pour la démo 3 - intégration de yolo 5 dans une page web avec streamlit
+------------------------------------------------
+
+python3.9 -m venv venvweb
+venvweb\Scripts\activate
+pip install streamlit opencv-python-headless pyyaml numpy streamlit-webrtc
+streamlit run Home.py
+
+
+
+
+
+------------------------------------------------
+VOTRE PROJET DE SESSION
+------------------------------------------------
+- front-end (streamlit)
+- back-end (fastapi)
+- mlops ==­> Ubuntu 22.04 (LTS)
+- tensorflow / pytorch
+
+
+pandas
+numpy
+seaborn / matplotlib
+sickit-learn
+tensorflow / pytorch
+
+
+yolo/H2O/Modèles d'IA
+CPU/GPU
+==> Rappel linux / github / docker / docker-compose
+Cloud + docker-compose
+
+
+CRUD 
+Create + Read + Update + Delete
+
+insert + select + update + delete 
+
+POST - GET  - PUT  - DELETE 
+
+1xx
+2xx
+3xx
+4xx
+5xx
+
+100
+200
+201
+300
+301
+400
+401
+402
+404
+500
+
+/add?a=2&b=5
+/subtract?a=2&b=5
+/multiply?a=2&b=5
+/divide?a=2&b=5
+
+
+
+-------------
+Dépendances TERMINAL 1 
+-------------
+cmd
+cd mon_projet/
+monfastapi\Scripts\activate
+pip install streamlit 
+pip install requests  
+pip install fastapi
+pip install "uvicorn[standard]"
+pip freeze> requirements.txt
+decativate
+
+-------------
+TERMINAL 2 
+-------------
+cmd
+cd mon_projet/
+monfastapi\Scripts\activate
+uvicorn backend:app --reload
+
+-------------
+TERMINAL 3 
+-------------
+cmd
+cd mon_projet/
+monfastapi\Scripts\activate
+streamlit run frontend.py
+
+
+
+
