@@ -1,4 +1,6 @@
-# mini-lab 1 : Développement d'une Application de Visualisation de Données CSV avec Streamlit
+# *Mini-lab 1 (5%)*
+
+# Développement d'une Application de Visualisation de Données CSV avec Streamlit
 
 **Objectif:** Développer une application avec Streamlit permettant de charger un fichier CSV, d'afficher les données, et de générer un graphique basé sur une colonne numérique sélectionnée.
 
