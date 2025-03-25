@@ -1,4 +1,5 @@
-### (*sur Docker*) Développer une Application Web de Détection d'Objets avec Streamlit et YOLO
+# (*sur Docker*) 
+### Développer une Application Web de Détection d'Objets avec Streamlit et YOLO
 
 *Objectif : Transformer le projet initial en une application web utilisant Docker-Compose et FastAPI*
 ### Conversion du Projet en Utilisant Docker-Compose et FastAPI
