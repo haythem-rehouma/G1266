@@ -42,7 +42,7 @@ pip install streamlit opencv-python-headless pyyaml numpy streamlit-webrtc
 Créez la structure suivante pour votre projet :
 
 ```
-4_WEBAPP/
+WEBAPP/
 ├── images/
 │   ├── about.png
 │   ├── camera.png
