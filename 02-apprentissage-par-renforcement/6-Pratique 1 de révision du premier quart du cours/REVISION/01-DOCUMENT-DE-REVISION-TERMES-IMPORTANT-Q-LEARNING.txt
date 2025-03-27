@@ -1,0 +1,108 @@
+
+
+MDP (Markov Decision Process)
+Propriété de Markov 
+
+Environnement
+État 
+Action
+Reward (Récomponse)
+Utilité et utilité optimale
+Stratégie 
+Stratégie optimale
+Discounting
+État absorbant
+Épisode
+
+
+Processus déterministe vs stochastique (non déterministe)
+Environnement dynamique vs Environnement statique
+
+Exploration vs exploitation
+ε-greedy en Apprentissage par Renforcement
+
+S = État
+Q-state ( S + a) = État + action
+Valeur d'état vs Valeur Q-state 
+
+U = r0 gammapuissance0 + r1 gammapuissance1 + r2 gammapuissance2 +...+rn gammapuissancen
+
+
+États:
+S = J'ai mal à la tête
+
+Actions:
+a1 = Je vais dormir
+a2 = Je fais du Yoga 
+
+Q-state
+S + a1 = J'ai mal à la tête + Je vais aller dormir
+S + a2 = J'ai mal à la tête + Je fais du Yoga
+
+Valeur d'état
+Valeur du Q-state
+
+S + a1 = J'ai mal à la tête + Je vais aller dormir 			==> 90
+S + a2 = J'ai mal à la tête + Je fais du Yoga				==> 80
+S + a3 = J'ai mal à la tête + Je continue de travailler		==> -10
+
+État = (3,1) 
+actions = avant, arrière, gauche et droite
+
+Q-state
+(3,1)  + avant
+(3,1)  + arrière
+(3,1)  + gauche
+(3,1)  + droite
+
+Valeur de Q-state
+
+(3,1)  + avant    	==> 0.59
+(3,1)  + arrière	==> 0.53
+(3,1)  + droite		==> 0.64 (meillere valeur du Q-state)
+(3,1)  + gauche		==> 0.57
+
+Valeur de Q-state vs Valeur de l'état
+
+La valeur de l'état c'est le maximum des Q-state (selon a)
+
+
+Itération
+Algorithme itération de valeur
+
+
+
+Étant donné que je suis dans l'état s 
+Je veux me rendre à l'état s'
+
+s ==> s' (en entreprenant une action a)
+
+s + a ==> s' (non ==> on est dans un environnement non déterministe, stochastique)
+
+stochastique ==> probabilité p(s,a,s')
+récompense ==> r(s,a,s')
+discount (gamma) ==> valeur d'une récomponse dimunue avec le temps
+
+s = j'ai mal à la tête
+a1 ==> aller dormir
+a2 ==> prendre advil
+a3 ==> faire du Yoga
+a4 ==> faire du sport
+
+Q(s,a1) ==> 0.89
+Q(s,a2) ==> 0.7
+Q(s,a3) ==> 0.4
+Q(s,a4) ==> -0.5
+
+V* = max Q(s, a) ==> V* = 0.89
+      a
+
+
+
+
+
+- Target policy (stratégie optimale)  ==> Ce qui est visé 
+- Behaviour policy (stratégie de comportement) ==> Je commence avec ça (exploration)
+
+
+
