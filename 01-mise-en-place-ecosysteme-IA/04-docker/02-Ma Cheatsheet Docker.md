@@ -1,7 +1,6 @@
 ---
 title: "Ma Cheatsheet Docker"
 description: "La référence incontournable des commandes Docker avec des exemples concrets et des bonnes pratiques de l'industrie"
-emoji: "🚀"
 ---
 
 # Ma Cheatsheet Docker
