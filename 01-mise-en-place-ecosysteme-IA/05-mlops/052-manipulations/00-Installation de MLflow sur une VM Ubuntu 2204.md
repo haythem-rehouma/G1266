@@ -198,9 +198,9 @@ with mlflow.start_run():
 <br/>
 
 
-------------------------
+
 # Annexe 02: Différence entre mlflow server et mlflow ui ?
-------------------------
+
 
 
 
@@ -236,9 +236,9 @@ Cette commande démarre une **interface utilisateur locale et temporaire** pour 
 <br/>
 
 
-------------------------
+
 # Annexe 03: Erreur serveur
-------------------------
+
 
 
 ![image](https://github.com/user-attachments/assets/b6be7222-80b2-45a7-8653-4588e21dc78d)
