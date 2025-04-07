@@ -202,6 +202,5 @@ Ce script :
 3. **Sérialisation du modèle avec joblib** :
    - Utilisation de joblib pour sauvegarder et recharger le modèle de manière efficace.
 
----
 
-Avec ces modifications, le script est entièrement prêt pour une intégration dans un pipeline de déploiement via MLflow, avec un modèle encapsulé dans un environnement flexible et portable.
+- Le script est maintenant entièrement prêt pour une intégration dans un pipeline de déploiement via MLflow, avec un modèle encapsulé dans un environnement flexible et portable.
