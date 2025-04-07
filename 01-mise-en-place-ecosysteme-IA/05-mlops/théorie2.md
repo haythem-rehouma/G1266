@@ -1,4 +1,4 @@
-- https://github.com/haythem-rehouma/G1266/blob/main/01-mise-en-place-ecosysteme-IA/05-mlops/052-manipulations/00-Installation%20de%20MLflow%20sur%20une%20VM%20Ubuntu%202204.md
+
 - https://medium.com/@researchgraph/mlflow-beginners-guide-how-to-get-started-with-mlflow-4c64c0822fa4
 - https://medium.com/@dliden/comparing-llms-with-mlflow-1c69553718df
 - https://github.com/josejuanmartinez/medium/blob/main/mlflow/mlflow.md
