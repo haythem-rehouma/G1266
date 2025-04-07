@@ -94,6 +94,6 @@ Chaque étudiant est intégré dans une **équipe de trois personnes**. Si l'ét
 
 
 
-L'objectif est de garantir un travail **collaboratif**, une **responsabilité partagée**, et assure que **toutes les expériences sont présentées**, même en cas d’absence du responsable.
+> L'objectif est de garantir un travail **collaboratif**, une **responsabilité partagée**, et assure que **toutes les expériences sont présentées**, même en cas d’absence du responsable.
 
 
