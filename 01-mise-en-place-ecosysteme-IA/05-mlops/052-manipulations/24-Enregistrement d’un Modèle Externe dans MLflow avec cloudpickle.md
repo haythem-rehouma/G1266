@@ -46,6 +46,5 @@ mlflow.end_run()
 
 3. **Visualiser dans MLflow** à l'adresse `http://127.0.0.1:5000`.
 
----
 
-Ce script permet d'enregistrer un modèle déjà entraîné en dehors de MLflow dans l'interface MLflow en utilisant `cloudpickle` pour la sérialisation. Le modèle est également accessible via un nom de modèle MLflow enregistré pour une réutilisation facile.
+> Ce script permet d'enregistrer un modèle déjà entraîné en dehors de MLflow dans l'interface MLflow en utilisant `cloudpickle` pour la sérialisation. Le modèle est également accessible via un nom de modèle MLflow enregistré pour une réutilisation facile.
