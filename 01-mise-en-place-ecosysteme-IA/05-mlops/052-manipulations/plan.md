@@ -22,3 +22,21 @@
 | Staicu, Laurian                  | 14           | 24           |
 | Zoubir, Tarik                    | 15           | 25           |
 
+
+# Groupe 1 
+- Abad, Claudia Esther
+- Ayeboua, Folly Tata
+- Baglaiev, Vitalii
+
+# Groupe 2
+- Cater, Florin
+- Gomes Martinelo, Clériston
+- Guessous, Amine
+
+# Groupe 3
+
+- Hachicha, Sami
+- Nyeck Yamb, Alain
+- Staicu, Laurian
+
+- Zoubir, Tarik ( il  a le choix d'intégrer un des 3 groupes ci-haut)
