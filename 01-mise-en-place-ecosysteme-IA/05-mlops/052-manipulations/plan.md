@@ -9,7 +9,7 @@
 
 ### Répartition détaillée :
 
-| Étudiant                         | Expérience 1 | Expérience 2 |
+| Participant                         | Expérience 1 | Expérience 2 |
 |----------------------------------|--------------|--------------|
 | Abad, Claudia Esther             | 6            | 16           |
 | Ayeboua, Folly Tata              | 7            | 17           |
