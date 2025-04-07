@@ -394,3 +394,83 @@ Après avoir suivi ces étapes, essayez de recharger la page et de voir si le pr
 +---------+-----------------------------------------+---------------------------+------------------+-----------------------------+
 ```
 
+
+<br/>
+<br/>
+
+
+# Anenxe 5 - Utilisation de MLflow avec une Base de Données (Backend Store)
+
+## 1. Pourquoi MLflow a-t-il besoin d'une base de données ?
+
+MLflow permet de gérer le cycle de vie des expériences de machine learning. Pour assurer la **traçabilité**, **la persistance** et **la consultation des résultats**, un stockage structuré des métadonnées est requis. Ces métadonnées incluent :
+
+- Les expériences (`experiments`)
+- Les exécutions (`runs`)
+- Les hyperparamètres (`params`)
+- Les métriques (`metrics`)
+- Les artefacts associés (chemin d’accès uniquement, pas le contenu)
+- Les statuts, durées, auteurs, etc.
+
+Par défaut, la commande `mlflow ui` utilise un **stockage local** (dossier `mlruns`) sans base de données. Toutefois, pour des cas d'usage réels, collaboratifs ou reproductibles, il est fortement recommandé de lancer le **serveur MLflow complet** (`mlflow server`) avec une base de données dédiée appelée **backend store**.
+
+
+
+## 2. Options de base de données compatibles
+
+| Type            | URI Exemple                                         | Cas d’usage              | Avantages                        | Limitations                         |
+|------------------|----------------------------------------------------|---------------------------|-----------------------------------|-------------------------------------|
+| SQLite (fichier local) | `sqlite:///mlflow.db`                        | Développement local       | Simple, portable                  | Non adapté à l’usage concurrent     |
+| MySQL           | `mysql+pymysql://user:pass@host/db_name`           | Usage collaboratif        | Scalable, robuste                 | Configuration plus complexe         |
+| PostgreSQL      | `postgresql://user:pass@host:port/db_name`         | Production                | Sécurité, robustesse              | Requiert une installation serveur   |
+| Databricks      | Configuration spécifique à Databricks              | Cloud entreprise          | Intégré à leur écosystème         | Usage restreint, payant             |
+
+
+
+## 3. Exemple de configuration avec SQLite
+
+```bash
+mlflow server \
+  --backend-store-uri sqlite:///mlflow.db \
+  --default-artifact-root ./mlruns \
+  --host 127.0.0.1 \
+  --port 5000
+```
+
+- `--backend-store-uri` : précise l’emplacement du fichier de base de données (ici, `mlflow.db`)
+- `--default-artifact-root` : dossier pour stocker les artefacts (modèles, images, logs)
+- `--host` : définit la portée d’accès (127.0.0.1 = machine locale uniquement)
+- `--port` : port d’écoute (5000 par défaut)
+
+Ce serveur conserve toutes les informations importantes, même après redémarrage.
+
+
+
+## 4. Pour un environnement multi-utilisateurs
+
+Dans un contexte collaboratif (équipe MLOps, serveurs distants, Docker, etc.), il est préférable d’utiliser :
+
+- `--host 0.0.0.0` pour rendre le serveur accessible à d’autres machines
+- une base de données distante comme **PostgreSQL** ou **MySQL**
+- un dossier d’artefacts accessible depuis toutes les machines (via NFS, S3, etc.)
+
+Exemple avec PostgreSQL :
+
+```bash
+mlflow server \
+  --backend-store-uri postgresql://user:pass@host:5432/mlflow_db \
+  --default-artifact-root s3://mlflow-artifacts/ \
+  --host 0.0.0.0 \
+  --port 5000
+```
+
+
+
+## 5. Résumé
+
+| Commande                  | Base de données requise | Persistant | Accessible en réseau | Recommandé en production |
+|---------------------------|-------------------------|------------|------------------------|---------------------------|
+| `mlflow ui`               | Non                     | Oui (fichiers locaux) | Non                    | Non                       |
+| `mlflow server` + SQLite | Oui                     | Oui        | Optionnel (`--host`)   | Non (usage unique/local)  |
+| `mlflow server` + PostgreSQL/MySQL | Oui         | Oui        | Oui                    | Oui                       |
+
