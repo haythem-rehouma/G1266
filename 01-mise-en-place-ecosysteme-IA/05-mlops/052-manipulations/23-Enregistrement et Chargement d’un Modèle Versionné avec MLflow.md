@@ -109,6 +109,6 @@ if __name__ == "__main__":
 
 3. **Visualiser dans MLflow** sur `http://127.0.0.1:5000`.
 
----
 
-Ce code permet d'entraîner le modèle, d'enregistrer les paramètres et les métriques, et de sauvegarder le modèle pour un chargement et une évaluation ultérieurs dans un environnement de production.
+
+> Ce code permet d'entraîner le modèle, d'enregistrer les paramètres et les métriques, et de sauvegarder le modèle pour un chargement et une évaluation ultérieurs dans un environnement de production.
