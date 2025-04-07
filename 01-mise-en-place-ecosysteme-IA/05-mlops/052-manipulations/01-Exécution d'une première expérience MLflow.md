@@ -2,14 +2,62 @@
 
 Ce guide vous aidera à exécuter votre première expérience MLflow sur une VM Ubuntu 22.04. Nous utiliserons un modèle de régression ElasticNet pour prédire la qualité du vin.
 
-## Prérequis
+## 1 - Prérequis
 
 - Avoir suivi le [guide d'installation de MLflow](#installation-de-mlflow-sur-une-vm-ubuntu-2204) sur votre VM.
 - Avoir accès à un fichier CSV de qualité du vin rouge (`red-wine-quality.csv`).
 
-## Étapes d'exécution de l'expérience
 
-### 1. Préparer l'environnement
+
+
+## 2 - Objectif du TP : Exécuter et tracer une expérience ML avec MLflow
+
+
+## 3 - **Objectif pédagogique**
+
+L’objectif principal de ce TP est de :
+
+> **Comprendre le fonctionnement de MLflow en pratique, en exécutant une expérience de machine learning complète avec traçabilité des paramètres, des métriques, et du modèle entraîné.**
+
+À la fin de ce TP, l’apprenant saura :
+
+- Préparer un environnement de travail pour MLflow.
+- Exécuter un script d'entraînement de modèle.
+- Utiliser MLflow pour tracer automatiquement les paramètres, les métriques et le modèle.
+- Visualiser les résultats via l’interface web MLflow.
+- Comparer différentes expériences avec des hyperparamètres variés.
+
+
+
+## 4 - **Méthodologie / Étapes**
+
+Ce TP suit une démarche pédagogique en 6 étapes :
+
+| Étape | Description | Compétence visée |
+|-------|-------------|------------------|
+| **1. Préparation** | Créer un environnement de travail propre et structuré. | Organisation de projet ML |
+| **2. Ingestion des données** | Télécharger et comprendre un fichier CSV réel. | Lecture de données tabulaires |
+| **3. Écriture du modèle** | Implémenter un script Python qui entraîne un modèle de régression (ElasticNet). | Programmation ML avec scikit-learn |
+| **4. Paramétrage dynamique** | Ajouter des arguments en ligne de commande (`alpha`, `l1_ratio`). | Reproductibilité et flexibilité |
+| **5. Intégration de MLflow** | Tracer les expériences avec MLflow (paramètres, métriques, modèle). | MLOps : traçabilité des runs |
+| **6. Visualisation** | Démarrer l’interface web de MLflow et analyser les résultats. | Interprétation de résultats et comparaison |
+
+
+
+## 5 - **Compétences techniques visées**
+
+- Utiliser MLflow en mode tracking local.
+- Comprendre le lien entre modèle, paramètres, métriques et versioning.
+- Créer une interface ligne de commande pour entraîner un modèle avec flexibilité.
+- Structurer un projet de machine learning de manière professionnelle.
+
+
+
+
+
+## 6 - Étapes d'exécution de l'expérience
+
+### 6.1. Préparer l'environnement
 
 Assurez-vous que votre environnement est configuré correctement :
 
@@ -19,12 +67,12 @@ mkdir mlflow-experiment
 cd mlflow-experiment
 ```
 
-### 2. Télécharger le fichier de données
+### 6.2. Télécharger le fichier de données
 
 Placez votre fichier `red-wine-quality.csv` dans le répertoire `mlflow-experiment`. Vous pouvez télécharger un exemple de [ce lien](https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv). ou le répertoire fichier du cours.
 
 
-### 3. Créer le script Python
+### 6.3. Créer le script Python
 - # cat > red-wine-quality.csv
 - coller le contenu du fichier csv
 - faites CTL + C
@@ -91,7 +139,7 @@ if __name__ == "__main__":
 
 ```
 
-### 4. Exécuter le script
+### 6.4. Exécuter le script
 
 Pour exécuter le script avec les paramètres par défaut (alpha=0.5 et l1_ratio=0.5), utilisez la commande suivante :
 
@@ -105,7 +153,7 @@ Vous pouvez également spécifier différents paramètres pour `alpha` et `l1_ra
 python3 train.py --alpha 0.1 --l1_ratio 0.1
 ```
 
-### 5. Enregistrement des résultats dans MLflow
+### 6.5. Enregistrement des résultats dans MLflow
 
 Pour enregistrer les résultats de l'expérience dans MLflow, nous devons modifier légèrement le script Python pour inclure MLflow. Ajoutez les lignes suivantes après l'importation des bibliothèques :
 
@@ -154,7 +202,7 @@ if __name__ == "__main__":
         mlflow.sklearn.log_model(lr, "model")
 ```
 
-### 6. Exécuter l'expérience et visualiser les résultats
+### 6.6. Exécuter l'expérience et visualiser les résultats
 
 Pour exécuter l'expérience :
 
@@ -176,6 +224,6 @@ http://<IP-de-votre-VM>:5000
 
 Remplacez `<IP-de-votre-VM>` par l'adresse IP de votre VM Ubuntu 22.04.
 
-## Conclusion
+## 7 - Conclusion
 
 Vous avez maintenant exécuté et suivi votre première expérience MLflow sur une VM Ubuntu 22.04. Vous pouvez explorer davantage les fonctionnalités de MLflow pour améliorer votre flux de travail de machine learning. N'hésitez pas à expérimenter avec différents modèles et paramètres pour optimiser vos résultats.
