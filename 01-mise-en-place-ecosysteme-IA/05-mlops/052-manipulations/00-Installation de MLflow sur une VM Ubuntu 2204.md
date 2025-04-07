@@ -67,6 +67,18 @@ mkdir database
 mlflow server --backend-store-uri sqlite:///database/mlflow.db --default-artifact-root=file:mlruns --host 0.0.0.0 --port 5000
 ```
 
+
+> Exercice - comparez les commandes suivantes
+
+```
+mlflow ui
+mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 127.0.0.1 --port 5000
+mlflow server --backend-store-uri sqlite:///database/mlflow.db --default-artifact-root=file:mlruns --host 0.0.0.0 --port 5000
+mlflow server --backend-store-uri sqlite:///database/mlflow.db  --default-artifact-root ~/mlflow-experiments --host 0.0.0.0 --port 5000
+```
+ 
+
+
 ### 6. Accéder à l'interface MLflow
 
 Par défaut, le serveur MLflow s'exécute sur le port 5000. Vous pouvez y accéder via votre navigateur web à l'adresse suivante :
