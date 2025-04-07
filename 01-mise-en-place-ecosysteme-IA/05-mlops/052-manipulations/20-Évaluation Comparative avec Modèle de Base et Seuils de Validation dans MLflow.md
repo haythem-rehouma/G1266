@@ -279,6 +279,6 @@ python <nom_du_script>.py
 3. **Évaluation finale** :
    - `mlflow.evaluate` compare le modèle principal avec le modèle de base et vérifie que les performances respectent les seuils configurés.
 
----
 
-Ce script est prêt pour une analyse avancée, y compris les comparaisons de performance avec un modèle de base et des seuils de validation pour confirmer l’efficacité du modèle principal.
+
+> Ce script est prêt pour une analyse avancée, y compris les comparaisons de performance avec un modèle de base et des seuils de validation pour confirmer l’efficacité du modèle principal.
