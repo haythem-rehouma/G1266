@@ -68,7 +68,7 @@ mlflow server --backend-store-uri sqlite:///database/mlflow.db --default-artifac
 ```
 
 
-> Exercice - comparez les commandes suivantes
+> Exercice - comparez les commandes suivantes (voir la réponse à l'annexe 4)
 
 ```
 mlflow ui
@@ -162,9 +162,12 @@ mlflow ui
 Vous avez maintenant installé et configuré MLflow sur votre VM Ubuntu 22.04. Vous pouvez commencer à suivre et à gérer vos expériences de machine learning. N'hésitez pas à explorer davantage les fonctionnalités offertes par MLflow pour améliorer votre flux de travail de data science.
 
 
-------------------------
+<br/>
+<br/>
+
+
 # Annexe 01: Le ID d'expérience est obligatoire
-------------------------
+
 
 
 - Il est obligatoire que MLflow crée une expérience s'il n'en existe pas.
@@ -191,6 +194,8 @@ with mlflow.start_run():
    ```
 
 
+<br/>
+<br/>
 
 
 ------------------------
@@ -227,6 +232,8 @@ Cette commande démarre une **interface utilisateur locale et temporaire** pour 
 
 
 
+<br/>
+<br/>
 
 
 ------------------------
@@ -281,3 +288,87 @@ Le code ci-haut  configure bien l'URI de traçage pour MLflow, mais l'erreur que
 4. **Relancez le navigateur** : Parfois, il peut s'agir d'un problème temporaire de connexion avec le navigateur. Relancer Firefox pourrait aider.
 
 Après avoir suivi ces étapes, essayez de recharger la page et de voir si le problème persiste.
+
+
+
+<br/>
+<br/>
+
+
+# Annexe 4 - Réponse à votre exercice - Comparaison entre les 4 commandes
+
+
+# **1. `mlflow ui`**
+
+- **Description** :  
+  Lance simplement l'interface utilisateur de MLflow, **en mode local et simplifié**.
+
+- **Caractéristiques** :
+  - Pas de serveur d’expérimentation complet.
+  - Utilise par défaut le répertoire `mlruns/` dans le dossier courant.
+  - Pas de stockage backend explicitement défini.
+  - Adapté pour un usage rapide ou exploratoire.
+
+- **Utilisation typique** :  
+  Démo locale, test rapide, sans base de données personnalisée.
+
+
+# **2. `mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 127.0.0.1 --port 5000`**
+
+- **Description** :  
+  Démarre le **serveur complet MLflow Tracking Server**.
+
+- **Caractéristiques** :
+  - **Backend store** : SQLite (fichier `mlflow.db` à la racine).
+  - **Artifact root** : dossier local `./mlruns`.
+  - **Host** : accessible uniquement depuis la machine locale (`127.0.0.1`).
+  - **Port** : 5000.
+
+- **Utilisation typique** :  
+  Projet local avec traçabilité durable via SQLite, **non accessible à distance**.
+
+
+# **3. `mlflow server --backend-store-uri sqlite:///database/mlflow.db --default-artifact-root=file:mlruns --host 0.0.0.0 --port 5000`**
+
+- **Description** :  
+  Démarre un serveur MLflow **accessible depuis l’extérieur**.
+
+- **Caractéristiques** :
+  - **Backend store** : SQLite (dans `database/mlflow.db`).
+  - **Artifact root** : `file:mlruns` — notation explicite pour URI locale.
+  - **Host** : `0.0.0.0` → accessible depuis **toute adresse IP** (LAN, Docker, etc.).
+  - **Port** : 5000.
+
+- **Différence principale avec la commande 2** :
+  - Meilleure accessibilité réseau.
+  - Chemin des artefacts défini comme URI explicite.
+
+- **Utilisation typique** :  
+  Déploiement sur une machine partagée ou dans un conteneur, pour usage collaboratif.
+
+
+# **4. `mlflow server --backend-store-uri sqlite:///database/mlflow.db  --default-artifact-root ~/mlflow-experiments --host 0.0.0.0 --port 5000`**
+
+- **Description** :  
+  Même logique que la commande 3, avec un répertoire d’artefacts plus personnalisé.
+
+- **Caractéristiques** :
+  - **Backend store** : SQLite dans un sous-dossier `database/`.
+  - **Artifact root** : dans le répertoire personnel (`~/mlflow-experiments`).
+  - **Host** : ouvert à tous (`0.0.0.0`).
+  - **Port** : 5000.
+
+- **Utilisation typique** :  
+  Environnement de développement collaboratif, avec un emplacement d’artefacts plus stable et propre à l’utilisateur.
+
+
+### **Comparaison synthétique**
+
+| Commande | Backend Store | Artifact Root | Accessibilité | Cas d’usage |
+|---------|----------------|----------------|----------------|-------------|
+| `mlflow ui` | Par défaut (./mlruns) | Par défaut | Local uniquement | Exploration rapide |
+| Cmd 2 | `sqlite:///mlflow.db` | `./mlruns` | Local (`127.0.0.1`) | Projet local solo |
+| Cmd 3 | `sqlite:///database/mlflow.db` | `file:mlruns` | Réseau (`0.0.0.0`) | Collaboration, conteneurs |
+| Cmd 4 | `sqlite:///database/mlflow.db` | `~/mlflow-experiments` | Réseau (`0.0.0.0`) | Collaboration, dossier dédié |
+
+
