@@ -26,7 +26,7 @@ MLflow nécessite Python. Nous allons installer Python 3 et pip (gestionnaire de
 ```bash
 sudo apt install python3 python3-pip -y
 python3 --version
-python3 -m venv myenv
+python3 -m venv myenv (en cas de besoin : apt install python3.12-venv)
 source myenv/bin/activate
 pip install mlflow
 deactivate (pour sortir)
