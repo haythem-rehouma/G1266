@@ -372,3 +372,25 @@ Après avoir suivi ces étapes, essayez de recharger la page et de voir si le pr
 | Cmd 4 | `sqlite:///database/mlflow.db` | `~/mlflow-experiments` | Réseau (`0.0.0.0`) | Collaboration, dossier dédié |
 
 
+
+
+### Comparaison finale
+
+```
++---------+-----------------------------------------+---------------------------+------------------+-----------------------------+
+| Cmd N°  | Backend Store URI                       | Artifact Root             | Host / Access     | Usage recommandé            |
++---------+-----------------------------------------+---------------------------+------------------+-----------------------------+
+| 1       | (Par défaut, implicite)                 | ./mlruns (défaut)         | 127.0.0.1         | Usage local rapide          |
+|         |                                         |                           | (local seulement) | Interface simple (mlflow ui)|
++---------+-----------------------------------------+---------------------------+------------------+-----------------------------+
+| 2       | sqlite:///mlflow.db                     | ./mlruns                  | 127.0.0.1         | Projet local avec traçage   |
+|         | (fichier dans le dossier courant)       |                           | (local seulement) | Persistance avec SQLite     |
++---------+-----------------------------------------+---------------------------+------------------+-----------------------------+
+| 3       | sqlite:///database/mlflow.db            | file:mlruns               | 0.0.0.0           | Serveur collaboratif local  |
+|         | (fichier dans dossier `database/`)      | (notation URI explicite)  | (réseau ouvert)   | Compatible conteneurs       |
++---------+-----------------------------------------+---------------------------+------------------+-----------------------------+
+| 4       | sqlite:///database/mlflow.db            | ~/mlflow-experiments      | 0.0.0.0           | Environnement partagé       |
+|         | (même que commande 3)                   | (répertoire utilisateur)  | (réseau ouvert)   | Artefacts centralisés       |
++---------+-----------------------------------------+---------------------------+------------------+-----------------------------+
+```
+
