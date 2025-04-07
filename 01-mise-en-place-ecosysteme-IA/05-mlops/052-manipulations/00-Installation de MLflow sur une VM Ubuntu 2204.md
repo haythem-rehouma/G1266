@@ -16,7 +16,7 @@ Tout d'abord, assurez-vous que votre système est à jour :
 
 ```bash
 sudo apt update
-sudo apt upgrade -y
+sudo apt upgrade -y (optionnel - ne le faites pas)
 ```
 
 ### 2. Installer Python et pip
