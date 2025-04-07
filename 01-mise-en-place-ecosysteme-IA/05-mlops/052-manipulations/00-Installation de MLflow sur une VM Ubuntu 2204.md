@@ -19,13 +19,21 @@ sudo apt update
 sudo apt upgrade -y (optionnel - ne le faites pas)
 ```
 
-### 2. Installer Python et pip
+### 2. Installer Python et pip et création de l'environnement virtuel
 
 MLflow nécessite Python. Nous allons installer Python 3 et pip (gestionnaire de paquets Python) :
 
 ```bash
 sudo apt install python3 python3-pip -y
+python3 --version
+python3 -m venv myenv
+source myenv/bin/activate
+pip install mlflow
+deactivate (pour sortir)
 ```
+
+
+
 
 ### 3. Installer MLflow
 
