@@ -1,3 +1,4 @@
+# 1 - Commandes
 
 ```bash
 # Diagnostic complet de l'installation MLflow
@@ -49,7 +50,7 @@ mlflow runs delete --run-id [ID_DU_RUN]
 mlflow runs restore --run-id [ID_DU_RUN]
 ```
 
-### Explications 📄
+# 2 - Explications 
 
 - **mlflow doctor** : Permet de vérifier l'installation MLflow et d'identifier les éventuels problèmes.
 - **mlflow artifacts** : Commandes pour gérer les artefacts associés aux runs, notamment pour la consultation, le téléchargement et l'enregistrement depuis ou vers MLflow.
