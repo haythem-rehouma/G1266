@@ -143,6 +143,12 @@ Ce script :
 
 ### Exemple avec `create_experiment` (approche manuelle)
 
+
+>```python
+>mlflow.set_tracking_uri("http://127.0.0.1:5000")
+>print("Haythem test ", mlflow.get_tracking_uri())
+>```
+
 ```python
 exp_id = mlflow.create_experiment(
     name="experience_1",
