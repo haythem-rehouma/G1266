@@ -227,3 +227,57 @@ Remplacez `<IP-de-votre-VM>` par l'adresse IP de votre VM Ubuntu 22.04.
 ## 7 - Conclusion
 
 Vous avez maintenant exécuté et suivi votre première expérience MLflow sur une VM Ubuntu 22.04. Vous pouvez explorer davantage les fonctionnalités de MLflow pour améliorer votre flux de travail de machine learning. N'hésitez pas à expérimenter avec différents modèles et paramètres pour optimiser vos résultats.
+
+
+<br/>
+<br/>
+
+# Annexe 1 : 
+
+
+- Ce programme guide l'exécution d'une première expérience de machine learning avec MLflow sur une VM Ubuntu 22.04. Il utilise un modèle de régression `ElasticNet` pour prédire la qualité du vin à partir d'un fichier CSV. 
+
+L'objectif est d'apprendre à :
+- Structurer un projet ML
+- Paramétrer dynamiquement un modèle
+- Tracer les paramètres, métriques et modèles avec MLflow
+- Visualiser les résultats via l'interface web de MLflow
+
+Le TP suit 6 étapes : préparation de l'environnement, ingestion des données, création du modèle, ajout de paramètres dynamiques, intégration de MLflow, visualisation des résultats.
+
+
+<br/>
+<br/>
+
+# Annexe 2 - Résumé rapide :
+
+- **But** : Entraîner un modèle de régression (`ElasticNet`) pour prédire la qualité du vin à partir d’un fichier CSV.
+- **Objectif pédagogique** : Apprendre à utiliser **MLflow** pour suivre :
+  - Les **paramètres** (`alpha`, `l1_ratio`)
+  - Les **métriques** (RMSE, MAE, R²)
+  - Le **modèle entraîné**
+- **Technos utilisées** : Python, scikit-learn, MLflow
+
+
+
+###  **Ce que l’apprenant fait concrètement :**
+
+1. **Créer un environnement propre** pour l'expérience.
+2. **Charger les données** (`red-wine-quality.csv`).
+3. **Coder un script Python** d'entraînement avec `ElasticNet`.
+4. **Ajouter des paramètres dynamiques** via ligne de commande.
+5. **Intégrer MLflow** pour tracer chaque exécution.
+6. **Visualiser les résultats** dans l’interface web de MLflow.
+
+
+
+###  **Compétences acquises :**
+
+- Lancer un projet ML bien structuré.
+- Exécuter des scripts paramétrables.
+- Utiliser MLflow pour :
+  - le tracking d’expériences,
+  - la comparaison de modèles,
+  - le versioning de résultats.
+- Interpréter les métriques de régression (RMSE, MAE, R²).
+
