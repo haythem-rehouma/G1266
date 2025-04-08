@@ -123,14 +123,59 @@ Ce script :
 ```python
   mlflow.set_tracking_uri("http://127.0.0.1:5000")
   print("Haythem test ", mlflow.get_tracking_uri())
-    
-	exp1 = mlflow.set_experiment(experiment_name="experience_2")
-	exp2 = mlflow.set_experiment(experiment_name="experience_3")
-
-    with mlflow.start_run(experiment_id=exp1.experiment_id):
+  exp1 = mlflow.set_experiment(experiment_name="experience_2")
+  exp2 = mlflow.set_experiment(experiment_name="experience_3")
+  with mlflow.start_run(experiment_id=exp1.experiment_id):
         lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
         lr.fit(train_x, train_y)
 ```
 
+
+
+## Comparaison : `set_experiment()` vs `create_experiment()`
+
+| Fonction | Rôle | Retourne | Si l’expérience existe déjà | À utiliser avec |
+|----------|------|----------|------------------------------|------------------|
+| `mlflow.create_experiment()` | Crée une nouvelle expérience | Un `experiment_id` (int) | Lève une erreur (expérience déjà existante) | Lorsque l'on veut contrôler précisément l’ID et l’emplacement des artefacts |
+| `mlflow.set_experiment()` | Définit une expérience à utiliser (et la crée si elle n'existe pas) | Un objet `Experiment` | Ne lève pas d’erreur, l’expérience est simplement réutilisée | Pour une gestion simple, souvent utilisée avec `mlflow.start_run()` sans préciser d’ID |
+
+
+
+### Exemple avec `create_experiment` (approche manuelle)
+
+```python
+exp_id = mlflow.create_experiment(
+    name="experience_1",
+    artifact_location="file:///tmp/mlruns",
+    tags={"version": "v1"}
+)
+
+with mlflow.start_run(experiment_id=exp_id):
+    # Code d'entraînement
+```
+
+Comportement : une erreur sera levée si "experience_1" existe déjà.
+
+
+
+### Exemple avec `set_experiment` (approche automatique)
+
+```python
+exp = mlflow.set_experiment("experience_1")
+
+with mlflow.start_run():
+    # Code d'entraînement
+```
+
+Comportement : si l’expérience existe, elle est utilisée ; sinon, elle est créée automatiquement.
+
+
+
+## Résumé
+
+| Objectif | Fonction recommandée |
+|----------|----------------------|
+| Créer une expérience une seule fois, avec un chemin d’artefacts spécifique | `create_experiment()` |
+| Réutiliser ou créer automatiquement une expérience sans lever d’erreur | `set_experiment()` |
 
 
