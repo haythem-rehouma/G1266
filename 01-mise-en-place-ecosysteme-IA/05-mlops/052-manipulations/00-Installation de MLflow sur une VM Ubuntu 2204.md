@@ -110,14 +110,17 @@ nano hello-world.py
 ```python
 import mlflow
 
-# Définir ou créer une expérience nommée "Default" si elle n'existe pas
+# Optionally set the tracking URI
+mlflow.set_tracking_uri("http://127.0.0.1:5000")
+
+# Set the experiment name
 mlflow.set_experiment("Default")
 
+# Start a new MLflow run
 with mlflow.start_run():
     mlflow.log_param("param1", 5)
     mlflow.log_metric("metric1", 0.85)
     mlflow.set_tag("tag1", "example")
-
 ```
 
 
