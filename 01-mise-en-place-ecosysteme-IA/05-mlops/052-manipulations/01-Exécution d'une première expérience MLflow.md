@@ -281,3 +281,75 @@ Le TP suit 6 étapes : préparation de l'environnement, ingestion des données, 
   - le versioning de résultats.
 - Interpréter les métriques de régression (RMSE, MAE, R²).
 
+
+
+# Annexe 3 - Résumé visuel et structuré du script `train.py`
+
+### **Structure du script Python (train.py)**
+
+```
+1. Importations
+   ├─ Standard : warnings, argparse, logging
+   ├─ Data : pandas, numpy
+   ├─ Modèle : sklearn.linear_model.ElasticNet
+   ├─ Évaluation : sklearn.metrics
+   └─ MLflow : mlflow, mlflow.sklearn
+
+2. Configuration
+   ├─ Logging
+   └─ ArgumentParser (--alpha, --l1_ratio)
+
+3. Fonction utilitaire
+   └─ eval_metrics(actual, pred) → RMSE, MAE, R²
+
+4. Main (bloc if __name__ == "__main__")
+   ├─ Suppression des warnings
+   ├─ Fixation du random seed
+   ├─ Chargement du CSV local
+   ├─ Split train/test
+   ├─ Séparation X (features) / Y (label)
+   ├─ Récupération des arguments alpha, l1_ratio
+
+   └─ Bloc MLflow.start_run()
+       ├─ Entraînement du modèle ElasticNet
+       ├─ Prédictions
+       ├─ Évaluation (RMSE, MAE, R²)
+       ├─ Affichage des scores
+       ├─ Log des paramètres (alpha, l1_ratio)
+       ├─ Log des métriques (rmse, mae, r2)
+       └─ Log du modèle (mlflow.sklearn.log_model)
+```
+
+
+
+# Annexe 4 - instructions supplémentaires
+
+
+*Vous devez  **exécuter la deuxième version du script** : celle **avec l’intégration de MLflow**.*
+
+
+### Pourquoi ?
+Le **premier script** est une version simple, **sans traçabilité avec MLflow** : il entraîne un modèle mais **ne trace rien automatiquement**.
+
+Le **deuxième script** (celui avec `mlflow.start_run()`) permet :
+- de **logger les paramètres** (`alpha`, `l1_ratio`)
+- de **logger les métriques** (`rmse`, `mae`, `r2`)
+- de **sauvegarder le modèle entraîné**
+- de **visualiser les résultats** dans l’interface web de MLflow
+
+
+
+### Étapes :
+
+1. Crée le fichier `train.py` avec **le code complet incluant MLflow** (la 2e version).
+2. Place le fichier `red-wine-quality.csv` dans le bon dossier.
+3. Lance une exécution avec des paramètres par défaut ou personnalisés :
+   ```bash
+   python3 train.py --alpha 0.1 --l1_ratio 0.2
+   ```
+4. Lance l’interface MLflow :
+   ```bash
+   mlflow ui
+   ```
+5. Accède à l’interface via `http://<IP-de-ta-VM>:5000`
+
