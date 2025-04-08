@@ -229,7 +229,7 @@ Remplacez `<IP-de-votre-VM>` par l'adresse IP de votre VM Ubuntu 22.04.
 Vous avez maintenant exécuté et suivi votre première expérience MLflow sur une VM Ubuntu 22.04. Vous pouvez explorer davantage les fonctionnalités de MLflow pour améliorer votre flux de travail de machine learning. N'hésitez pas à expérimenter avec différents modèles et paramètres pour optimiser vos résultats.
 
 
-# Exercice : 
+# Exercice (*IMPORTANT*): 
 - Combinez les deux programmes 1 et 2 pour faire fonctionner l'expérience
 
 
