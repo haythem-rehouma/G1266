@@ -79,6 +79,14 @@ Placez votre fichier `red-wine-quality.csv` dans le répertoire `mlflow-experime
 - # cat red-wine-quality.csv
 - Créez un fichier nommé `train.py` et ajoutez le code suivant :
 
+<br/> 
+<br/> 
+ou simplement :
+
+```python
+wget https://raw.githubusercontent.com/haythem-rehouma/G1266/refs/heads/main/01-mise-en-place-ecosysteme-IA/05-mlops/050-fichiers/red-wine-quality.csv
+```
+
 ```python
 import warnings
 import argparse
