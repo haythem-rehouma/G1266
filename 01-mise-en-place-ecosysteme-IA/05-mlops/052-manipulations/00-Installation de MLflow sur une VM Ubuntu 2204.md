@@ -4,7 +4,7 @@ Ce guide vous aidera à installer MLflow sur une machine virtuelle Ubuntu 22.04.
 
 ## Prérequis
 
-- Une VM Ubuntu 22.04
+- Une machine virtuelle (VM) Ubuntu 24.04 avec Python 3.12, ou une VM Ubuntu 22.04 avec Python 3.9 (et non Python 3.10, car cette version n'est pas stable). Si vous souhaitez exécuter le projet sur Ubuntu 22.04, veuillez consulter l'*annexe 00*.
 - Accès à internet
 - Droits sudo
 
@@ -163,6 +163,30 @@ mlflow ui
 ## Conclusion
 
 Vous avez maintenant installé et configuré MLflow sur votre VM Ubuntu 22.04. Vous pouvez commencer à suivre et à gérer vos expériences de machine learning. N'hésitez pas à explorer davantage les fonctionnalités offertes par MLflow pour améliorer votre flux de travail de data science.
+
+
+
+
+
+<br/>
+<br/>
+
+
+# Annexe 00: Installer python 3.9 et création d'un environnement virtuel dans Ubuntu 22.04
+
+```python
+rm -rf myenv
+sudo apt update
+sudo apt install software-properties-common -y
+sudo add-apt-repository ppa:deadsnakes/ppa -y
+sudo apt update
+sudo apt install python3.9 python3.9-venv python3.9-dev -y
+python3.9 --version
+python3.9 -m venv myenv
+source myenv/bin/activate
+```
+ 
+
 
 
 <br/>
