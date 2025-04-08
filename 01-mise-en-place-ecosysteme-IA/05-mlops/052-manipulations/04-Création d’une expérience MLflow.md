@@ -30,7 +30,7 @@ exp_id = mlflow.create_experiment(
 
 
 
-# **4. Décomposons cette ligne :
+# 4. Décomposons cette ligne :
 
 ```python
 artifact_location = Path.cwd().joinpath("myartifacts").as_uri()
