@@ -2,6 +2,13 @@
 # Plan de la séance
 
 
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+
 # Partie 1 - rappel du processus de Décision de Markov (MDP)
 
 
@@ -19,14 +26,21 @@
 
 <br/>
 <br/>
+<br/>
+<br/>
 
 # Partie 2 - offline vs online learning
 
 Nous verrons la différence entre les approches d’apprentissage avec ou sans interaction directe avec l’environnement.
 Cette distinction est essentielle pour bien comprendre les méthodes utilisées en pratique.
 
+
+
 <br/>
 <br/>
+<br/>
+<br/>
+
 
 # Partie 3 - Équation de Bellman 
 
@@ -34,16 +48,25 @@ Nous introduirons l’équation de Bellman, pierre angulaire des MDP et de l’a
 Elle permet d’exprimer la valeur d’un état en fonction des récompenses et des transitions futures.
 
 
+
 <br/>
 <br/>
+<br/>
+<br/>
+
 
 # Partie 4 - Démonstration 1
 
 Nous allons illustrer l’utilisation concrète de l’équation de Bellman à travers un exemple simple.
 Cette démonstration vise à montrer comment l’agent estime les valeurs d’état.
 
+
+
 <br/>
 <br/>
+<br/>
+<br/>
+
 
 
 # Partie 5 - (Justification de la démo 1 et exercice): Comment utiliser l'équation de Bellman dans l'Apprentissage par Renforcement
@@ -51,16 +74,26 @@ Cette démonstration vise à montrer comment l’agent estime les valeurs d’é
 Nous allons justifier les étapes de la démonstration et proposer un exercice guidé.
 L’objectif est de renforcer la compréhension en appliquant l’équation de Bellman à un mini-problème.
 
+
+
 <br/>
 <br/>
+<br/>
+<br/>
+
 
 # Partie 6 - Q-Learning
 
 Nous verrons une méthode d’apprentissage très populaire : le Q-Learning.
 C’est une technique modèle-free qui permet à un agent d’apprendre une politique optimale à partir de ses interactions.
 
+
+
 <br/>
 <br/>
+<br/>
+<br/>
+
 
 
 # Partie 7 - Démonstration 2
@@ -72,13 +105,21 @@ L’objectif est de montrer comment se construit la table des Q-values au fil de
 
 <br/>
 <br/>
+<br/>
+<br/>
+
 
 # Partie 8 - Démo AWS
 
 Prochaines séances
 
+
+
 <br/>
 <br/>
+<br/>
+<br/>
+
 
 # Partie 9 - Exercices
 
