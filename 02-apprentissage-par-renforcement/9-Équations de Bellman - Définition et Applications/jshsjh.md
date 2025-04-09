@@ -102,7 +102,7 @@ Chaque mise à jour ajuste sa vision du monde, **jusqu’à convergence**.
 
 <br/>
 
-# 8. Pour aller plus loin (bonus pour les curieux)
+# 8. Pour aller plus loin (*bonus pour les curieux*)
 
 - Les équations de Bellman sont à la base de l’**optimalité** dans les **Processus Décisionnels de Markov (MDP)**.
 - Elles sont **utilisées dans l’algorithme de Dynamic Programming** de Bellman dans les années 1950.
