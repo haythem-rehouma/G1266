@@ -43,9 +43,9 @@ Il panique, envisage plusieurs options :
 
 
 
-### ** Exemple de Meilleure action à prendre**
+### Exemple de Meilleure action à prendre
 
-**Engager immédiatement un avocat dans la juridiction où la poursuite a été déposée.**
+**Engager immédiatement un avocat dans la juridiction où la poursuite a été déposée et laisser l'avocat répondre à sa place bien que cet avocat coûte trop cher.**
 
 - L’avocat pourra :
   - Déposer une réponse officielle (comparution ou défense).
