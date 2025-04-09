@@ -142,11 +142,11 @@ Jean **suit automatiquement** sa politique : il engage un avocat, sans passer pa
 
 ---
 
-## **Conclusion pédagogique**
+## **Conclusion**
 
-- Jean qui agit selon une **approche Value-Based** simule les conséquences de ses choix à long terme, puis agit en conséquence. Cela peut être optimal, mais exige une **analyse** et un **modèle mental solide**.
+- Jean qui agit selon une **approche Value-Based** simule les conséquences de ses choix à long terme, puis agit en conséquence (puisqu'il na pas d'expériences). Cela peut être optimal, mais exige une **analyse** et un **modèle mental solide**.
 
-- Jean qui agit selon une **approche Policy-Based** applique une **stratégie pré-apprise**, issue d’un entraînement passé ou de règles claires, et prend donc une **décision rapide et cohérente**.
+- Jean qui agit selon une **approche Policy-Based** applique une **stratégie pré-apprise** (il a beaucoup d'expériences), issue d’un entraînement passé ou de règles claires, et prend donc une **décision rapide et cohérente**.
 
 > 👉 **Dans un environnement critique**, comme un procès, **une bonne politique peut sauver la situation plus vite** qu’une évaluation incertaine à chaud.  
 > Mais **l’approche Value-Based reste puissante dans des contextes nouveaux ou complexes** où la stratégie n’a pas encore été apprise.
