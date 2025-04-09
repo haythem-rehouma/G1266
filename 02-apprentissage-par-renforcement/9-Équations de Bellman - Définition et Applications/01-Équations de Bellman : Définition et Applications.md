@@ -4,6 +4,8 @@
 Comprendre **ce que sont les équations de Bellman**, **pourquoi elles sont fondamentales** en apprentissage par renforcement, et **comment elles s’appliquent dans des situations concrètes**, comme le jeu, la robotique ou la prise de décision automatique.
 
 
+
+<br/>
 <br/>
 
 # 1. Pourquoi des équations dans l’apprentissage par renforcement ?
@@ -14,6 +16,7 @@ Pour cela, il doit estimer **la valeur d’un état** ou **la qualité d’une a
 👉 C’est exactement ce que les équations de Bellman permettent de faire.
 
 
+<br/>
 <br/>
 
 # 2. Définition intuitive de l’équation de Bellman
@@ -26,6 +29,7 @@ Tu veux savoir :
 
 C’est ça que l’équation de Bellman calcule. Elle **relie la valeur actuelle à celle des états futurs**, en tenant compte des récompenses.
 
+<br/>
 <br/>
 
 # 3. Forme mathématique simplifiée
@@ -51,6 +55,7 @@ $$
 
 
 <br/>
+<br/>
 
 # 4. Lien avec la **Q-valeur** (`Q(s, a)`)
 
@@ -63,6 +68,7 @@ $$
 Ici, on **anticipe la meilleure action suivante possible**.
 
 
+<br/>
 <br/>
 
 # 5. À quoi servent les équations de Bellman concrètement ?
@@ -77,6 +83,7 @@ Ces méthodes **se basent directement** sur les équations de Bellman pour ajust
 Tout système qui implique des **décisions séquentielles** peut être modélisé par des équations de Bellman.
 
 <br/>
+<br/>
 
 # 6. Application concrète : labyrinthe
 
@@ -89,6 +96,7 @@ Chaque mise à jour ajuste sa vision du monde, **jusqu’à convergence**.
 
 
 <br/>
+<br/>
 
 # 7. Résumé à retenir
 
@@ -100,6 +108,7 @@ Chaque mise à jour ajuste sa vision du monde, **jusqu’à convergence**.
 | Equation de Bellman        | Relie la valeur actuelle à celle des futurs états     |
 | Utilité                    | Base de l’apprentissage dans les MDP et le RL         |
 
+<br/>
 <br/>
 
 # 8. Pour aller plus loin (*bonus pour les curieux*)
