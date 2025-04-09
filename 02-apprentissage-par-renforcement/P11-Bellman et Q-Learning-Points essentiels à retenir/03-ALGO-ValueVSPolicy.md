@@ -2,9 +2,9 @@
 
 L'apprentissage par renforcement est une branche de l'intelligence artificielle où un agent apprend à interagir avec un environnement dans le but de maximiser une récompense cumulative. L'agent prend des décisions à chaque étape, et ces décisions influencent les récompenses qu'il reçoit à travers le temps.
 
----
 
-### **1. Algorithmes Value-Based**
+
+# **1. Algorithmes Value-Based**
 
 Les algorithmes basés sur la valeur se concentrent sur la fonction de valeur pour déterminer la meilleure politique à suivre. Une **fonction de valeur** estime la valeur d’un état ou d’un état-action, c'est-à-dire la récompense attendue à partir d'un certain état ou en prenant une certaine action dans cet état.
 
@@ -22,9 +22,9 @@ Les algorithmes basés sur la valeur se concentrent sur la fonction de valeur po
 - Peut être lent à apprendre dans des environnements complexes.
 - Nécessite une bonne approximation de la fonction de valeur.
 
----
 
-### **2. Algorithmes Policy-Based**
+
+# **2. Algorithmes Policy-Based**
 
 Les algorithmes basés sur la politique optimisent directement la **politique** de l'agent sans se concentrer sur une fonction de valeur intermédiaire. Une politique est une stratégie que l'agent suit pour choisir des actions en fonction de l'état actuel.
 
@@ -41,9 +41,9 @@ Les algorithmes basés sur la politique optimisent directement la **politique** 
 #### Limites
 - Plus difficile à optimiser et peut être plus sensible à des hyperparamètres mal ajustés.
 
----
 
-### **Comparaison Value-based vs Policy-based**
+
+# 3 - Comparaison Value-based vs Policy-based
 
 | Critère                    | Value-based                              | Policy-based                        |
 |----------------------------|------------------------------------------|-------------------------------------|
@@ -54,8 +54,8 @@ Les algorithmes basés sur la politique optimisent directement la **politique** 
 | Difficulté d'implémentation | Plus simple, surtout pour des petits espaces d'états | Plus complexe, mais potentiellement plus performant |
 | Convergence                 | Lente mais stable dans des environnements statiques | Plus rapide mais sujet à des erreurs si mal optimisé |
 
----
 
-### **Conclusion**
+
+# 4 - Conclusion
 
 Les algorithmes d'apprentissage par renforcement se divisent généralement en deux catégories principales : **Value-based** et **Policy-based**. La décision entre utiliser l'un ou l'autre dépend de la nature de l'environnement et des spécificités du problème. Les algorithmes **Value-based** conviennent mieux pour des espaces d'actions discrets avec une dynamique environnementale bien connue, tandis que les algorithmes **Policy-based** sont préférables lorsque l'agent doit prendre des décisions continues ou en temps réel.
