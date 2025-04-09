@@ -18,8 +18,6 @@ C:\Python27\python.exe gridworld.py  gridworld.py -a value -i 1 10 --livingRewar
 C:\Python27\python.exe gridworld.py  gridworld.py -a value -i 1 100 --livingReward -2
 Get-History
 doskey /history
-deactivate
-doskey /history
 ```
 
 # Commandes partie 3
@@ -31,8 +29,6 @@ C:\Python27\python.exe gridworld.py  gridworld.py -g DiscountGrid -a value -i 10
 C:\Python27\python.exe gridworld.py  gridworld.py -a q -k 50 -n 0.3 -e 0.5
 C:\Python27\python.exe gridworld.py  gridworld.py -a q -k 50 --learningRate 0.8 --epsilon 0.2
 C:\Python27\python.exe gridworld.py  crawler.py
-deactivate
-doskey /history
 ```
 
 
