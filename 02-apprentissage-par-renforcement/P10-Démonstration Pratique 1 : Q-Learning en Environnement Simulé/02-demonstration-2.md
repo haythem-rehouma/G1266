@@ -1,11 +1,14 @@
 # Commandes partie 1
 
+
+> Toutes les commandes suivantes sont exécutées dans l'invite de commandes Windows (cmd), sauf la commande git clone qui doit être exécutée dans Git Bash.
+
 ```cmd
-cd C:\Python27 #Avec le cmd
-python.exe --version #Avec le cmd
-git clone https://github.com/haythem-rehouma/RL.git #Avec le git bash
-cd C:\Python27\RL #Avec le cmd
-C:\Python27\python.exe gridworld.py -a value -i 100 -k 10 #Avec le cmd
+cd C:\Python27 
+python.exe --version 
+git clone https://github.com/haythem-rehouma/RL.git 
+cd C:\Python27\RL 
+C:\Python27\python.exe gridworld.py -a value -i 100 -k 10
 ```
 
 # Commandes partie 2
