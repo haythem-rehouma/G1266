@@ -13,6 +13,7 @@ On considère :
 - $\alpha = 0.2$
 
 ### Question :  
+
 Calculez la nouvelle valeur de $Q(s,a)$ après la mise à jour.
 
 > **Formule :**  
@@ -33,7 +34,8 @@ Même situation que la question précédente, mais avec $\alpha = 0.5$.
 
 Calculez à nouveau $Q(s,a)$.
 
-> **Réponse attendue :**  
+> Réponse attendue :
+
 $$
 Q(s,a) = 0.5 \cdot 4 + 0.5 \cdot (5 + 0.9 \cdot 10) = 2 + 0.5 \cdot 14 = 2 + 7 = \boxed{9.0}
 $$
@@ -54,7 +56,7 @@ Prenons maintenant :
 
 Calculez $Q(s,a)$.
 
-> **Réponse attendue :**
+> Réponse attendue :
 
 $$
 Q(s,a) = (1 - 0.3) \cdot 2 + 0.3 \cdot (3 + 0 \cdot 8) = 0.7 \cdot 2 + 0.3 \cdot 3 = 1.4 + 0.9 = \boxed{2.3}
@@ -66,11 +68,11 @@ Quand $\gamma = 0$, l’agent **ignore complètement le futur**.
 <br/>
 <br/>
 
-## 🔢 Question 9 – Cas inverse avec γ = 1
+# Question 9 – Cas inverse avec γ = 1
 
 Même question que la précédente, mais maintenant avec $\gamma = 1$ :
 
-> **Réponse attendue :**
+> Réponse attendue :
 
 $$
 Q(s,a) = 0.7 \cdot 2 + 0.3 \cdot (3 + 1 \cdot 8) = 1.4 + 0.3 \cdot 11 = 1.4 + 3.3 = \boxed{4.7}
