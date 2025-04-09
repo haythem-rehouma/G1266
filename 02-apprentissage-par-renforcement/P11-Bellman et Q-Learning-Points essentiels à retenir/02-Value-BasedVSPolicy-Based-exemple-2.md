@@ -23,11 +23,13 @@ Jean vient de recevoir une **assignation à comparaître**. Il a **30 jours pour
 
 Il panique, envisage plusieurs options :
 
-1. **Ignorer la poursuite** (comme il l’a fait avec les lettres précédentes).
+1. **Ignorer la poursuite et voyager au Mexique pour se détendre** (comme il l’a fait avec les lettres précédentes).
 2. **Répondre lui-même au tribunal**, en écrivant une lettre de sa main.
 3. **Contacter un avocat près du tribunal** pour se défendre formellement.
-4. **Fuir à l’étranger** ou changer encore une fois d’adresse.
-5. **Appeler la compagnie pour tenter de négocier à l’amiable.**
+4. **Contacter un avocat loin du tribunal** (il est bon mais plus cher avec les frais de déplacement).
+5. **Fuir à l’étranger** ou changer encore une fois d’adresse.
+6. **Appeler la compagnie pour tenter de négocier à l’amiable.**
+7. **Insulter la compagnie pour exprimer son mécontentement**
 
 
 
