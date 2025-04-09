@@ -4,7 +4,8 @@
 C'est quoi l'algorithme **Q-Learning** ? Quel est  le rôle du **taux d'apprentissage (α)** et l'équilibre entre **exploration** et **exploitation** ?
 
 
-![image](https://github.com/user-attachments/assets/0f2939f7-b44a-4227-97a0-fbfada980675)
+![image](https://github.com/user-attachments/assets/d438cd05-297b-4c3c-a28a-29b89cce3921)
+
 
 ---
 
