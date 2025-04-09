@@ -1,8 +1,8 @@
 
 
-# **Value-Based** ou **Policy-Based** : **LE CHOIX ULTIME**
+# **Value-Based** ou **Policy-Based**
 
----
+
 
 La différence entre **Value-Based** et **Policy-Based** en **apprentissage par renforcement** (Reinforcement Learning) peut sembler complexe, mais nous allons l’expliquer de manière claire à l’aide d’analogies et d’exemples concrets.
 
