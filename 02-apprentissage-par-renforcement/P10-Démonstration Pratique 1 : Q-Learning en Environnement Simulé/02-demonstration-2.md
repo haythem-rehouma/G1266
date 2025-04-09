@@ -1,11 +1,11 @@
 # Commandes partie 1
 
 ```cmd
-cd C:\Python27 (avec le cmd)
-python.exe --version (avec le cmd)
-git clone https://github.com/haythem-rehouma/RL.git (avec le git bash)
-cd C:\Python27\RL (avec le cmd)
-C:\Python27\python.exe gridworld.py -a value -i 100 -k 10 (avec le cmd)
+cd C:\Python27 # Avec le cmd
+python.exe --version # Avec le cmd
+git clone https://github.com/haythem-rehouma/RL.git # Avec le git bash
+cd C:\Python27\RL # Avec le cmd
+C:\Python27\python.exe gridworld.py -a value -i 100 -k 10 # Avec le cmd
 ```
 
 # Commandes partie 2
