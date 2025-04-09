@@ -43,7 +43,7 @@ Il panique, envisage plusieurs options :
 
 
 
-### **Meilleure action à prendre**
+### ** Exemple de Meilleure action à prendre**
 
 **Engager immédiatement un avocat dans la juridiction où la poursuite a été déposée.**
 
