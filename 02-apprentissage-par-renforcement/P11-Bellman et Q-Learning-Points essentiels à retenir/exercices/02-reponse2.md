@@ -1,4 +1,8 @@
-Je vous présente une table qui compare les algorithmes de **Reinforcement Learning (RL)** utilisés en **offline** et **online**, en mettant en évidence leurs caractéristiques :
+**Question :**  
+Quelle est la différence entre les algorithmes de **Reinforcement Learning (RL)** en ligne et hors-ligne, et quels sont des exemples d'algorithmes utilisés pour chaque approche ?
+
+**Réponse :**  
+
 
 | **Caractéristique**             | **Algorithmes RL Online (En Ligne)**                       | **Algorithmes RL Offline (Hors-Ligne)**                       |
 |---------------------------------|------------------------------------------------------------|---------------------------------------------------------------|
