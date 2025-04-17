@@ -20,7 +20,7 @@
 - etc ...
 
 
-Pour plus d'informations, cliquez ici : [Révision des Concepts Fondamentaux](../concepts/recap-concepts-rl.md)
+Pour plus d'informations, cliquez ici : [Révision des Concepts Fondamentaux](./concepts/recap-concepts-rl.md)
 
 
 
