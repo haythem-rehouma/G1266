@@ -13,6 +13,6 @@
 
 
 # 3. Mise à jour de la Q-valeur
-$$
-Q(S_1, \text{right}) = Q(S_1, \text{right}) + \alpha \times \text{TD Error}
-$$
+
+![image](https://github.com/user-attachments/assets/5a8acf5f-6eb8-443b-b0ee-506f7fdf5cde)
+
