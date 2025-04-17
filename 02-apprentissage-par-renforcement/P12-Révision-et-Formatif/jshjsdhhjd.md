@@ -184,9 +184,9 @@ La **valeur d’état** est donc **calculée à partir des Q-valeurs**.
 <br/>
 <br/>
 
-# --------------------  
+--------------------  
 # Partie 2 – Réponses courtes (30 points)  
-# --------------------
+--------------------
 
 <br/>
 
