@@ -61,7 +61,7 @@ Cette distinction est essentielle pour bien comprendre les méthodes utilisées 
 Nous introduirons l’équation de Bellman, pierre angulaire des MDP et de l’apprentissage par renforcement.
 Elle permet d’exprimer la valeur d’un état en fonction des récompenses et des transitions futures.
 
-
+Dans cette partie , il faut voir les slides de la partie 3
 
 <br/>
 <br/>
