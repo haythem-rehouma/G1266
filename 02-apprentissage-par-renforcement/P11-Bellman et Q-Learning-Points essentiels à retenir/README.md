@@ -2,11 +2,9 @@
 # Plan de la séance
 
 
+<br/>
+<br/>
 
-<br/>
-<br/>
-<br/>
-<br/>
 
 
 
