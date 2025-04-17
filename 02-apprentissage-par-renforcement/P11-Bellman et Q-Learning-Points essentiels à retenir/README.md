@@ -20,7 +20,7 @@
 - etc ...
 
 
-Pour plus d'informations , cliquez ici : 
+Pour plus d'informations , cliquez ici : https://github.com/haythem-rehouma/G1266/blob/main/02-apprentissage-par-renforcement/P11-Bellman%20et%20Q-Learning-Points%20essentiels%20%C3%A0%20retenir/concepts/01-R%C3%A9vision-Concepts-Fondamentaux-RL.md
 
 
 
