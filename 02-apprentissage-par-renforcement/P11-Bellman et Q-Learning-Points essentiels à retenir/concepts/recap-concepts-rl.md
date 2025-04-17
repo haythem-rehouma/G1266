@@ -43,9 +43,9 @@ L’évolution du système ne dépend **que** de l’état courant, **et non de 
 # **4. Q-State et fonctions de valeur**
 
 - **Q(s, a)** : Valeur estimée de l’action `a` dans l’état `s`.  
-- **V(s)** : Valeur de l’état `s` sous une politique donnée
+- **V(s)** : Valeur de l’état `s` sous une politique donnée $$ V(s) = \max_a Q(s,a) $$
   
-  $$ V(s) = \max_a Q(s,a) $$
+$$ V(s) = \max_a Q(s,a) $$
 
 - **Différence** :
   - V(s) : évalue un **état**.
