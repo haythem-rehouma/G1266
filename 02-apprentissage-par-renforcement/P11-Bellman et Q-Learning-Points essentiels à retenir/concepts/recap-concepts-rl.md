@@ -23,8 +23,10 @@ L’évolution du système ne dépend **que** de l’état courant, **et non de 
 - **État (State)** : Description complète d'une situation.
 - **Action** : Décision ou mouvement possible depuis un état.
 - **Récompense (Reward)** : Valeur numérique indiquant la qualité d'une action.
-- **Utilité (U)** : Somme actualisée des récompenses futures :  
+- **Utilité (U)** : Somme actualisée des récompenses futures
+  
   $$ U = r_0 + \gamma r_1 + \gamma^2 r_2 + \dots + \gamma^n r_n $$
+  
 - **Utilité optimale (U*)** : Meilleure utilité possible qu’un agent peut atteindre à partir d’un état donné.
 
 
@@ -41,8 +43,10 @@ L’évolution du système ne dépend **que** de l’état courant, **et non de 
 # **4. Q-State et fonctions de valeur**
 
 - **Q(s, a)** : Valeur estimée de l’action `a` dans l’état `s`.  
-- **V(s)** : Valeur de l’état `s` sous une politique donnée :  
+- V(s) : Valeur de l’état `s` sous une politique donnée
+  
   $$ V(s) = \max_a Q(s,a) $$
+
 - **Différence** :
   - V(s) : évalue un **état**.
   - Q(s, a) : évalue un **état-action**.
