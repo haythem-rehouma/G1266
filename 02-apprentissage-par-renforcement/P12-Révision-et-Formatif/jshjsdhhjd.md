@@ -1,5 +1,9 @@
 
 
+# Partie 1
+
+<br/>
+
 # **1. Qu'est-ce qu'un Processus de Décision Markovien (MDP) ?**
 
 **Bonne réponse : b) Un modèle mathématique pour la prise de décision séquentielle**
@@ -35,6 +39,8 @@ Un MDP nous aide à **calculer quelles actions maximisent les récompenses à lo
 - **d)** Un réseau neuronal est une structure d’apprentissage, **pas un modèle de décision séquentielle**.
 
 
+<br/>
+
 # **2. La propriété de Markov stipule que :**
 
 **Bonne réponse : a) L'état futur dépend uniquement de l'état présent**
@@ -63,6 +69,8 @@ C’est très pratique car ça simplifie les calculs !
 - **c)** Faux : l’évolution n’est **pas purement aléatoire**, elle dépend de l’état courant.
 - **d)** Faux : la transition dépend de l’état **et** de l’action, pas juste de l’action.
 
+
+<br/>
 
 # **3. Quelle est la différence entre l'exploration et l'exploitation en apprentissage par renforcement ?**
 
@@ -96,6 +104,7 @@ L’approche **ε-greedy** est un moyen courant de gérer ce compromis.
 - **d)** Ce ne sont **pas des synonymes**, au contraire !
 
 
+<br/>
 
 # **4. Qu'est-ce que le "discounting" en apprentissage par renforcement ?**
 
@@ -129,6 +138,7 @@ On utilise un **facteur gamma (γ)** entre 0 et 1 :
 - **c)** Cela **n’accélère pas** directement l’apprentissage, mais change la priorité temporelle.
 - **d)** Ce n’est pas une fonction d’activation.
 
+<br/>
 
 
 # **5. Quelle est la différence entre la valeur d'état et la valeur Q-state ?**
