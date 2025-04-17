@@ -90,7 +90,7 @@ $$ V(s) = \max_a Q(s,a) $$
 
 #### Algorithmes classiques :
 - **Itération de la valeur** : Mise à jour successive de `V(s)` jusqu’à convergence.
-- **Q-learning** : Apprentissage hors-modèle de la Q-table, mise à jour selon
+- **Q-learning** : Apprentissage hors-modèle de la Q-table, mise à jour selon   $$ Q(s,a) \leftarrow Q(s,a) + \alpha [r + \gamma \max_{a'} Q(s',a') - Q(s,a)] $$
   
   $$ Q(s,a) \leftarrow Q(s,a) + \alpha [r + \gamma \max_{a'} Q(s',a') - Q(s,a)] $$
   
