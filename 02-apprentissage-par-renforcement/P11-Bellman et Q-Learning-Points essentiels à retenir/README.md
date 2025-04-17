@@ -9,6 +9,24 @@
 <br/>
 
 
+
+**Dans les parties 1 et 2, nous allons réviser l’ensemble des concepts fondamentaux abordés en classe, notamment :**  
+- les **états** et **états de départ** ;  
+- les **états absorbants** ;  
+- les **actions** et les **transitions** ;  
+- les **récompenses** (rewards) et le **discount factor** (facteur d’actualisation) ;  
+- la notion d’**utilité** ;  
+- la **fonction de valeur d’un état** (*value function*) ;  
+- la **fonction de valeur d’une politique** ;  
+- le concept de **politique** (*policy*) lui-même.
+- etc ...
+
+
+Pour plus d'informations , cliquez ici : 
+
+
+
+
 # Partie 1 - rappel du processus de Décision de Markov (MDP)
 
 
@@ -33,7 +51,6 @@
 
 Nous verrons la différence entre les approches d’apprentissage avec ou sans interaction directe avec l’environnement.
 Cette distinction est essentielle pour bien comprendre les méthodes utilisées en pratique.
-
 
 
 <br/>
