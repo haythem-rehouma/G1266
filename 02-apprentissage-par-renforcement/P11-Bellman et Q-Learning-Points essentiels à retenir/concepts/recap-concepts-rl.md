@@ -101,7 +101,7 @@ Voici la **variante de la mise à jour de Q-learning** utilisant le facteur \( (
 
 
 
-### **Forme équivalente avec \(1 - \alpha\)** 
+### **Forme équivalente avec $$1 - \alpha$$** 
 
 $$
 Q(s,a) \leftarrow (1 - \alpha) \cdot Q(s,a) + \alpha \cdot \left[ r + \gamma \cdot \max_{a'} Q(s', a') \right]
