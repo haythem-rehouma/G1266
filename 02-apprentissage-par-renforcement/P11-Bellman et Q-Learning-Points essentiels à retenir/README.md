@@ -3,7 +3,6 @@
 
 
 <br/>
-<br/>
 
 
 
@@ -40,9 +39,7 @@ Pour plus d'informations, cliquez ici : [Révision des Concepts Fondamentaux](./
 
 
 <br/>
-<br/>
-<br/>
-<br/>
+
 
 # Partie 2 - offline vs online learning
 
@@ -51,9 +48,7 @@ Cette distinction est essentielle pour bien comprendre les méthodes utilisées 
 
 
 <br/>
-<br/>
-<br/>
-<br/>
+
 
 
 # Partie 3 - Équation de Bellman 
@@ -64,9 +59,7 @@ Elle permet d’exprimer la valeur d’un état en fonction des récompenses et 
 *Dans cette partie, vous devez consulter les diapositives de la partie 3 (dossier pptx) afin de bien comprendre les notions suivantes : la fonction de valeur d’un état, la fonction Q (valeur d’un couple état-action), ainsi que l’équation de Bellman.*
 
 <br/>
-<br/>
-<br/>
-<br/>
+
 
 
 # Partie 4 - Calcul Mathématique 1  + Démonstration 1
@@ -86,9 +79,7 @@ Cette démonstration vise à montrer comment l’agent estime les valeurs d’é
 
 
 <br/>
-<br/>
-<br/>
-<br/>
+
 
 
 
@@ -101,9 +92,7 @@ C’est une technique modèle-free qui permet à un agent d’apprendre une poli
 - Démo 3 via un calcul mathématique (Partie_05.pptx) dans le dossier pptx.
 
 <br/>
-<br/>
-<br/>
-<br/>
+
 
 
 
@@ -115,27 +104,23 @@ C’est une technique modèle-free qui permet à un agent d’apprendre une poli
 
 
 <br/>
-<br/>
-<br/>
+
+
+# Partie 8 - Mini-projet 1
+
+
+- Nous mettrons en pratique le Q-Learning avec des exemples pratqiue en python pas-à-pas et un examen formatif (dossier P12 - 12.5 - Examen-1-style-1.md), au même style que le gridworld (suite de la Démo 2 de la Partie 4).
+
 <br/>
 
 
-# Partie 8 - Démo AWS
+
+
+# Partie 9 - Démo AWS
 
 Prochaines séances
 
 
-
-<br/>
-<br/>
-<br/>
-<br/>
-
-
-# Partie 9 - Mini-projet 1
-
-
-- Nous mettrons en pratique le Q-Learning avec des exemples pratqiue en python pas-à-pas et un examen formatif (dossier P12 - 12.5 - Examen-1-style-1.md), au même style que le gridworld (suite de la Démo 2 de la Partie 4).
 
 
 
