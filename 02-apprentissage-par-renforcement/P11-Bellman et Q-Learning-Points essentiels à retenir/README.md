@@ -61,7 +61,7 @@ Cette distinction est essentielle pour bien comprendre les méthodes utilisées 
 Nous introduirons l’équation de Bellman, pierre angulaire des MDP et de l’apprentissage par renforcement.
 Elle permet d’exprimer la valeur d’un état en fonction des récompenses et des transitions futures.
 
-Dans cette partie , il faut voir les slides de la partie 3
+*Dans cette partie, vous devez consulter les diapositives de la partie 3 (dossier pptx) afin de bien comprendre les notions suivantes : la fonction de valeur d’un état, la fonction Q (valeur d’un couple état-action), ainsi que l’équation de Bellman.*
 
 <br/>
 <br/>
@@ -69,31 +69,28 @@ Dans cette partie , il faut voir les slides de la partie 3
 <br/>
 
 
-# Partie 4 - Démonstration 1
+# Partie 4 - Calcul Mathématique 1  + Démonstration 1
 
-Nous allons illustrer l’utilisation concrète de l’équation de Bellman à travers un exemple simple.
-Cette démonstration vise à montrer comment l’agent estime les valeurs d’état.
+*Dans cette partie, vous devez consulter les diapositives de la partie 4 (dossier pptx) afin de bien comprendre en détail comment on fait les calculs + la démonstration avec Python*
 
-
-
-<br/>
-<br/>
-<br/>
-<br/>
-
-
-
-# Partie 5 - (Justification de la démo 1 et exercice): Comment utiliser l'équation de Bellman dans l'Apprentissage par Renforcement
-
-Nous allons justifier les étapes de la démonstration et proposer un exercice guidé.
+Nous allons justifier les étapes de la démonstration et proposer deux exercices guidés.
 L’objectif est de renforcer la compréhension en appliquant l’équation de Bellman à un mini-problème.
 
 
+- Démo 1 via un calcul mathématique (Partie_04.pptx)
+- Démo 2 via l'éxcution d'un programme informatique (Dossier P10)
+
+Nous allons illustrer l’utilisation concrète de l’équation de Bellman à travers un exemple simple.
+Cette démonstration vise à montrer comment l’agent estime les valeurs d’état et la convergence de l'algorithme.
+
+
 
 <br/>
 <br/>
 <br/>
 <br/>
+
+
 
 
 # Partie 6 - Q-Learning
@@ -101,7 +98,7 @@ L’objectif est de renforcer la compréhension en appliquant l’équation de B
 Nous verrons une méthode d’apprentissage très populaire : le Q-Learning.
 C’est une technique modèle-free qui permet à un agent d’apprendre une politique optimale à partir de ses interactions.
 
-
+- Démo 3 via un calcul mathématique (Partie_05.pptx) dans le dossier pptx.
 
 <br/>
 <br/>
@@ -110,11 +107,11 @@ C’est une technique modèle-free qui permet à un agent d’apprendre une poli
 
 
 
-# Partie 7 - Démonstration 2
+# Partie 7 - Examen formatif
 
 
-Nous mettrons en pratique le Q-Learning avec un exemple pas-à-pas.
-L’objectif est de montrer comment se construit la table des Q-values au fil des épisodes.
+- Nous mettrons en pratique le Q-Learning avec un exemple pas-à-pas et un examen formatif (dossier P12 - 12.5 - Examen-1-style-2.md).
+- L’objectif est de montrer comment se construit la table des Q-values au fil des épisodes.
 
 
 <br/>
@@ -135,10 +132,12 @@ Prochaines séances
 <br/>
 
 
-# Partie 9 - Exercices
+# Partie 9 - Mini-projet 1
 
-Nous conclurons la séance par une série d’exercices pour consolider les acquis.
-Ces exercices couvrent les concepts vus dans la séance, de l’équation de Bellman jusqu’au Q-Learning.
+
+- Nous mettrons en pratique le Q-Learning avec des exemples pratqiue en python pas-à-pas et un examen formatif (dossier P12 - 12.5 - Examen-1-style-1.md), au même style que le gridworld (suite de la Démo 2 de la Partie 4).
+
+
 
 
 
