@@ -90,9 +90,10 @@ $$ V(s) = \max_a Q(s,a) $$
 
 #### Algorithmes classiques :
 - **Itération de la valeur** : Mise à jour successive de `V(s)` jusqu’à convergence.
-- **Q-learning** : Apprentissage hors-modèle de la Q-table, mise à jour selon  l'équation suivante :
+- **Q-learning** : Apprentissage hors-modèle de la Q-table, mise à jour selon  l'équation suivante
   
-  $$ Q(s,a) \leftarrow Q(s,a) + \alpha [r + \gamma \max_{a'} Q(s',a') - Q(s,a)] $$
+  
+$$ Q(s,a) \leftarrow Q(s,a) + \alpha [r + \gamma \max_{a'} Q(s',a') - Q(s,a)] $$
   
 - **Équation de Bellman** : Formule de base pour la mise à jour des valeurs dans un MDP.
 
