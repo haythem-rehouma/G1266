@@ -1,4 +1,3 @@
-# 1. Valeur observée de l’action
 
 
 $$
