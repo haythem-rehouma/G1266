@@ -180,7 +180,162 @@ La **valeur d’état** est donc **calculée à partir des Q-valeurs**.
 
 
 
+<br/>
+<br/>
+<br/>
 
+# --------------------  
+# Partie 2 – Réponses courtes (30 points)  
+# --------------------
+
+<br/>
+
+# **6. Quelle est la différence entre un environnement dynamique et un environnement statique ?**
+
+**Bonne réponse :**  
+Un **environnement statique** ne change **que si l’agent agit**.  
+Un **environnement dynamique** peut évoluer **indépendamment des actions de l’agent**.
+
+
+
+### ❖ Justification :
+- Dans un environnement **statique**, si l’agent ne fait rien, rien ne change.  
+- Dans un environnement **dynamique**, **des événements externes peuvent modifier l’état du monde**, même si l’agent reste inactif.
+
+### ❖ Vulgarisation + exemple :
+
+**Exemple d’environnement statique :**  
+- Un robot dans un labyrinthe où les murs ne bougent pas.  
+  - État 1 : robot au point (0,0)  
+  - Action : aller à droite  
+  - État 2 : robot au point (1,0)  
+  - Si le robot ne bouge pas, le labyrinthe reste identique.
+
+**Exemple d’environnement dynamique :**  
+- Un robot dans un entrepôt où **des humains déplacent des objets**.  
+  - Même sans action du robot, l’état change : un obstacle peut apparaître.  
+  - L’agent doit s’adapter en temps réel.
+
+
+
+<br/>
+
+# **7. Décrivez l’approche ε-greedy et pourquoi elle est utilisée.**
+
+**Bonne réponse :**  
+L’approche **ε-greedy** permet de mélanger **exploration** (tester de nouvelles actions) et **exploitation** (choisir les meilleures actions connues).
+
+
+
+### ❖ Justification :
+- À chaque décision :
+  - Avec probabilité **ε** (par exemple 10%), l’agent **choisit une action aléatoire** → exploration.
+  - Avec probabilité **1−ε**, il **prend la meilleure action actuelle** → exploitation.
+
+Cela permet d’**éviter de rester bloqué dans une stratégie sous-optimale**, et d’apprendre de nouvelles informations sur l’environnement.
+
+
+
+### ❖ Vulgarisation + exemple :
+
+**Exemple :**  
+- L’agent est dans l’état A.  
+- Il a déjà appris que **aller à gauche** donne une récompense de +6.  
+- Il pourrait toujours exploiter cela… mais peut-être que **aller à droite** donne +10 !
+
+Avec ε = 0.1, il explore 1 fois sur 10 pour ne pas rater une meilleure solution.
+
+
+
+<br/>
+
+# **8. Qu’est-ce qu’un état absorbant dans un MDP ?**
+
+**Bonne réponse :**  
+Un **état absorbant** est un état **terminal**, où l’agent **reste bloqué pour toujours** une fois qu’il y entre.  
+
+
+
+### ❖ Justification :
+- Dans un état absorbant, **peu importe l’action choisie**, l’agent **reste dans cet état**.  
+- Ce sont généralement des états **de fin d’épisode** (victoire, échec, arrêt…).
+
+
+
+### ❖ Vulgarisation + exemple :
+
+**Exemple :**  
+- État G = état "arrivée" dans un labyrinthe → Récompense : +10  
+- Une fois que le robot atteint G, il **ne peut plus sortir**.  
+  - Actions possibles : gauche, droite, bas, haut  
+  - Résultat : G à chaque fois → **l’agent y est absorbé**.
+
+**Autres exemples :**  
+- État "Game Over" dans un jeu  
+- État "Succès de mission" dans un drone autonome
+
+
+
+<br/>
+
+# **9. Quelle est la différence entre une stratégie (policy) et une stratégie optimale ?**
+
+**Bonne réponse :**  
+- Une **stratégie (ou policy)** est une règle qui **dit à l’agent quelle action prendre dans chaque état**.  
+- Une **stratégie optimale** est celle qui **maximise la récompense cumulée attendue**.
+
+
+
+### ❖ Justification :
+- Toutes les stratégies ne se valent pas : certaines mènent à de meilleurs résultats.  
+- La stratégie optimale **π\*** est celle qui **donne les meilleures décisions dans chaque état**, pour maximiser les gains à long terme.
+
+
+
+### ❖ Vulgarisation + exemple :
+
+**Exemple :**  
+- État A : l’agent peut aller à gauche (+2) ou à droite (+5)
+
+**Stratégie A :** toujours aller à gauche → gain = +2  
+**Stratégie B :** aller à droite → gain = +5
+
+→ La **stratégie B est optimale** pour cet état.
+
+Mais attention : sur le long terme, ce n’est pas juste la récompense immédiate qui compte, c’est **la récompense cumulée avec les transitions futures**.
+
+
+
+<br/>
+
+# **10. Décrivez brièvement l’algorithme d’itération de valeur (value iteration).**
+
+**Bonne réponse :**  
+L’algorithme d’**itération de valeur** calcule la **valeur de chaque état V(s)** en utilisant l’**équation de Bellman**, pour en déduire une **stratégie optimale**.
+
+
+
+### ❖ Justification :
+- À chaque itération, on met à jour V(s) selon :
+  $${V(s) = \max_a \sum_{s'} P(s'|s,a) \left[r(s,a,s') + \gamma V(s')\right]}$$  
+- Cela permet d’évaluer **la meilleure action dans chaque état**, en tenant compte des **récompenses et transitions futures**.
+
+
+
+### ❖ Vulgarisation + exemple :
+
+**Étapes :**
+1. On donne une valeur initiale à chaque état (ex : 0)
+2. À chaque étape, on regarde **les actions possibles** depuis chaque état
+3. On choisit **celle qui maximise** la somme : récompense immédiate + valeur des états suivants (avec discount)
+4. On **répète jusqu’à convergence** (les valeurs ne changent plus)
+
+**Exemple :**
+- État A → 2 choix :  
+  - Action gauche → état B avec +2  
+  - Action droite → état C avec +5 mais plus risqué
+
+L’algorithme évalue **quelle suite d’actions donnera le meilleur total de récompenses**.
 
 
 
