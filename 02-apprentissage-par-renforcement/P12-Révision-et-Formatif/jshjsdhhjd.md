@@ -150,8 +150,10 @@ On utilise un **facteur gamma (γ)** entre 0 et 1 :
 - La **valeur d’un état** (V(s)) est la **valeur attendue** de l'état si l’agent suit une certaine politique.
 - La **valeur Q (Q(s, a))** est la **valeur attendue d’un couple (état, action)**.
 
-On a généralement :
+On a généralement 
+
 $$ V(s) = \max_a Q(s, a) $$  
+
 C’est-à-dire que la valeur d’un état est liée à la **meilleure action possible** depuis cet état.
 
 
