@@ -19,7 +19,7 @@
 - etc ...
 
 
-Pour plus d'informations, cliquez ici : [Révision des Concepts Fondamentaux](../../concepts/recap-concepts-rl.md)
+Pour plus d'informations, cliquez ici : [Révision des Concepts Fondamentaux](../P11-Bellman%20et%20Q-Learning-Points%20essentiels%20à%20retenir/concepts/recap-concepts-rl.md)
 
 
 
