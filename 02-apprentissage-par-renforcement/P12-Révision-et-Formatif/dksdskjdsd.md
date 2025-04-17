@@ -1,5 +1,3 @@
-
-
 $$
 Q(S_1, \text{right})_{\text{observed}} = R(S_2) + \gamma \max_{a} Q(S_2, a)
 $$
