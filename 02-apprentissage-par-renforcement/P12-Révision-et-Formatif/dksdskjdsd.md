@@ -1,5 +1,6 @@
 # 1. Valeur observée de l’action
 
+
 $$
 Q(S_1, \text{right})_{\text{observed}} = R(S_2) + \gamma \max_{a} Q(S_2, a)
 $$
@@ -7,6 +8,7 @@ $$
 
 
 # 2. Erreur de Temporal Difference (TD Error)
+
 
 $$
 \text{TD Error} = Q(S_1, \text{right})_{\text{observed}} - Q(S_1, \text{right})_{\text{expected}}
