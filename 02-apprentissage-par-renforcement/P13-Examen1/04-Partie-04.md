@@ -18,7 +18,7 @@ Vous travaillez avec une **Q-table** représentant un environnement de type **Gr
 
 
 
-## **Question 17 :**  
+## **Question 3 :**  
 **Choisissez une autre cellule dans la Q-table** (par exemple **Q(S3, bas)**), et proposez une **mise à jour complète** selon les mêmes étapes.
 
 
