@@ -39,7 +39,9 @@
 
 .....................................................................................................
 
-# Optionnel:
+
+# Questions Bonus non obligatoires ( de recherche)
+
 
 ### **1. Donnez un exemple d’environnement où l’équation de Bellman ne suffit pas pour résoudre le problème. Quelle approche alternative recommanderiez-vous ? Justifiez.**
 
