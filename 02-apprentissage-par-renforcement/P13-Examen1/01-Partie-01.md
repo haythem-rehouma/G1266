@@ -1,7 +1,7 @@
 # **EXAMEN 1 – APPRENTISSAGE PAR RENFORCEMENT**
 
-## **Partie 1 : Questions à choix multiples (20 points)**  
-> **Instructions** : Choisissez **la meilleure réponse** + Justifiez votre réponse brièvement. Chaque question vaut **2 points**.
+## **Partie 1 : Questions à choix multiples (10 points)**  
+> **Instructions** : Choisissez **la meilleure réponse** + Justifiez votre réponse brièvement. Chaque question vaut **1 point**.
 
 
 
