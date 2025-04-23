@@ -1,4 +1,4 @@
-# **Partie 3 – Refaire les calculs vus en cours (30 points)**
+# **Partie 3 – Refaire les calculs vus en cours dans les dispositives de la Partie 4 (30 points)**
 
 > **Instructions :**  
 > Reproduisez les **démarches de calcul exactes** présentées en classe et dans les **slides 14 à 17**. Vous devez expliquer **comment on obtient les valeurs suivantes** dans la grille :  
