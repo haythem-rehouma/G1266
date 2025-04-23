@@ -12,10 +12,10 @@ $$
 
 
 # Question 1 : 
-- Faites le calcul détaillé de la case qui donne 0.72**
+- Faites le calcul détaillé de la case qui donne *0.72*
 
 # Question 2: 
-- Faites le calcul détaillé de la case qui donne 0.43**
+- Faites le calcul détaillé de la case qui donne *0.43*
 
 
 
