@@ -214,6 +214,900 @@ print(predictions[:5])
 
 
 
+
+
+
+
+
+
+
+
+
+# Bloc 4 – Ajout 4 : Logger un paramètre
+
+**Instruction** :  
+Ajoutez juste après la création du modèle (**après la ligne 21**).
+
+```python
+mlflow.log_param("alpha", 0.5)
+mlflow.log_param("l1_ratio", 0.5)
+```
+
+**Pourquoi** :  
+Sauvegarder les hyperparamètres utilisés pour cet entraînement.
+
+**Code complet après Ajout 4** :
+
+```python
+# 1. Importation des bibliothèques
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import ElasticNet
+import mlflow
+import mlflow.sklearn
+
+# 2. Définir l'expérience MLflow
+mlflow.set_experiment("exp_wine_quality")
+
+# 3. Chargement des données
+data = pd.read_csv("red-wine-quality.csv")
+
+# 4. Séparation en variables explicatives et variable cible
+X = data.drop(["quality"], axis=1)
+y = data["quality"]
+
+# 5. Division en train/test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+# 6. Démarrer un run MLflow
+mlflow.start_run()
+
+# 7. Entraînement d'un modèle ElasticNet
+model = ElasticNet(alpha=0.5, l1_ratio=0.5)
+mlflow.log_param("alpha", 0.5)
+mlflow.log_param("l1_ratio", 0.5)
+model.fit(X_train, y_train)
+
+# 8. Prédictions
+predictions = model.predict(X_test)
+
+# 9. Affichage simple
+print(predictions[:5])
+```
+
+---
+
+# Bloc 5 – Ajout 5 : Logger les métriques d'évaluation
+
+**Instruction** :  
+Ajoutez juste après les prédictions (**après la ligne 26**).
+
+```python
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+rmse = np.sqrt(mean_squared_error(y_test, predictions))
+mae = mean_absolute_error(y_test, predictions)
+r2 = r2_score(y_test, predictions)
+
+mlflow.log_metric("rmse", rmse)
+mlflow.log_metric("mae", mae)
+mlflow.log_metric("r2", r2)
+```
+
+**Pourquoi** :  
+Enregistrer les performances du modèle (RMSE, MAE, R2).
+
+**Code complet après Ajout 5** :
+
+```python
+# 1. Importation des bibliothèques
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import ElasticNet
+import mlflow
+import mlflow.sklearn
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+# 2. Définir l'expérience MLflow
+mlflow.set_experiment("exp_wine_quality")
+
+# 3. Chargement des données
+data = pd.read_csv("red-wine-quality.csv")
+
+# 4. Séparation en variables explicatives et variable cible
+X = data.drop(["quality"], axis=1)
+y = data["quality"]
+
+# 5. Division en train/test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+# 6. Démarrer un run MLflow
+mlflow.start_run()
+
+# 7. Entraînement d'un modèle ElasticNet
+model = ElasticNet(alpha=0.5, l1_ratio=0.5)
+mlflow.log_param("alpha", 0.5)
+mlflow.log_param("l1_ratio", 0.5)
+model.fit(X_train, y_train)
+
+# 8. Prédictions
+predictions = model.predict(X_test)
+
+# 9. Log des métriques
+rmse = np.sqrt(mean_squared_error(y_test, predictions))
+mae = mean_absolute_error(y_test, predictions)
+r2 = r2_score(y_test, predictions)
+
+mlflow.log_metric("rmse", rmse)
+mlflow.log_metric("mae", mae)
+mlflow.log_metric("r2", r2)
+
+# 10. Affichage simple
+print(predictions[:5])
+```
+
+---
+
+# Bloc 6 – Ajout 6 : Logger le modèle
+
+**Instruction** :  
+Ajoutez après avoir loggé les métriques (**après la ligne 34**).
+
+```python
+mlflow.sklearn.log_model(model, "model")
+```
+
+**Pourquoi** :  
+Sauvegarder le modèle entraîné dans le stockage MLflow pour futur déploiement.
+
+**Code complet après Ajout 6** :
+
+```python
+# 1. Importation des bibliothèques
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import ElasticNet
+import mlflow
+import mlflow.sklearn
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+# 2. Définir l'expérience MLflow
+mlflow.set_experiment("exp_wine_quality")
+
+# 3. Chargement des données
+data = pd.read_csv("red-wine-quality.csv")
+
+# 4. Séparation en variables explicatives et variable cible
+X = data.drop(["quality"], axis=1)
+y = data["quality"]
+
+# 5. Division en train/test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+# 6. Démarrer un run MLflow
+mlflow.start_run()
+
+# 7. Entraînement d'un modèle ElasticNet
+model = ElasticNet(alpha=0.5, l1_ratio=0.5)
+mlflow.log_param("alpha", 0.5)
+mlflow.log_param("l1_ratio", 0.5)
+model.fit(X_train, y_train)
+
+# 8. Prédictions
+predictions = model.predict(X_test)
+
+# 9. Log des métriques
+rmse = np.sqrt(mean_squared_error(y_test, predictions))
+mae = mean_absolute_error(y_test, predictions)
+r2 = r2_score(y_test, predictions)
+
+mlflow.log_metric("rmse", rmse)
+mlflow.log_metric("mae", mae)
+mlflow.log_metric("r2", r2)
+
+# 10. Log du modèle
+mlflow.sklearn.log_model(model, "model")
+
+# 11. Affichage simple
+print(predictions[:5])
+```
+
+
+
+
+
+
+# Bloc 7 – Ajout 7 : Terminer proprement le run
+
+**Instruction** :  
+Ajoutez juste **à la fin du script** (**après la ligne 37**).
+
+```python
+mlflow.end_run()
+```
+
+**Pourquoi** :  
+Toujours fermer proprement un run MLflow pour éviter des runs "orphan" (incomplets) et assurer la bonne synchronisation avec le serveur MLflow.
+
+---
+
+**Code complet après Ajout 7** :
+
+```python
+# 1. Importation des bibliothèques
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import ElasticNet
+import mlflow
+import mlflow.sklearn
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+# 2. Définir l'expérience MLflow
+mlflow.set_experiment("exp_wine_quality")
+
+# 3. Chargement des données
+data = pd.read_csv("red-wine-quality.csv")
+
+# 4. Séparation en variables explicatives et variable cible
+X = data.drop(["quality"], axis=1)
+y = data["quality"]
+
+# 5. Division en train/test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+# 6. Démarrer un run MLflow
+mlflow.start_run()
+
+# 7. Entraînement d'un modèle ElasticNet
+model = ElasticNet(alpha=0.5, l1_ratio=0.5)
+mlflow.log_param("alpha", 0.5)
+mlflow.log_param("l1_ratio", 0.5)
+model.fit(X_train, y_train)
+
+# 8. Prédictions
+predictions = model.predict(X_test)
+
+# 9. Log des métriques
+rmse = np.sqrt(mean_squared_error(y_test, predictions))
+mae = mean_absolute_error(y_test, predictions)
+r2 = r2_score(y_test, predictions)
+
+mlflow.log_metric("rmse", rmse)
+mlflow.log_metric("mae", mae)
+mlflow.log_metric("r2", r2)
+
+# 10. Log du modèle
+mlflow.sklearn.log_model(model, "model")
+
+# 11. Affichage simple
+print(predictions[:5])
+
+# 12. Finir proprement le run
+mlflow.end_run()
+```
+
+---
+
+# Bloc 8 – Ajout 8 : Ajouter des tags personnalisés
+
+**Instruction** :  
+Ajoutez après le `start_run()` (**après la ligne 18**).
+
+```python
+mlflow.set_tags({
+    "version": "v1",
+    "model_type": "ElasticNet",
+    "dataset": "wine_quality"
+})
+```
+
+**Pourquoi** :  
+Ajouter des métadonnées sur le contexte de l'expérience pour faciliter les recherches et la documentation.
+
+---
+
+**Code complet après Ajout 8** :
+
+```python
+# 1. Importation des bibliothèques
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import ElasticNet
+import mlflow
+import mlflow.sklearn
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+# 2. Définir l'expérience MLflow
+mlflow.set_experiment("exp_wine_quality")
+
+# 3. Chargement des données
+data = pd.read_csv("red-wine-quality.csv")
+
+# 4. Séparation en variables explicatives et variable cible
+X = data.drop(["quality"], axis=1)
+y = data["quality"]
+
+# 5. Division en train/test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+# 6. Démarrer un run MLflow
+mlflow.start_run()
+
+# 7. Ajouter des tags
+mlflow.set_tags({
+    "version": "v1",
+    "model_type": "ElasticNet",
+    "dataset": "wine_quality"
+})
+
+# 8. Entraînement d'un modèle ElasticNet
+model = ElasticNet(alpha=0.5, l1_ratio=0.5)
+mlflow.log_param("alpha", 0.5)
+mlflow.log_param("l1_ratio", 0.5)
+model.fit(X_train, y_train)
+
+# 9. Prédictions
+predictions = model.predict(X_test)
+
+# 10. Log des métriques
+rmse = np.sqrt(mean_squared_error(y_test, predictions))
+mae = mean_absolute_error(y_test, predictions)
+r2 = r2_score(y_test, predictions)
+
+mlflow.log_metric("rmse", rmse)
+mlflow.log_metric("mae", mae)
+mlflow.log_metric("r2", r2)
+
+# 11. Log du modèle
+mlflow.sklearn.log_model(model, "model")
+
+# 12. Affichage simple
+print(predictions[:5])
+
+# 13. Finir proprement le run
+mlflow.end_run()
+```
+
+
+
+
+
+
+
+
+
+# Bloc 9 – Ajout 9 : Logger des artefacts (sauvegarde d’un fichier)
+
+**Instruction** :  
+Ajoutez **juste après** `mlflow.sklearn.log_model(model, "model")`, c’est-à-dire **après la ligne 40**.
+
+```python
+# Créer un fichier de résultats
+with open("results.txt", "w") as f:
+    f.write(f"RMSE: {rmse}\n")
+    f.write(f"MAE: {mae}\n")
+    f.write(f"R2: {r2}\n")
+
+# Logger ce fichier dans MLflow
+mlflow.log_artifact("results.txt")
+```
+
+**Pourquoi** :  
+- Sauvegarder des fichiers manuellement générés.
+- Stocker des rapports, figures, datasets ou résultats intermédiaires dans l’interface MLflow.
+
+---
+
+# Code complet après Ajout 9 :
+
+```python
+# 1. Importation des bibliothèques
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import ElasticNet
+import mlflow
+import mlflow.sklearn
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+# 2. Définir l'expérience MLflow
+mlflow.set_experiment("exp_wine_quality")
+
+# 3. Chargement des données
+data = pd.read_csv("red-wine-quality.csv")
+
+# 4. Séparation en variables explicatives et variable cible
+X = data.drop(["quality"], axis=1)
+y = data["quality"]
+
+# 5. Division en train/test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+# 6. Démarrer un run MLflow
+mlflow.start_run()
+
+# 7. Ajouter des tags
+mlflow.set_tags({
+    "version": "v1",
+    "model_type": "ElasticNet",
+    "dataset": "wine_quality"
+})
+
+# 8. Entraînement d'un modèle ElasticNet
+model = ElasticNet(alpha=0.5, l1_ratio=0.5)
+mlflow.log_param("alpha", 0.5)
+mlflow.log_param("l1_ratio", 0.5)
+model.fit(X_train, y_train)
+
+# 9. Prédictions
+predictions = model.predict(X_test)
+
+# 10. Log des métriques
+rmse = np.sqrt(mean_squared_error(y_test, predictions))
+mae = mean_absolute_error(y_test, predictions)
+r2 = r2_score(y_test, predictions)
+
+mlflow.log_metric("rmse", rmse)
+mlflow.log_metric("mae", mae)
+mlflow.log_metric("r2", r2)
+
+# 11. Log du modèle
+mlflow.sklearn.log_model(model, "model")
+
+# 12. Créer un fichier de résultats et le logger comme artefact
+with open("results.txt", "w") as f:
+    f.write(f"RMSE: {rmse}\n")
+    f.write(f"MAE: {mae}\n")
+    f.write(f"R2: {r2}\n")
+mlflow.log_artifact("results.txt")
+
+# 13. Affichage simple
+print(predictions[:5])
+
+# 14. Finir proprement le run
+mlflow.end_run()
+```
+
+
+
+
+
+
+
+# Bloc 10 – Ajout 10 : Activer `mlflow.autolog()` pour tout logger automatiquement
+
+**Instruction** :  
+Ajoutez cette ligne **immédiatement après** `import mlflow.sklearn` (c’est-à-dire **après la ligne 6**).
+
+```python
+mlflow.autolog(log_input_examples=False, log_model_signatures=False)
+```
+
+**Pourquoi** :  
+- Plus besoin d’écrire manuellement `log_param`, `log_metric`, `log_model`.
+- MLflow détecte automatiquement les entraînements et enregistre les métriques, les paramètres, et le modèle.
+
+---
+
+# Code complet après Ajout 10 :
+
+```python
+# 1. Importation des bibliothèques
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import ElasticNet
+import mlflow
+import mlflow.sklearn
+
+# Activation de mlflow.autolog
+mlflow.autolog(log_input_examples=False, log_model_signatures=False)
+
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+# 2. Définir l'expérience MLflow
+mlflow.set_experiment("exp_wine_quality")
+
+# 3. Chargement des données
+data = pd.read_csv("red-wine-quality.csv")
+
+# 4. Séparation en variables explicatives et variable cible
+X = data.drop(["quality"], axis=1)
+y = data["quality"]
+
+# 5. Division en train/test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+# 6. Démarrer un run MLflow
+mlflow.start_run()
+
+# 7. Ajouter des tags
+mlflow.set_tags({
+    "version": "v1",
+    "model_type": "ElasticNet",
+    "dataset": "wine_quality"
+})
+
+# 8. Entraînement du modèle (les paramètres seront auto-loggés)
+model = ElasticNet(alpha=0.5, l1_ratio=0.5)
+model.fit(X_train, y_train)
+
+# 9. Prédictions
+predictions = model.predict(X_test)
+
+# 10. Calcul manuel des métriques (mais plus besoin de les logger manuellement)
+rmse = np.sqrt(mean_squared_error(y_test, predictions))
+mae = mean_absolute_error(y_test, predictions)
+r2 = r2_score(y_test, predictions)
+
+# 11. Créer un fichier de résultats et le logger comme artefact
+with open("results.txt", "w") as f:
+    f.write(f"RMSE: {rmse}\n")
+    f.write(f"MAE: {mae}\n")
+    f.write(f"R2: {r2}\n")
+mlflow.log_artifact("results.txt")
+
+# 12. Affichage simple
+print(predictions[:5])
+
+# 13. Finir proprement le run
+mlflow.end_run()
+```
+
+---
+
+# Résumé Bloc 10 :
+
+| Numéro d'étape | Changement |
+|:--------------:|:-----------|
+| Ligne 6 | `mlflow.autolog(log_input_examples=False, log_model_signatures=False)` ajouté |
+
+**Notes pédagogiques** :  
+- Le `log_param`, `log_metric` et `log_model` sont maintenant inutiles à écrire manuellement.
+- Il reste utile de logger des artefacts manuellement (`log_artifact`) si on veut sauvegarder des fichiers spéciaux (comme `results.txt`).
+
+
+
+
+
+# Bloc 11 – Ajout 11 : Configurer MLflow pour production (PostgreSQL + S3)
+
+**Instruction** :  
+Cette partie est **hors script Python**.  
+Elle concerne **comment lancer le serveur MLflow** pour production (pas juste en local avec SQLite).
+
+**Commandes Terminal** (pas dans le code Python) :
+
+```bash
+mlflow server \
+  --backend-store-uri postgresql://<user>:<password>@<hostname>:5432/<dbname> \
+  --default-artifact-root s3://<bucket-name>/mlflow-artifacts \
+  --host 0.0.0.0 \
+  --port 5000
+```
+
+**Remplacer** :
+- `<user>`, `<password>`, `<hostname>`, `<dbname>` par les accès PostgreSQL réels.
+- `<bucket-name>` par le nom du bucket S3 où stocker les artefacts.
+
+---
+
+# Pourquoi ce changement ?
+
+- **PostgreSQL** = base solide pour les métadonnées MLflow (experiences, runs, métriques...).
+- **S3** = stockage scalable des fichiers lourds (artefacts modèles, images, datasets...).
+- **Server accessible à distance** (`--host 0.0.0.0`).
+
+---
+
+# Ce qu’on NE touche PAS dans le script Python :
+
+Dans ton script existant, seul **le tracking URI** doit pointer vers ce serveur distant :
+
+```python
+mlflow.set_tracking_uri("http://<ip-serveur>:5000")
+```
+
+*(ex: `http://192.168.1.100:5000` ou `http://mon-serveur-mlflow.com:5000`)*
+
+---
+
+# Résumé Bloc 11 :
+
+| Action | Où ? |
+|:------:|:----:|
+| Lancer MLflow avec PostgreSQL + S3 | Terminal (pas dans Python) |
+| Modifier `set_tracking_uri` | Début du script Python |
+
+---
+
+# Code Python inchangé, sauf une ligne importante :
+
+```python
+mlflow.set_tracking_uri("http://<ip-serveur>:5000")
+```
+
+**À mettre immédiatement avant** :
+
+```python
+mlflow.set_experiment("exp_wine_quality")
+```
+
+(vers la ligne 13 de ton code actuel).
+
+---
+
+# 🚨 Attention
+
+- La base PostgreSQL doit être existante et accessible.
+- Le bucket S3 doit être prêt et les permissions configurées.
+- Si ce n’est pas encore prêt, continue en local avec SQLite pour l’instant (comme au Bloc 0).
+
+
+
+
+
+
+
+
+
+# Bloc 12 – Ajout 12 : Signature du modèle et Exemple d'entrée (ModelSignature + input_example)
+
+## Objectif de ce bloc
+
+- Ajouter une **signature** (`ModelSignature`) pour documenter formellement ce que prend et produit le modèle.
+- Ajouter un **exemple d'entrée** (`input_example`) pour aider les utilisateurs à comprendre les données attendues.
+
+---
+
+## Instructions détaillées
+
+**À faire dans ton script existant :**
+
+### 1. Importer les bons modules
+
+**Ajout à faire en haut du fichier**, dans la section des `import` existants, **après `import mlflow.sklearn`** :
+
+```python
+from mlflow.models.signature import ModelSignature, infer_signature
+from mlflow.types.schema import Schema, ColSpec
+```
+
+**Position** : environ ligne 12.
+
+---
+
+### 2. Créer les schémas manuellement
+
+**À ajouter juste après l'entraînement du modèle**, c’est-à-dire **après :**
+
+```python
+lr.fit(train_x, train_y)
+```
+
+**Ajout :**
+
+```python
+input_schema = Schema([
+    ColSpec("double", "fixed acidity"),
+    ColSpec("double", "volatile acidity"),
+    ColSpec("double", "citric acid"),
+    ColSpec("double", "residual sugar"),
+    ColSpec("double", "chlorides"),
+    ColSpec("double", "free sulfur dioxide"),
+    ColSpec("double", "total sulfur dioxide"),
+    ColSpec("double", "density"),
+    ColSpec("double", "pH"),
+    ColSpec("double", "sulphates"),
+    ColSpec("double", "alcohol")
+])
+
+output_schema = Schema([
+    ColSpec("double")
+])
+
+signature = ModelSignature(inputs=input_schema, outputs=output_schema)
+```
+
+**Position** : juste après `lr.fit(train_x, train_y)`, donc autour de la ligne 50.
+
+---
+
+### 3. Créer un input_example
+
+Toujours **immédiatement après** la signature :
+
+```python
+input_example = train_x.iloc[:5]
+```
+
+---
+
+### 4. Logguer le modèle avec signature et input_example
+
+**Remplacer ton `mlflow.sklearn.log_model` existant** (probablement autour de la ligne 70)  
+par la nouvelle version suivante :
+
+```python
+mlflow.sklearn.log_model(
+    sk_model=lr,
+    artifact_path="model",
+    signature=signature,
+    input_example=input_example
+)
+```
+
+---
+
+# Résumé Bloc 12
+
+| Étape | Où ? |
+|:-----:|:----:|
+| Import `ModelSignature`, `Schema`, `ColSpec` | Ligne 12 |
+| Définir `input_schema`, `output_schema`, `signature` | Après `fit()` |
+| Définir `input_example` | Après `signature` |
+| Modifier `log_model()` | À la place du `log_model` existant |
+
+---
+
+# Code complet ajouté à ce stade
+
+```python
+# Haut du fichier
+from mlflow.models.signature import ModelSignature, infer_signature
+from mlflow.types.schema import Schema, ColSpec
+
+# Après entrainement
+input_schema = Schema([
+    ColSpec("double", "fixed acidity"),
+    ColSpec("double", "volatile acidity"),
+    ColSpec("double", "citric acid"),
+    ColSpec("double", "residual sugar"),
+    ColSpec("double", "chlorides"),
+    ColSpec("double", "free sulfur dioxide"),
+    ColSpec("double", "total sulfur dioxide"),
+    ColSpec("double", "density"),
+    ColSpec("double", "pH"),
+    ColSpec("double", "sulphates"),
+    ColSpec("double", "alcohol")
+])
+
+output_schema = Schema([
+    ColSpec("double")
+])
+
+signature = ModelSignature(inputs=input_schema, outputs=output_schema)
+
+input_example = train_x.iloc[:5]
+
+# Enregistrement du modèle
+mlflow.sklearn.log_model(
+    sk_model=lr,
+    artifact_path="model",
+    signature=signature,
+    input_example=input_example
+)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+# Bloc 13 – Ajout 13 : Utilisation de `infer_signature` pour générer automatiquement la signature du modèle
+
+## Objectif de ce bloc
+
+- Ne plus écrire les schémas d'entrée/sortie manuellement.
+- Utiliser `infer_signature` pour analyser automatiquement les entrées (`test_x`) et les sorties (`predicted_qualities`).
+
+---
+
+## Instructions détaillées
+
+**À faire dans ton script existant :**
+
+### 1. Remplacer la définition manuelle de la signature
+
+**Supprimer complètement** cette partie que nous avions ajoutée dans Bloc 12 :
+
+```python
+input_schema = Schema([...])
+output_schema = Schema([...])
+signature = ModelSignature(inputs=input_schema, outputs=output_schema)
+```
+
+**À remplacer par :**
+
+```python
+signature = infer_signature(test_x, predicted_qualities)
+```
+
+**Position** : À mettre juste **après** la ligne où tu fais les prédictions :
+
+```python
+predicted_qualities = lr.predict(test_x)
+signature = infer_signature(test_x, predicted_qualities)
+```
+
+Autour de la ligne 55 environ.
+
+---
+
+### 2. Garder l'input_example existant
+
+L'input_example reste exactement :
+
+```python
+input_example = train_x.iloc[:5]
+```
+
+Pas de modification ici.
+
+---
+
+### 3. Garder la nouvelle version de `log_model`
+
+Le `mlflow.sklearn.log_model` reste celui du Bloc 12 :
+
+```python
+mlflow.sklearn.log_model(
+    sk_model=lr,
+    artifact_path="model",
+    signature=signature,
+    input_example=input_example
+)
+```
+
+---
+
+# Résumé Bloc 13
+
+| Étape | Où ? |
+|:-----:|:----:|
+| Remplacer le Schema manuel par `infer_signature(test_x, predicted_qualities)` | Après la prédiction |
+| Garder `input_example = train_x.iloc[:5]` | Inchangé |
+| Garder `mlflow.sklearn.log_model(...)` avec signature et input_example | Inchangé |
+
+---
+
+# Code modifié ajouté à ce stade
+
+```python
+# Après les prédictions
+predicted_qualities = lr.predict(test_x)
+signature = infer_signature(test_x, predicted_qualities)
+
+input_example = train_x.iloc[:5]
+
+# Enregistrement du modèle
+mlflow.sklearn.log_model(
+    sk_model=lr,
+    artifact_path="model",
+    signature=signature,
+    input_example=input_example
+)
+```
+
+
+
+
+
+
+
+
+
 # Bloc 14 – Ajout 14 : Activation de `mlflow.autolog` pour automatiser la capture des paramètres, métriques et modèles
 
 ## Objectif de ce bloc
