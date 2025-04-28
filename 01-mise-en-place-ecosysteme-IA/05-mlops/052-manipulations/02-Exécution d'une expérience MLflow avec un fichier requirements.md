@@ -150,3 +150,16 @@ Remplacez `<IP-de-votre-VM>` par l'adresse IP de votre VM Ubuntu 22.04.
 ## Conclusion
 
 Vous avez maintenant exécuté et suivi une expérience MLflow améliorée avec un fichier `requirements.txt` sur une VM Ubuntu 22.04. Vous pouvez explorer davantage les fonctionnalités de MLflow pour améliorer votre flux de travail de machine learning. N'hésitez pas à expérimenter avec différents modèles et paramètres pour optimiser vos résultats.
+
+
+# Annexe 1 : Commandes tres utiles
+
+```
+pip install pipreqs
+pipreqs .
+cat requirements.txt
+pip install -r requirements.txt
+pip freeze > requirements1.txt
+cat requirements1.txt
+```
+
