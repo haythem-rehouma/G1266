@@ -168,9 +168,6 @@ Pour enregistrer les résultats de l'expérience dans MLflow, nous devons modifi
 ```python
 import mlflow
 import mlflow.sklearn
-
-
-
 import warnings
 import argparse
 import logging
@@ -196,14 +193,13 @@ def eval_metrics(actual, pred):
     r2 = r2_score(actual, pred)
     return rmse, mae, r2
 
-
-
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")
     np.random.seed(40)
 
     # Read the wine-quality csv file from local
     data = pd.read_csv("red-wine-quality.csv")
+    data.to_csv("red-wine-quality.csv", index=False)
 
     # Split the data into training and test sets. (0.75, 0.25) split.
     train, test = train_test_split(data)
@@ -216,8 +212,10 @@ if __name__ == "__main__":
 
     alpha = args.alpha
     l1_ratio = args.l1_ratio
+    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+    exp = mlflow.set_experiment(experiment_name="experience_1")
 
-    with mlflow.start_run():
+    with mlflow.start_run(experiment_id=exp.experiment_id):
         lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
         lr.fit(train_x, train_y)
 
