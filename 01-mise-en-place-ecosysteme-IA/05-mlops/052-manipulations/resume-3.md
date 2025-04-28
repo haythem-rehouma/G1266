@@ -177,3 +177,35 @@ predictions = model.predict(X_test)
 print(predictions[:5])
 ```
 
+
+
+
+
+
+
+
+## Bilan clair de ce qu'on a fait :
+
+| Bloc | Sujet | Fait ? |
+|:----:|:-----------------------------|:-------:|
+| 0 | Installer MLflow + démarrer serveur  |
+| 1 | Première expérience (`set_experiment`, `start_run`)  |
+| 2 | Ajouter `requirements.txt` |
+| 3 | Utiliser `set_tracking_uri`, `get_tracking_uri`  |
+| 4 | Créer une expérience avec `create_experiment`  |
+| 5 | Utiliser `active_run`, `last_active_run`  |
+| 6 | Logger artefacts avec `log_artifacts`  |
+| 7 | Ajouter des tags `set_tags` |
+| 8 | Boucles : plusieurs `start_run()` dans le même script  |
+| 9 | Gérer plusieurs expériences différentes  |
+| 10 | `mlflow.autolog` |
+| 11 | Démarrer en production (PostgreSQL + S3)  |
+| 12 → 24 | Plus avancé : evaluation, artefacts visuels, promotion de modèle, baselines, metrics customisées  |
+| 25 | Promotion automatique (`MlflowClient`, `transition_model_version_stage`) |
+| 26 | Récupération automatique de la version | Ne plus fixer `version=1`, détecter dynamiquement |
+| 27 | Ajouter un **commentaire automatique** à la version | Avec `set_model_version_tag` |
+| 28 | Déploiement local simple (`mlflow models serve`) | Tester ton modèle via une API locale Flask-like |
+| 29 | Résumé visuel final du pipeline complet | (le "poster" final pour bien fixer tout) |
+
+
+
