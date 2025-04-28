@@ -24,7 +24,8 @@ sudo apt upgrade -y (optionnel - ne le faites pas)
 MLflow nécessite Python. Nous allons installer Python 3 et pip (gestionnaire de paquets Python) :
 
 ```bash
-sudo apt install python3 python3-pip -y
+sudo -s (ou su)
+apt install python3 python3-pip -y
 python3 --version
 apt install python3.12-venv
 python3 -m venv myenv (en cas de besoin : apt install python3.12-venv)
