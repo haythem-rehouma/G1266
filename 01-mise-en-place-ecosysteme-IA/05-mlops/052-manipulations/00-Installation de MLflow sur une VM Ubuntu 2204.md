@@ -96,9 +96,29 @@ Remplacez `<IP-de-votre-VM>` par l'adresse IP de votre VM Ubuntu 22.04.
 ### Enregistrer un modèle
 
 - Exemple hello-world d'enregistrement d'un modèle avec MLflow :
+- Ouvrir un autre final 
 ```bash
 apt-get update -y && apt-get install -y gcc && apt-get install -y git
 nano hello-world.py
+cd mlflow-experiments/
+ls
+cd database/
+ls
+cd ..
+ls
+nano hello-world.py
+python hello-world.py
+python3 hello-world.py
+ls -la
+cd ..
+ls -la
+source myenv/bin/activate
+ls
+cd mlflow-experiments/
+ls
+python3 hello-world.py
+history
+
 ```
 # troubleshooting : 
 ```bash
