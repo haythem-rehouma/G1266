@@ -123,11 +123,18 @@ if __name__ == "__main__":
 
 ### 6. Exécuter le script
 
+## Important:
+
+
+- Remplacez <IP-de-votre-VM> par votre adress IP , par exemple 127.0.0.1 (votre serveur local)
+- créez le dossier /data ou nous allons enregistrer les résultats csv : mkdir data
+  
 Pour exécuter le script avec les paramètres par défaut (alpha=0.5 et l1_ratio=0.5), utilisez la commande suivante :
 
 ```bash
 python3 train.py
 ```
+
 
 Vous pouvez également spécifier différents paramètres pour `alpha` et `l1_ratio` :
 
