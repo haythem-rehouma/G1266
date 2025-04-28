@@ -166,8 +166,32 @@ python3 train.py --alpha 0.1 --l1_ratio 0.1
 Pour enregistrer les résultats de l'expérience dans MLflow, nous devons modifier légèrement le script Python pour inclure MLflow. Ajoutez les lignes suivantes après l'importation des bibliothèques :
 
 ```python
-import mlflow
-import mlflow.sklearn
+import warnings
+import argparse
+import logging
+import pandas as pd
+import numpy as np
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import ElasticNet
+
+logging.basicConfig(level=logging.WARN)
+logger = logging.getLogger(__name__)
+
+# get arguments from command
+parser = argparse.ArgumentParser()
+parser.add_argument("--alpha", type=float, required=False, default=0.5)
+parser.add_argument("--l1_ratio", type=float, required=False, default=0.5)
+args = parser.parse_args()
+
+# evaluation function
+def eval_metrics(actual, pred):
+    rmse = np.sqrt(mean_squared_error(actual, pred))
+    mae = mean_absolute_error(actual, pred)  # Removed the extra closing parenthesis
+    r2 = r2_score(actual, pred)
+    return rmse, mae, r2
+
+
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")
