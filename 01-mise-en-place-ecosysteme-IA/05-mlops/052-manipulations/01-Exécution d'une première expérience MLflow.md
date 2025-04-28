@@ -166,6 +166,11 @@ python3 train.py --alpha 0.1 --l1_ratio 0.1
 Pour enregistrer les résultats de l'expérience dans MLflow, nous devons modifier légèrement le script Python pour inclure MLflow. Ajoutez les lignes suivantes après l'importation des bibliothèques :
 
 ```python
+import mlflow
+import mlflow.sklearn
+
+
+
 import warnings
 import argparse
 import logging
