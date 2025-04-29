@@ -189,3 +189,192 @@ Remplacez `<IP-de-votre-VM>` par l'adresse IP de votre VM Ubuntu 22.04.
 ## Conclusion
 
 Vous avez maintenant exécuté et suivi une expérience MLflow en utilisant la fonction `log_artifacts` pour enregistrer des artefacts sur une VM Ubuntu 22.04. Vous pouvez explorer davantage les fonctionnalités de MLflow pour améliorer votre flux de travail de machine learning. N'hésitez pas à expérimenter avec différents modèles et paramètres pour optimiser vos résultats.
+
+
+
+# Annexe 1 -  C'est quoi un *artifact* en MLflow ?
+
+Un **artifact** est **n'importe quel fichier produit par ton script** que tu veux **sauvegarder** **et retrouver plus tard** dans MLflow.  
+👉 Ce sont des *sorties de ton projet* (outputs) que tu veux **garder dans l’historique**.
+
+Un artifact peut être :
+
+| Exemple d’Artifact | Type |
+|:-------------------|:-----|
+| Un fichier CSV | Tableau de données |
+| Un modèle `.pkl`, `.onnx`, `.joblib` | Modèle Machine Learning |
+| Une image `.png`, `.jpg` | Visualisation |
+| Un fichier texte `.txt`, `.log` | Logs |
+| Un graphique de courbes d'apprentissage | Matplotlib, Seaborn plots |
+| Un répertoire complet | Dossier contenant plusieurs fichiers |
+| Un fichier HTML ou JSON | Résultats, rapports, dashboards |
+
+
+
+### Comment voir les artifacts dans ton code ?
+
+Dans ton script tu as cette ligne :
+```python
+mlflow.log_artifacts("data/")
+```
+Cela veut dire :
+
+- **Prends tout ce qu’il y a dans le dossier `data/`** (donc : `train.csv`, `test.csv`, `red-wine-quality.csv`).
+- **Sauvegarde-le dans MLflow** sous l’expérience du run en cours.
+
+Ces fichiers deviennent donc **des artifacts** du run.
+
+
+
+### Exemple concret :
+
+Imaginons ton projet génère ces fichiers :
+```
+data/train.csv
+data/test.csv
+model.pkl
+courbe_apprentissage.png
+```
+Si tu fais :
+```python
+mlflow.log_artifacts("data/")
+mlflow.log_artifact("model.pkl")
+mlflow.log_artifact("courbe_apprentissage.png")
+```
+Alors dans MLflow tu verras que ton run a **ces artifacts attachés** :
+- Les CSV du dossier `data/`
+- Ton modèle enregistré
+- Ton image de courbe
+
+
+
+### Pourquoi c’est super utile ?
+
+- **Retrouver ce que tu as produit** pour chaque expérience.
+- **Partager** les modèles et résultats facilement (par téléchargement ou API).
+- **Comparer** visuellement plusieurs runs : qui a produit quel fichier, dans quelles conditions.
+- **Rejouer** une expérience facilement : tu as tout stocké (modèle + données).
+
+
+### Résumé 
+
+| Artifacts sont… | Exemples |
+|:---------------|:---------|
+| Des fichiers **produits** ou **sauvegardés** pendant un run MLflow | CSV, images, modèles, logs, dossiers entiers |
+| Utilisés pour **suivre, réutiliser ou comparer** des expériences | |
+
+
+
+# 📍 Dans notre cas précis
+
+Dans ton code actuel :
+- Les artifacts sont les 3 CSV (`train.csv`, `test.csv`, `red-wine-quality.csv`) générés.
+- Si nous voudrons, nous pouvons aussi logger d'autres artifacts comme :
+  - Notre modèle entraîné (`my_new_model_1/` est automatiquement loggué par `mlflow.sklearn.log_model`).
+  - Des visualisations que nous pourrons générer (ex: graphiques matplotlib).
+
+
+
+<br/>
+<br/>
+
+# Annexe 2
+
+### 1. **Exécuter ton script avec des arguments**
+Lance ton fichier `train.py` en passant les arguments `--alpha` et `--l1_ratio` que tu veux.
+
+Exemple :  
+```bash
+python3 train.py --alpha 0.5 --l1_ratio 0.3
+```
+
+👉 Cela va :
+- entraîner un modèle ElasticNet,
+- logger les métriques et paramètres dans MLflow,
+- sauver des CSV dans `data/`,
+- logger tout dans ton serveur MLflow.
+
+---
+
+### 2. **Vérifier les fichiers créés localement**
+Après l'exécution :
+
+```bash
+ls data/
+```
+Tu dois voir :
+- `red-wine-quality.csv`
+- `train.csv`
+- `test.csv`
+
+---
+
+### 3. **Voir les logs de ta console**
+Pendant l'exécution, le script affiche :
+```bash
+The set tracking URI is  http://<IP-de-votre-VM>:5000
+Name: experiment_4
+Experiment_id: ...
+Artifact Location: ...
+Tags: ...
+Lifecycle_stage: ...
+Creation timestamp: ...
+Elasticnet model (alpha=0.500000, l1_ratio=0.300000):
+  RMSE: ...
+  MAE: ...
+  R2: ...
+The artifact path is mlflow-artifacts:/...
+Active run id is ...
+Active run name is ...
+```
+**Tout est imprimé en direct** sur ton terminal.
+
+---
+
+### 4. **Aller voir dans MLflow UI**
+
+MLflow expose une **interface web** sur ta machine :
+```bash
+http://<IP-de-votre-VM>:5000
+```
+
+**Dans ton navigateur :**
+- Tu verras **l'expérience** `experiment_4`
+- Tu verras **le run** avec :
+  - **Parameters** (alpha, l1_ratio)
+  - **Metrics** (RMSE, MAE, R²)
+  - **Artifacts** (les fichiers CSV, le modèle sauvegardé)
+
+---
+
+### 5. **Commandes avancées (facultatif)**
+
+**Lister les expériences via CLI MLflow** :
+```bash
+mlflow experiments list
+```
+
+**Lister les runs d'une expérience** (par ID par exemple) :
+```bash
+mlflow runs list --experiment-id <ID>
+```
+
+**Télécharger un artefact depuis MLflow** :
+```bash
+mlflow artifacts download --run-id <RUN_ID> --artifact-path my_new_model_1
+```
+Ça va télécharger ton modèle entraîné (ElasticNet sauvegardé).
+
+---
+
+#  Résumé 
+
+| Action | Commande rapide |
+|:------|:----------------|
+| Lancer le script avec alpha/l1 | `python3 train.py --alpha 0.5 --l1_ratio 0.3` |
+| Voir les CSV | `ls data/` |
+| Ouvrir interface MLflow | Naviguer vers `http://<IP>:5000` |
+| Voir les expériences (CLI) | `mlflow experiments list` |
+| Voir les runs (CLI) | `mlflow runs list --experiment-id <ID>` |
+| Télécharger artefacts | `mlflow artifacts download --run-id <RUN_ID> --artifact-path my_new_model_1` |
+
