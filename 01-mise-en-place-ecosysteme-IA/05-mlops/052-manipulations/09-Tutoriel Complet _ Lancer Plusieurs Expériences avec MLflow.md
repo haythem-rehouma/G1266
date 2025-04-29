@@ -249,9 +249,7 @@ if __name__ == "__main__":
 
     current_run = mlflow.active_run()
     print("Active run id is {}".format(current_run.info.run_id))
-    print
-
-("Active run name is {}".format(current_run.info.run_name))
+    print("Active run name is {}".format(current_run.info.run_name))
 
     lr = Ridge(alpha=alpha, random_state=42)
     lr.fit(train_x, train_y)
