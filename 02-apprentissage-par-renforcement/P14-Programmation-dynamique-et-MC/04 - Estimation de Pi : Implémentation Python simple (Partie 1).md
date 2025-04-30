@@ -119,7 +119,7 @@ Si $r_i \leq 1$, alors le point est à l’intérieur du cercle. On note $n_{\te
 D’un point de vue statistique, la fréquence observée des points à l’intérieur du cercle est une estimation de la probabilité réelle :
 
 $$
-\frac{n_{\text{cercle}}}{n} \approx \frac{\pi}{4}
+\frac{n_{\text{cercle}}}{n} \approx \frac{A_{\text{cercle}}}{A_{\text{carré}}}  \approx   \frac{\pi}{4}
 $$
 
 Il suffit alors de multiplier cette estimation par 4 pour obtenir une approximation de π :
