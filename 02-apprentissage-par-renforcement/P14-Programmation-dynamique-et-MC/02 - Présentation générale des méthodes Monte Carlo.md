@@ -49,11 +49,11 @@ La méthode **Monte Carlo**, en apprentissage ou en mathématiques, consiste à 
 La méthode Monte Carlo, c’est comme essayer de deviner combien de bonbons il y a dans un bocal… mais au lieu de faire des calculs compliqués, tu demandes à 1000 personnes de deviner, puis tu fais une moyenne. Plus tu répètes, plus tu t’approches de la vérité ! C’est ça l’idée : **faire beaucoup d’essais aléatoires pour estimer une valeur difficile à calculer directement**.
 
 ### Exemples concrets et drôles :
-- 🔸 Tu veux mesurer **à quel point tu es charmant** : tu salues 100 personnes avec ton plus beau sourire, puis tu notes combien te répondent avec enthousiasme. Voilà une estimation Monte Carlo !
-- 🔸 Tu veux estimer **ta probabilité de rater le bus le matin** : tu notes pendant 30 jours si tu arrives à temps ou pas, et tu calcules ta fréquence de réussite.
-- 🔸 Tu veux savoir **si ta crêpe atterrit bien en la lançant en l’air** : tu la fais sauter 500 fois, et tu comptes combien de fois elle retombe du bon côté.
-- 🔸 Tu veux prédire **la probabilité qu’un collègue te pique ton yaourt au frigo** : tu en laisses un chaque jour au bureau, et tu observes combien de fois il disparaît sans explication.
-- 🔸 Tu veux savoir **quelle est la chance que ton mot de passe soit deviné par un pirate** : tu simules des milliers de tentatives aléatoires, et tu regardes combien arrivent à le trouver.
+-  Tu veux mesurer **à quel point tu es charmant** : tu salues 100 personnes avec ton plus beau sourire, puis tu notes combien te répondent avec enthousiasme. Voilà une estimation Monte Carlo !
+-  Tu veux estimer **ta probabilité de rater le bus le matin** : tu notes pendant 30 jours si tu arrives à temps ou pas, et tu calcules ta fréquence de réussite.
+-  Tu veux savoir **si ta crêpe atterrit bien en la lançant en l’air** : tu la fais sauter 500 fois, et tu comptes combien de fois elle retombe du bon côté.
+-  Tu veux prédire **la probabilité qu’un collègue te pique ton yaourt au frigo** : tu en laisses un chaque jour au bureau, et tu observes combien de fois il disparaît sans explication.
+-  Tu veux savoir **quelle est la chance que ton mot de passe soit deviné par un pirate** : tu simules des milliers de tentatives aléatoires, et tu regardes combien arrivent à le trouver.
 
 Bref, **Monte Carlo, c’est la science du "je teste plein de fois et je regarde ce que ça donne"** — un peu comme la vraie vie, mais en plus rigoureux.
 
