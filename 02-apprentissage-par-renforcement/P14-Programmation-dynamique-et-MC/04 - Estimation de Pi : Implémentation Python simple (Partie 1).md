@@ -133,7 +133,7 @@ Ainsi, la multiplication par 4 s’explique directement par le fait que le carr�
 
 <br/>
 
-# Annexe 2 - Pourquoi c'est du Monte-Carlo
+# Annexe 2 - Pourquoi c'est du Monte-Carlo (réponse courte)
 
 
 
@@ -160,5 +160,76 @@ La clé qui fait que cette méthode appartient à la famille Monte Carlo est la 
 on n’utilise **aucune formule analytique directe**, mais on obtient une estimation par des **simulations aléatoires répétées**, en s’appuyant sur la **loi des grands nombres**.
 
 Plus on génère de points, plus la fréquence observée $\frac{n_{\text{cercle}}}{n}$ converge vers la probabilité réelle $\frac{\pi}{4}$, ce qui améliore la précision de l’estimation.
+
+
+
+<br/>
+
+# Annexe 3 - Pourquoi parle-t-on de méthode de Monte Carlo pour estimer π ? (réponse longue et justifiée avec le calcul mathématique)
+
+**Objectif de l’exercice :**  
+Estimer la valeur de π en lançant des points aléatoires dans un carré contenant un cercle inscrit.
+
+
+
+#### 1. Idée générale
+
+On souhaite approximer π **sans utiliser de formule analytique**, mais en comptant le **nombre de points aléatoires** qui tombent dans un cercle.
+
+Cette approche repose sur l’idée suivante :
+
+$$
+\frac{\text{Aire du cercle}}{\text{Aire du carré}} = \frac{\pi}{4}
+$$
+
+En générant aléatoirement des points dans le carré, on estime la probabilité qu’un point tombe dans le cercle. Cette probabilité devient une **estimation de** $\frac{\pi}{4}$.
+
+
+
+#### 2. Définition de la méthode de Monte Carlo
+
+La **méthode de Monte Carlo** est une technique numérique utilisée pour approximer une valeur **par des expériences aléatoires répétées**. Elle est souvent utilisée pour :
+
+- calculer des **intégrales**,
+- estimer des **probabilités**,
+- simuler des systèmes complexes (physique, finance, etc.).
+
+Le nom vient du casino de Monte Carlo, pour illustrer l’usage intensif du **hasard** dans la méthode.
+
+
+#### 3. Application à l’estimation de π
+
+On utilise les étapes suivantes :
+
+1. Générer $n$ points aléatoires dans le carré $[-1, 1] \times [-1, 1]$.
+2. Pour chaque point $(x, y)$, calculer la distance à l’origine :
+   $$
+   r = \sqrt{x^2 + y^2}
+   $$
+3. Si $r \leq 1$, le point est dans le cercle. On compte ces points.
+4. La proportion estimée est :
+   $$
+   \frac{n_{\text{cercle}}}{n} \approx \frac{\pi}{4}
+   $$
+5. On en déduit une estimation de π :
+   $$
+   \pi \approx 4 \times \frac{n_{\text{cercle}}}{n}
+   $$
+
+
+
+#### 4. Justification du nom "Monte Carlo"
+
+La méthode s’appelle **Monte Carlo** car :
+
+- elle utilise des **tirages aléatoires** (comme des lancers de dés),
+- elle permet une **estimation numérique** basée sur des lois de probabilité (ici, la loi des grands nombres),
+- elle produit un résultat **approché**, qui se **stabilise** lorsque le nombre d’expériences (ici, de points générés) devient grand.
+
+
+
+#### 5. Conclusion
+
+On parle de méthode de Monte Carlo car on utilise l’**aléatoire** pour simuler un phénomène géométrique dont le résultat est en lien avec une constante mathématique connue. C’est une estimation basée sur le hasard, et non sur une formule exacte.
 
 
