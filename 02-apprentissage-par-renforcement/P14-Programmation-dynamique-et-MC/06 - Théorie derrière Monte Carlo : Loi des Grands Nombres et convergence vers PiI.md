@@ -17,7 +17,8 @@ $$
 3. **Résultat attendu** : Par exemple, avec 1 000 points, nous pouvons obtenir une estimation de **π** proche de **3.156**. Avec plus d'itérations, l'estimation deviendra plus précise et se rapprochera de la vraie valeur de **π** (3.14159...).
 
 
-![image](https://github.com/user-attachments/assets/e1174ae6-c2bb-413b-ac7d-5816cac4c692)
+![image](https://github.com/user-attachments/assets/331d2232-eb3d-4ff1-b678-1fd5b1cfed85)
+
 
 
 ## Améliorer l'estimation avec plus d'itérations
@@ -57,7 +58,8 @@ estimate_pi_mc(10000)
 
 En lançant cette fonction avec **10 000 itérations**, vous obtiendrez un graphique montrant l'évolution de l'estimation de **π** au fur et à mesure des itérations. Plus nous avons d'itérations, plus l'estimation se rapproche de la valeur réelle de **π**.
 
-![image](https://github.com/user-attachments/assets/887e769b-db79-476a-91de-7473d9f301ab)
+![image](https://github.com/user-attachments/assets/31516b3a-88c9-4d6b-b959-dab649ff0a33)
+
 
 
 ## Conclusion
