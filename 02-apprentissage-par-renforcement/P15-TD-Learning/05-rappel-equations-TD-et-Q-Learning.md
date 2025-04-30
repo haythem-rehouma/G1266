@@ -1,4 +1,4 @@
-# Équations
+# 1 - Équations TD-Learning
 
 ### TD(0) — Mise à jour immédiate après chaque étape
 
@@ -25,8 +25,9 @@ V(S_t) \leftarrow (1 - \alpha) V(S_t) + \alpha \left[ \sum_{k=1}^{n} \gamma^{k-1
 $$
 
 
+<br/>
 
-# Q-Learning — Apprentissage des paires état-action
+# 2- Équations Q-Learning — Apprentissage des paires état-action
 
 $$
 Q(S_t, A_t) \leftarrow (1 - \alpha) Q(S_t, A_t) + \alpha \left[ R_{t+1} + \gamma \max_{a} Q(S_{t+1}, a) \right]
@@ -36,10 +37,10 @@ $$
 
 Ces équations reformulées en utilisant **(1 - alpha)** permettent de souligner le rôle du taux d'apprentissage (*alpha*) dans l'actualisation des valeurs tout en conservant une partie de la valeur précédente.
 
+<br/>
 
-----------------------------------------------
-# Pourquoi reformuler en (1 - alpha) ?
-----------------------------------------------
+# 3 - Pourquoi reformuler en (1 - alpha) ?
+
 
 
 La reformulation en (1 - alpha) des équations de mise à jour sert à clarifier l’équilibre entre les valeurs anciennes (déjà apprises) et les nouvelles informations obtenues à chaque itération dans un algorithme d'apprentissage.
