@@ -47,3 +47,13 @@ Voici les étapes pour appliquer la méthode First-visit Monte Carlo :
 ## Conclusion
 
 L'évaluation des politiques avec Monte Carlo est une méthode **sans modèle**, utile lorsque nous n'avons pas accès aux informations complètes sur l'environnement. Elle est flexible et adaptée aux situations réelles où les informations sur les transitions et les récompenses ne sont pas disponibles à l'avance.
+
+<br/>
+
+# Annexe 1 - FrozenLake
+
+
+**FrozenLake** est un environnement d’apprentissage par renforcement représentant une grille de glace où un agent doit atteindre un but (`G`) en partant d’un point de départ (`S`), tout en évitant de tomber dans des trous (`H`). Le sol est glissant, ce qui rend les déplacements incertains : même si l’agent choisit une direction, il peut glisser ailleurs, introduisant de la stochastique (`is_slippery=True`). Cet environnement est souvent utilisé pour expérimenter des algorithmes comme le **Q-Learning**, **SARSA**, ou encore les **méthodes Monte Carlo**, qui sont bien adaptées ici car l’environnement est discret (nombre fini d’états et d’actions). Avec Monte Carlo, on attend la fin de chaque épisode (trajectoire complète) pour mettre à jour les estimations de valeur, ce qui permet d’analyser l’effet des décisions sur le long terme. Enfin, FrozenLake peut aussi être configuré sans aléa (`is_slippery=False`), pour un apprentissage plus simple et déterministe.
+
+
+
