@@ -1,4 +1,4 @@
-# Introduction au TD-Learning
+# TD-Learning
 
 - Le **TD-Learning** est une méthode d'apprentissage par renforcement qui combine des aspects des méthodes de Monte Carlo et de la programmation dynamique. Il permet à un agent d'apprendre en mettant à jour les estimations de la valeur des états ou des paires état-action à chaque étape, sans attendre la fin d'un épisode.
 
