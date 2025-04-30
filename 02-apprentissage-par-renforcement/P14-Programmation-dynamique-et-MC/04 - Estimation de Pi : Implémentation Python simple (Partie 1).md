@@ -75,3 +75,58 @@ print('La valeur estimée de Pi est :', pi_estimated)
 Lorsque vous exécutez ce code, vous verrez une visualisation des points dans un carré avec un cercle centré à l'origine. Le code imprimera également une estimation de π basée sur la méthode Monte Carlo.
 
 Ce tutoriel vous a montré comment implémenter la méthode Monte Carlo pour estimer π de manière simple et visuelle. N'hésitez pas à expérimenter en modifiant le nombre de points pour voir comment cela affecte la précision de l'estimation.
+
+
+<br/> 
+
+# Annexe 1 - justification du calcul
+
+
+
+
+L’objectif est d’estimer la valeur de π à l’aide d’une méthode probabiliste appelée méthode de Monte Carlo. L’idée repose sur un raisonnement géométrique simple : comparer l’aire d’un cercle inscrit à l’aire d’un carré.
+
+On considère un carré centré à l’origine du plan, de côté 2. Cela signifie que ses coins sont situés aux points de coordonnées $(-1, -1), (-1, 1), (1, -1), (1, 1)$. À l’intérieur de ce carré, on inscrit un cercle également centré à l’origine et de rayon 1.
+
+L’aire de ce carré est donnée par :
+
+$$
+A_{\text{carré}} = 2 \times 2 = 4
+$$
+
+L’aire du cercle inscrit est donnée par la formule classique :
+
+$$
+A_{\text{cercle}} = \pi \times r^2 = \pi \times 1^2 = \pi
+$$
+
+On observe donc que la proportion de la surface du carré occupée par le cercle est :
+
+$$
+\frac{A_{\text{cercle}}}{A_{\text{carré}}} = \frac{\pi}{4}
+$$
+
+Cette proportion peut être interprétée comme une probabilité : si l’on choisit un point au hasard dans le carré (avec une distribution uniforme), la probabilité que ce point tombe à l’intérieur du cercle est égale à $\frac{\pi}{4}$.
+
+Dans l’implémentation Python, on génère $n$ points au hasard dans ce carré, c’est-à-dire $n$ couples $(x_i, y_i)$ avec $x_i, y_i \in [-1, 1]$. Pour chaque point, on calcule sa distance à l’origine :
+
+$$
+r_i = \sqrt{x_i^2 + y_i^2}
+$$
+
+Si $r_i \leq 1$, alors le point est à l’intérieur du cercle. On note $n_{\text{cercle}}$ le nombre de points qui vérifient cette condition.
+
+D’un point de vue statistique, la fréquence observée des points à l’intérieur du cercle est une estimation de la probabilité réelle :
+
+$$
+\frac{n_{\text{cercle}}}{n} \approx \frac{\pi}{4}
+$$
+
+Il suffit alors de multiplier cette estimation par 4 pour obtenir une approximation de π :
+
+$$
+\pi \approx 4 \times \frac{n_{\text{cercle}}}{n}
+$$
+
+Ainsi, la multiplication par 4 s’explique directement par le fait que le carré a une aire égale à 4, alors que le cercle inscrit a une aire égale à π. La méthode repose sur cette proportion géométrique fondamentale entre deux aires connues.
+
