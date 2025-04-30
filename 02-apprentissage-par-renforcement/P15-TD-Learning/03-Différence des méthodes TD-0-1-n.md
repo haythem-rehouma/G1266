@@ -1,8 +1,8 @@
 
 
--------------
-# Annexe 1 - Pourquoi l'appelle-t-on TD(0) ?
--------------
+
+# 1 - Pourquoi l'appelle-t-on TD(0) ?
+
 
 
 Le **TD(0)** est appelé ainsi parce qu'il utilise une estimation à un seul pas pour mettre à jour la valeur d'un état. Le "0" indique qu'il ne regarde qu'un seul pas dans le futur (c'est-à-dire, la prochaine récompense et l'état suivant immédiat).
@@ -12,18 +12,19 @@ Le **TD(0)** est appelé ainsi parce qu'il utilise une estimation à un seul pas
 - **TD(0)** : Met à jour uniquement la valeur des états.
 - **Q-Learning** : Met à jour la valeur des paires état-action, ce qui permet de déterminer directement quelle action est optimale dans chaque état.
 
--------------
-# Annexe 2 - Différence avec l'Équation de Bellman
--------------
+<br/>
+
+#  2 - Différence avec l'Équation de Bellman
 
 - **Équation de Bellman** : Utilisée dans la programmation dynamique, elle calcule les valeurs optimales en utilisant des connaissances complètes de l'environnement (modèle).
 - **TD(0)** et **Q-Learning** : N'ont pas besoin de modèle complet. Ils apprennent à partir d'expériences directes et ajustent les valeurs au fur et à mesure.
 
 En résumé, TD(0) et Q-Learning sont des méthodes d'apprentissage par renforcement qui permettent d'apprendre sans connaître entièrement l'environnement, contrairement à l'équation de Bellman utilisée dans des contextes où le modèle est connu.
 
--------------
+<br/>
+
 # Annexe 3 - Différence des méthodes TD(0), TD(1), TD(2), et Q-Learning :
--------------
+
 
 
 ```
@@ -35,9 +36,9 @@ En résumé, TD(0) et Q-Learning sont des méthodes d'apprentissage par renforce
 | Q-Learning   | Off-policy | Paire état-action                          | Q(S_t, A_t) ← Q(S_t, A_t) + α [R_{t+1} + γ max Q(S_{t+1}, a) - Q(S_t, A_t)] | Efficace pour trouver une politique optimale       | Nécessite un plus grand espace de stockage |
 ```
 
+<br/>
 
-
-## Anenxe 4 - Résumé **TD(0)**  vs **TD(1)** vs **TD(2)** 
+# 4 - Résumé **TD(0)**  vs **TD(1)** vs **TD(2)** 
 
 - **TD(0)** : Met à jour la valeur d'un état immédiatement après chaque action, en utilisant la récompense immédiate et la valeur de l'état suivant.
 
@@ -48,9 +49,9 @@ En résumé, TD(0) et Q-Learning sont des méthodes d'apprentissage par renforce
 Chaque méthode a ses propres avantages et inconvénients en fonction du contexte d'application et des besoins spécifiques de l'environnement d'apprentissage.
 
 
+<br/>
 
-
-# Équations pour **TD(0)**, **TD(1)**, **TD(2)**, et ainsi de suite, ainsi que pour **Q-Learning**.
+# 5 - Équations pour **TD(0)**, **TD(1)**, **TD(2)**, et ainsi de suite, ainsi que pour **Q-Learning**.
 
 ### TD(0) — Mise à jour immédiate après chaque étape
 
@@ -97,16 +98,15 @@ $$
 - **$$Q(S_t, A_t)$$** : la valeur de la paire état-action **$$(S_t, A_t)$$**.
 - **$$\max_{a} Q(S_{t+1}, a)$$** : la meilleure valeur de l'action possible à partir de l'état suivant **$$S_{t+1}$$**.
 
-### Résumé
+<br/>
+
+# 6 - Résumé
 
 - **TD(0)** se met à jour immédiatement après une étape.
 - **TD(1)** se met à jour en prenant en compte une étape supplémentaire.
 - **TD(2)** prend en compte deux étapes.
 - **TD(n)** généralise à \(n\) étapes avant de faire une mise à jour.
 - **Q-Learning** optimise l'apprentissage pour des paires état-action, cherchant à maximiser la récompense en choisissant l'action optimale à chaque étape.
-
-
-
 
 
 
@@ -138,10 +138,10 @@ $$
 
 
 
+<br/>
 
-------------------------------
-# Annexe 5 - Résumé
-------------------------------
+# 7 - Conclusion
+
 
 
 ### TD(0) — Mise à jour immédiate après chaque étape
@@ -175,8 +175,9 @@ $$
 
 
 
+<br/>
 
-# Citations:
+# 8 - Citations:
 
 [1] https://mpatacchiola.github.io/blog/2017/01/29/dissecting-reinforcement-learning-3.html
 
