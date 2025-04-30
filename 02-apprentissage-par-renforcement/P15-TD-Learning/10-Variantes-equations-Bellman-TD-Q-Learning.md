@@ -8,7 +8,7 @@ Le TD-Learning (Temporal Difference Learning) et le Q-Learning sont des méthode
 
 L'équation de Bellman exprime la valeur d’un état comme la récompense immédiate attendue plus la valeur actualisée des futurs états, selon une politique $\pi$. Elle constitue la base théorique du TD-Learning et du Q-Learning.
 
-**Équation de Bellman (valeur d’un état sous politique $\pi$) :**
+Équation de Bellman (valeur d’un état sous politique $\pi$) 
 
 $$
 V^\pi(s) = \mathbb{E}_\pi \left[ R_{t+1} + \gamma \cdot V^\pi(S_{t+1}) \mid S_t = s \right]
