@@ -1,6 +1,6 @@
-# Tutoriel : Estimation de π avec la méthode Monte Carlo (Code Python)
+# 04 - Estimation de Pi : Implémentation Python simple (Partie 1)
 
-Dans ce tutoriel, nous allons implémenter un script Python pour estimer la valeur de π en utilisant la méthode Monte Carlo. Nous utiliserons les bibliothèques PyTorch pour générer des points aléatoires et matplotlib pour visualiser les résultats.
+Dans cet exercice, nous allons implémenter un script Python pour estimer la valeur de π en utilisant la méthode Monte Carlo. Nous utiliserons les bibliothèques PyTorch pour générer des points aléatoires et matplotlib pour visualiser les résultats.
 
 ## Étape 1 : Importation des bibliothèques
 
