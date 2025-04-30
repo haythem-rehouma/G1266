@@ -130,3 +130,35 @@ $$
 
 Ainsi, la multiplication par 4 s’explique directement par le fait que le carré a une aire égale à 4, alors que le cercle inscrit a une aire égale à π. La méthode repose sur cette proportion géométrique fondamentale entre deux aires connues.
 
+
+<br/>
+
+# Annexe 2 - Pourquoi c'est du Monte-Carlo
+
+
+
+Le nom **"Monte Carlo"** fait référence à la ville de Monte Carlo, célèbre pour ses casinos. Cette méthode porte ce nom car elle repose sur le **hasard** et l'**aléatoire**, tout comme les jeux de hasard.
+
+La méthode de Monte Carlo désigne une **classe de techniques numériques** qui utilisent des **expériences aléatoires répétées** pour approximer des résultats déterministes, c’est-à-dire des valeurs fixes comme des intégrales, des probabilités, ou ici, la constante π.
+
+Dans notre cas, au lieu de calculer π de manière analytique avec une formule mathématique exacte, on le **simule** en lançant des points aléatoires et en observant la proportion qui tombe dans une région géométrique (le cercle inscrit dans un carré).
+
+On résume cette logique par :
+
+$$
+\pi \approx 4 \times \frac{n_{\text{cercle}}}{n}
+$$
+
+où :
+
+- $n$ est le nombre total de points générés de manière aléatoire,
+- $n_{\text{cercle}}$ est le nombre de points dont la distance à l’origine est inférieure ou égale à 1.
+
+Cette proportion est une estimation **statistique** d’une valeur **géométrique connue**, basée uniquement sur des **tirages aléatoires**.
+
+La clé qui fait que cette méthode appartient à la famille Monte Carlo est la suivante :  
+on n’utilise **aucune formule analytique directe**, mais on obtient une estimation par des **simulations aléatoires répétées**, en s’appuyant sur la **loi des grands nombres**.
+
+Plus on génère de points, plus la fréquence observée $\frac{n_{\text{cercle}}}{n}$ converge vers la probabilité réelle $\frac{\pi}{4}$, ce qui améliore la précision de l’estimation.
+
+
