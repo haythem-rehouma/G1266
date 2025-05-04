@@ -1,10 +1,18 @@
 
 
 
+
+
 # 1 - Installation
 
 - Créer un environnement python 3.6.13 avac Anaconda (par exemple pong2)
 - Démarrer un environnement virtuel avec l'environnement crée
+
+### Références:
+
+- https://github.com/hrhouma/DQN-Atari-Pong
+- https://github.com/hrhouma/dqn-pong
+
 
 <br/>
 
@@ -31,8 +39,57 @@ python main_dqn_2.py
 ```
 
 
-- https://github.com/hrhouma/DQN-Atari-Pong
-- https://github.com/hrhouma/dqn-pong
+## requirements.txt
+
+```python
+ale-py==0.7.1
+atari-py==0.2.6
+AutoROM==0.4.2
+AutoROM.accept-rom-license==0.4.2
+certifi==2021.5.30
+charset-normalizer==2.0.12
+click==8.0.4
+cloudpickle @ file:///Users/ktietz/demo/mc3/conda-bld/cloudpickle_1629142150447/work
+colorama==0.4.5
+cycler @ file:///tmp/build/80754af9/cycler_1637851556182/work
+dataclasses==0.8
+future @ file:///D:/bld/future_1610147365175/work
+gym==0.21.0
+idna==3.10
+importlib-metadata==4.8.3
+importlib-resources==5.4.0
+kiwisolver @ file:///C:/ci/kiwisolver_1612282446297/work
+matplotlib==3.0.3
+mkl-fft==1.3.0
+mkl-random @ file:///C:/ci/mkl_random_1626186173747/work
+mkl-service==2.4.0
+numpy==1.19.5
+olefile @ file:///Users/ktietz/demo/mc3/conda-bld/olefile_1629805411829/work
+Pillow @ file:///C:/ci/pillow_1625670739152/work
+pyglet @ file:///D:/bld/pyglet_1618311616279/work
+pyparsing @ file:///tmp/build/80754af9/pyparsing_1635766073266/work
+PyQt5==5.12.3
+PyQt5_sip==4.19.18
+PyQtChart==5.12
+PyQtWebEngine==5.12.1
+python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+pytz==2021.3
+requests==2.27.1
+scipy @ file:///C:/bld/scipy_1604304921754/work
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+torch==1.8.1+cpu
+torchaudio==0.8.1
+torchvision==0.9.1+cpu
+tornado @ file:///C:/ci/tornado_1606942379977/work
+tqdm==4.64.1
+typing_extensions==4.1.1
+urllib3==1.26.20
+wincertstore==0.2
+zipp==3.6.0
+```
+
+
+
 
 
 # 2 - Fichier utils.py 
