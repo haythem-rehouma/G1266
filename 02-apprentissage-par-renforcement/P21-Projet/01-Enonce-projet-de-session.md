@@ -11,9 +11,11 @@ Dans le cadre de ce projet final, vous êtes invité·e·s à concevoir une solu
 
 L’objectif est de **concevoir, implémenter et analyser** une solution pratique illustrant le fonctionnement de votre algorithme choisi, ses avantages, ses limites, ainsi que les défis liés à son application.
 
----
 
-## **Livrables attendus**
+<br/>
+<br/>
+
+# **Livrables attendus**
 
 Vous devez remettre **trois éléments distincts** :
 
@@ -22,10 +24,10 @@ Vous devez remettre **trois éléments distincts** :
    * Fonctionnel, propre, bien structuré et commenté.
    * Organisé de manière à pouvoir être exécuté facilement (scripts principaux, dépendances, structure claire des fichiers).
 
-2. **Rapport écrit (ou présentation PowerPoint) accompagné d’un guide d’utilisation**
+2. **Rapport écrit (ou présentation PowerPoint)**
 
    * Expliquez votre démarche : choix de l’algorithme, description du problème résolu, architecture de la solution, résultats obtenus.
-   * Incluez une réflexion critique : performances observées, limites, améliorations possibles, alternatives envisageables.
+   * Incluez une réflexion critique : améliorations possibles, alternatives envisageables.
 
 3. **Guide d’utilisation**
 
@@ -35,7 +37,8 @@ Vous devez remettre **trois éléments distincts** :
      * Les étapes pour lancer l’expérience.
      * Toute information utile pour reproduire les résultats.
 
----
+<br/>
+<br/>
 
 ## **Grille d’évaluation**
 
@@ -45,8 +48,8 @@ Vous devez remettre **trois éléments distincts** :
 | **Implémentation technique**          | Qualité du code (structure, lisibilité, efficacité), bonne documentation, code fonctionnel            | /20     |
 | **Analyse et interprétation**         | Clarté de l’analyse des résultats, capacité à interpréter les performances, réflexion sur les limites | /15     |
 | **Qualité du rapport/ppt**            | Structure logique, clarté de l’expression, bonne maîtrise des concepts théoriques                     | /15     |
-| **Guide d’utilisation**               | Clarté, exhaustivité, accessibilité des instructions pour exécuter le projet                          | /10     |
-| **Total**                             |                                                                                                       | **/70** |
+| **Guide d’utilisation**               | Clarté, exhaustivité, accessibilité des instructions pour exécuter le projet                          | /40     |
+| **Total**                             |                                                                                                       | **/100** |
 
 
 
