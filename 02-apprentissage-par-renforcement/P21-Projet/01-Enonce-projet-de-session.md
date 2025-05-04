@@ -6,7 +6,10 @@ Chers étudiant.e.s,
 
 Pour ce projet final, vous aurez la liberté de choisir le concept d’apprentissage par renforcement qui vous inspire le plus parmi ceux abordés en cours : 
 
-### Q-Learning
+<ul>
+   <li> Q-Learning</li>
+</ul>
+### 
 ### Méthodes Monte Carlo, TD-Learning, ou tout autre algorithme pertinent. Vous devrez appliquer ce concept dans un projet pratique, en illustrant son fonctionnement et ses défis à travers une solution de votre conception.
 
 ### Livrables à fournir
