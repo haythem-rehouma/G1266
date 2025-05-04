@@ -1,4 +1,4 @@
-# **Projet de session – Apprentissage par Renforcement**
+# 01 - **Projet de session – Apprentissage par Renforcement**
 
 Chers étudiant·e·s,
 
@@ -15,7 +15,7 @@ L’objectif est de **concevoir, implémenter et analyser** une solution pratiqu
 <br/>
 <br/>
 
-# **Livrables attendus**
+# 02 - **Livrables attendus**
 
 Vous devez remettre **trois éléments distincts** :
 
@@ -40,7 +40,7 @@ Vous devez remettre **trois éléments distincts** :
 <br/>
 <br/>
 
-## **Grille d’évaluation**
+## 03 - **Grille d’évaluation**
 
 | Critère                               | Description                                                                                           | Points  |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------- |
