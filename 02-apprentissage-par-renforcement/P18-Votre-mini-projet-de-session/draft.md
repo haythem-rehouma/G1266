@@ -1,6 +1,14 @@
 
 
 
+# utils.py 
+
+```python
+
+
+```
+
+
 - https://github.com/hrhouma/DQN-Atari-Pong
 - https://github.com/hrhouma/dqn-pong
 
@@ -137,61 +145,14 @@ def make_env(env_name, shape=(84,84,1), repeat=4, clip_rewards=False,
 ```
 
 
+<br/>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# utils.py 
+# replay_memory.py
 
 ```python
 
 
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--------------------
-replay_memory.py
 
 import numpy as np
 
@@ -228,6 +189,55 @@ class ReplayBuffer(object):
         terminal = self.terminal_memory[batch]
 
         return states, actions, rewards, states_, terminal
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ----------------
