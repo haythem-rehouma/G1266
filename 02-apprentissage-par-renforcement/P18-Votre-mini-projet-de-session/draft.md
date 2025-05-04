@@ -1,7 +1,7 @@
 
 
 
-# utils.py 
+# 1 - utils.py 
 
 ```python
 
@@ -148,7 +148,7 @@ def make_env(env_name, shape=(84,84,1), repeat=4, clip_rewards=False,
 <br/>
 
 
-# replay_memory.py
+# 2 - replay_memory.py
 
 ```python
 
@@ -195,55 +195,12 @@ class ReplayBuffer(object):
 
 
 
+<br/>
 
 
+# 3 - preprocess_pseudocode
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-----------------
-
-preprocess_pseudocode
-
+```python
 
 Class RepeatActionAndMaxFrame
   derives from: gym.Wrapper
@@ -320,6 +277,11 @@ function make_env:
   env := StackFrames
 
   return: env
+
+
+```
+
+
 
 
 ------------------
