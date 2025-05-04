@@ -53,6 +53,8 @@ Vous devez remettre **trois éléments distincts** :
 
 
 
+<br/>
+<br/>
 
 ### Quelques conseils pour réussir
 
@@ -60,13 +62,18 @@ Vous devez remettre **trois éléments distincts** :
 - **Soignez vos livrables** : Une bonne organisation de votre code et une présentation claire feront la différence.
 - **Préparation à la présentation** : Familiarisez-vous bien avec le concept que vous avez choisi et préparez-vous à l’expliquer de manière simple et efficace.
 
-Enfin, n’oubliez pas : ce projet est une occasion de montrer votre créativité et votre compréhension de l’apprentissage par renforcement. Je suis là pour vous accompagner, donc n’hésitez pas à me poser vos questions tout au long de votre travail.
 
-Bonne chance, et faites preuve d’audace dans vos choix !
 
-------------------------
+
+<br/>
+<br/>
+
+
+
 # Annexe -  Liste des concepts d'apprentissage par renforcement que vous pouvez explorer pour votre projet :
-------------------------
+
+- Vous pouvez choisir l’un ou plusieurs de ces concepts pour votre projet, en fonction de l’approche que vous souhaitez explorer. 
+- Chacun de ces concepts est suffisamment riche pour développer un projet captivant et innovant
 
 1. **Interaction Agent-Environnement** : Modéliser la relation entre l'agent et son environnement pour apprendre par essai-erreur.
 2. **Exploration vs Exploitation** : Stratégies pour explorer de nouveaux choix ou exploiter les connaissances acquises (ε-greedy, Softmax).
@@ -103,5 +110,4 @@ Bonne chance, et faites preuve d’audace dans vos choix !
 17. **Fonctions de Coût et Approximation des Valeurs avec des Réseaux Neurones** :
     - Utilisation des réseaux pour gérer des espaces d’états et d’actions infinis.
 
-- Vous pouvez choisir l’un ou plusieurs de ces concepts pour votre projet, en fonction de l’approche que vous souhaitez explorer. 
-- Chacun de ces concepts est suffisamment riche pour développer un projet captivant et innovant.
+
