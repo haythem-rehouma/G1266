@@ -53,15 +53,6 @@ Vous devez remettre **trois éléments distincts** :
 
 
 
-<br/>
-<br/>
-
-### Quelques conseils pour réussir
-
-- **Clarté et justification des choix** : Expliquez clairement pourquoi vous avez choisi cet algorithme et ce problème spécifique. La clarté de votre raisonnement est tout aussi importante que les résultats obtenus.
-- **Soignez vos livrables** : Une bonne organisation de votre code et une présentation claire feront la différence.
-- **Préparation à la présentation** : Familiarisez-vous bien avec le concept que vous avez choisi et préparez-vous à l’expliquer de manière simple et efficace.
-
 
 
 
@@ -110,4 +101,13 @@ Vous devez remettre **trois éléments distincts** :
 17. **Fonctions de Coût et Approximation des Valeurs avec des Réseaux Neurones** :
     - Utilisation des réseaux pour gérer des espaces d’états et d’actions infinis.
 
+
+<br/>
+<br/>
+
+# 04 - Quelques conseils pour réussir
+
+- **Clarté et justification des choix** : Expliquez clairement pourquoi vous avez choisi cet algorithme et ce problème spécifique. La clarté de votre raisonnement est tout aussi importante que les résultats obtenus.
+- **Soignez vos livrables** : Une bonne organisation de votre code et une présentation claire feront la différence.
+- **Préparation à la présentation** : Familiarisez-vous bien avec le concept que vous avez choisi et préparez-vous à l’expliquer de manière simple et efficace.
 
