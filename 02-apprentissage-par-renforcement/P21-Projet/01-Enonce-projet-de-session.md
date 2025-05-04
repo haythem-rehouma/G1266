@@ -1,40 +1,55 @@
------------------------------
-# Projet de session: 
------------------------------
+# **Projet de session – Apprentissage par Renforcement**
 
-Chers étudiant.e.s,
+Chers étudiant·e·s,
 
-Pour ce projet final, vous aurez la liberté de choisir le concept d’apprentissage par renforcement qui vous inspire le plus parmi ceux abordés en cours : 
+Dans le cadre de ce projet final, vous êtes invité·e·s à concevoir une solution originale mettant en œuvre un concept d’**apprentissage par renforcement** abordé pendant la session. Vous avez la liberté de choisir le sujet qui vous inspire le plus parmi, par exemple :
 
-<ul>
-   <li> Q-Learning</li>
-</ul>
-### 
-### Méthodes Monte Carlo, TD-Learning, ou tout autre algorithme pertinent. Vous devrez appliquer ce concept dans un projet pratique, en illustrant son fonctionnement et ses défis à travers une solution de votre conception.
+* **Q-Learning**
+* **Méthodes Monte Carlo**
+* **TD-Learning**
+* Ou tout autre algorithme pertinent vu en cours
 
-### Livrables à fournir
+L’objectif est de **concevoir, implémenter et analyser** une solution pratique illustrant le fonctionnement de votre algorithme choisi, ses avantages, ses limites, ainsi que les défis liés à son application.
 
-Votre travail doit inclure :
+---
 
-1. **Code** : Un code propre, fonctionnel et bien documenté.
-2. **Rapport écrit** : Un document explicatif de votre démarche, décrivant en détail le choix de l’algorithme, la méthodologie appliquée, les résultats obtenus, ainsi que les potentielles améliorations ou alternatives.
-3. **Présentation PPT** : Un diaporama clair et pédagogique qui expliquera le concept, la mise en œuvre, les défis rencontrés et les conclusions.
-4. **Guide d’utilisation** : Un guide pour exécuter le code, avec des instructions claires sur les prérequis et la manière de l’utiliser.
+## **Livrables attendus**
 
-### Critères d’évaluation
+Vous devez remettre **trois éléments distincts** :
 
-Votre travail sera évalué selon la grille suivante :
+1. **Code source**
 
-| Critère                             | Description                                                                                       | Points |
-|-------------------------------------|---------------------------------------------------------------------------------------------------|--------|
-| **Choix et Explication du Concept** | Justification et compréhension du concept choisi, pertinence du choix pour l’application          | /10    |
-| **Implémentation Technique**        | Qualité du code (structure, lisibilité, organisation), documentation et fonctionnalité complète    | /20    |
-| **Analyse et Interprétation**       | Analyse des résultats, interprétation des performances, et réflexion sur les limites               | /15    |
-| **Rapport Écrit**                   | Structure et clarté, profondeur des explications, utilisation correcte des concepts               | /15    |
-| **Présentation PPT**                | Qualité de la pédagogie, structuration, et fluidité de la présentation                             | /15    |
-| **Guide d’Utilisation**             | Accessibilité et clarté des instructions d’utilisation du code                                    | /10    |
-| **Innovation et Créativité**        | Originalité de l’application choisie, complexité et pertinence du problème, créativité de l’approche | /15    |
-| **Total**                           |                                                                                                   | /100   |
+   * Fonctionnel, propre, bien structuré et commenté.
+   * Organisé de manière à pouvoir être exécuté facilement (scripts principaux, dépendances, structure claire des fichiers).
+
+2. **Rapport écrit (ou présentation PowerPoint) accompagné d’un guide d’utilisation**
+
+   * Expliquez votre démarche : choix de l’algorithme, description du problème résolu, architecture de la solution, résultats obtenus.
+   * Incluez une réflexion critique : performances observées, limites, améliorations possibles, alternatives envisageables.
+
+3. **Guide d’utilisation**
+
+   * Document concis et clair, contenant :
+
+     * Les prérequis pour l’exécution du code (environnement, dépendances, bibliothèques).
+     * Les étapes pour lancer l’expérience.
+     * Toute information utile pour reproduire les résultats.
+
+---
+
+## **Grille d’évaluation**
+
+| Critère                               | Description                                                                                           | Points  |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------- |
+| **Choix et justification du concept** | Pertinence de l’algorithme choisi, justification claire et compréhension démontrée                    | /10     |
+| **Implémentation technique**          | Qualité du code (structure, lisibilité, efficacité), bonne documentation, code fonctionnel            | /20     |
+| **Analyse et interprétation**         | Clarté de l’analyse des résultats, capacité à interpréter les performances, réflexion sur les limites | /15     |
+| **Qualité du rapport/ppt**            | Structure logique, clarté de l’expression, bonne maîtrise des concepts théoriques                     | /15     |
+| **Guide d’utilisation**               | Clarté, exhaustivité, accessibilité des instructions pour exécuter le projet                          | /10     |
+| **Total**                             |                                                                                                       | **/70** |
+
+
+
 
 ### Quelques conseils pour réussir
 
