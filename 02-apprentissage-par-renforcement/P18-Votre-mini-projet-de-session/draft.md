@@ -4,6 +4,8 @@
 # 1 - utils.py 
 
 ```python
+git clone https://github.com/hrhouma/dqn-pong
+cd dqn-pong
 
 
 ```
