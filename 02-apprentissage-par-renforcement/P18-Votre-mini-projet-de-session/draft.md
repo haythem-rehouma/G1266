@@ -1,11 +1,19 @@
 
 
 
-# 1 - utils.py 
+# 1 - Installation
+
+- Créer un environnement python 3.6.13 avac Anaconda (par exemple pong2)
+- Démarrer un environnement virtuel avec l'environnement crée
+![image](https://github.com/user-attachments/assets/16d0d46e-906e-48bb-b2aa-f670229ea789)
+
+- (pong2) C:\Users\rehou>python --version
+Python 3.6.13 :: Anaconda, Inc
 
 ```python
 git clone https://github.com/hrhouma/dqn-pong
 cd dqn-pong
+pip install -r requirements.txt
 
 
 ```
@@ -15,7 +23,7 @@ cd dqn-pong
 - https://github.com/hrhouma/dqn-pong
 
 
-# 1 - utils.py 
+# 2 - Fichier utils.py 
 
 ```python
 
@@ -150,7 +158,7 @@ def make_env(env_name, shape=(84,84,1), repeat=4, clip_rewards=False,
 <br/>
 
 
-# 2 - replay_memory.py
+# 3 - Fichier replay_memory.py
 
 ```python
 
@@ -200,7 +208,7 @@ class ReplayBuffer(object):
 <br/>
 
 
-# 3 - preprocess_pseudocode
+# 4 - Fichier preprocess_pseudocode
 
 ```python
 
@@ -288,7 +296,7 @@ function make_env:
 <br/>
 
 
-# 4 - main_dqn.py
+# 5 - Fichier main_dqn.py
 
 ```python
 import gym
@@ -363,7 +371,7 @@ if __name__ == '__main__':
 
 <br/> 
 
-# 5 - dqn_agent.py
+# 6 - Fichier dqn_agent.py
 
 ```python
 import numpy as np
@@ -472,7 +480,7 @@ class DQNAgent(object):
 
 <br/> 
 
-# 6 - deep_q_network.py
+# 7 - Fichier deep_q_network.py
 
 ```python
 import os
@@ -535,7 +543,7 @@ class DeepQNetwork(nn.Module):
 
 <br/>
 
-# 7 - tf2/agent
+# 8 - Fichier tf2/agent
 
 ```python
 import numpy as np
@@ -653,7 +661,7 @@ class Agent:
 
 <br/>
 
-# 8 - tf2/main
+# 9 - Fichier tf2/main
 
 ```python
 
@@ -731,7 +739,7 @@ if __name__ == '__main__':
 
 <br/>
 
-# 9 - tf2/network
+# 10 - Fichier tf2/network
 
 ```python
 import tensorflow.keras as keras
@@ -766,7 +774,7 @@ class DeepQNetwork(keras.Model):
 
 <br/>
 
-# 10 - tf2/replay_memory
+# 11 - Fichier tf2/replay_memory
 
 ```python
 import numpy as np
@@ -809,7 +817,7 @@ class ReplayBuffer(object):
 
 <br/>
 
-# 11- tf2/utils
+# 12 - Fichier tf2/utils
 
 ```python
 import collections
