@@ -5,7 +5,11 @@
 
 - Créer un environnement python 3.6.13 avac Anaconda (par exemple pong2)
 - Démarrer un environnement virtuel avec l'environnement crée
+
+<br/>
 ![image](https://github.com/user-attachments/assets/16d0d46e-906e-48bb-b2aa-f670229ea789)
+
+<br/>
 
 - (pong2) C:\Users\rehou>python --version
 Python 3.6.13 :: Anaconda, Inc
@@ -14,6 +18,10 @@ Python 3.6.13 :: Anaconda, Inc
 git clone https://github.com/hrhouma/dqn-pong
 cd dqn-pong
 pip install -r requirements.txt
+python test_env_1.py
+python test_env_2.py
+python main_dqn.py (SANS INTERFACE GRAPHIQUE)
+python main_dqn_2.py
 
 
 ```
