@@ -13,8 +13,10 @@
 
 <br/>
 
-- (pong2) C:\Users\rehou>python --version
+```python
+(pong2) C:\Users\rehou>python --version
 Python 3.6.13 :: Anaconda, Inc
+```
 
 ```python
 git clone https://github.com/hrhouma/dqn-pong
