@@ -1,4 +1,4 @@
-# 01 - **Projet de session – Apprentissage par Renforcement**
+# 01 - **Énoncé du projet de session – Apprentissage par Renforcement**
 
 Chers étudiant·e·s,
 
