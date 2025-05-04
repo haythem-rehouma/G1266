@@ -18,7 +18,7 @@ Python 3.6.13 :: Anaconda, Inc
 git clone https://github.com/hrhouma/dqn-pong
 cd dqn-pong
 pip install -r requirements.txt
-python test_env_1.py
+python test_env.py
 python test_env_2.py
 python main_dqn.py (SANS INTERFACE GRAPHIQUE)
 python main_dqn_2.py
