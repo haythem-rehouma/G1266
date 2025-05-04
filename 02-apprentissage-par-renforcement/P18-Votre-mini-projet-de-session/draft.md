@@ -283,11 +283,12 @@ function make_env:
 
 
 
+<br/>
 
-------------------
 
-main_dqn.py
+# 4 - main_dqn.py
 
+```python
 import gym
 import numpy as np
 from dqn_agent import DQNAgent
@@ -355,11 +356,13 @@ if __name__ == '__main__':
     x = [i+1 for i in range(len(scores))]
     plot_learning_curve(steps_array, scores, eps_history, figure_file)
 
+```
 
---------------
 
-dqn_agent.py
 
+# dqn_agent.py
+
+```python
 import numpy as np
 import torch as T
 from deep_q_network import DeepQNetwork
@@ -461,12 +464,13 @@ class DQNAgent(object):
 
         self.decrement_epsilon()
 
+```
 
 
--------------
 
-deep_q_network.py
+# deep_q_network.py
 
+```python
 import os
 import torch as T
 import torch.nn as nn
@@ -522,10 +526,12 @@ class DeepQNetwork(nn.Module):
         print('... loading checkpoint ...')
         self.load_state_dict(T.load(self.checkpoint_file))
 
+```
 
------------
-tf2/agent
 
+# tf2/agent
+
+```python
 import numpy as np
 import tensorflow as tf
 import tensorflow.keras as keras
@@ -636,10 +642,12 @@ class Agent:
 
         self.decrement_epsilon()
 
+```
 
------------
-tf2/main
 
+# tf2/main
+
+```python
 
 import numpy as np
 from agent import Agent
@@ -710,9 +718,12 @@ if __name__ == '__main__':
     x = [i+1 for i in range(len(scores))]
     plot_learning_curve(steps_array, scores, eps_history, figure_file)
 
------------
-tf2/network
+```
 
+
+# tf2/network
+
+```python
 import tensorflow.keras as keras
 from tensorflow.keras.layers import Conv2D, Dense, Flatten
 
@@ -740,10 +751,12 @@ class DeepQNetwork(keras.Model):
         x = self.fc2(x)
 
         return x
+```
 
------------
-tf2/replay_memory
 
+# tf2/replay_memory
+
+```python
 import numpy as np
 
 class ReplayBuffer(object):
@@ -779,10 +792,12 @@ class ReplayBuffer(object):
         terminal = self.terminal_memory[batch]
 
         return states, actions, rewards, states_, terminal
+```
 
------------
-tf2/utils
 
+# tf2/utils
+
+```python
 import collections
 import cv2
 import numpy as np
@@ -920,7 +935,7 @@ def make_env(env_name, shape=(84,84,1), repeat=4, clip_rewards=False,
 
     return env
 
-
+```
 
 
 
