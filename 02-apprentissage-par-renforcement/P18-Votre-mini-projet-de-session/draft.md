@@ -13,7 +13,7 @@
 - https://github.com/hrhouma/dqn-pong
 
 
-# utils.py 
+# 1 - utils.py 
 
 ```python
 
@@ -359,8 +359,9 @@ if __name__ == '__main__':
 ```
 
 
+<br/> 
 
-# dqn_agent.py
+# 5 - dqn_agent.py
 
 ```python
 import numpy as np
@@ -467,8 +468,9 @@ class DQNAgent(object):
 ```
 
 
+<br/> 
 
-# deep_q_network.py
+# 6 - deep_q_network.py
 
 ```python
 import os
@@ -529,7 +531,9 @@ class DeepQNetwork(nn.Module):
 ```
 
 
-# tf2/agent
+<br/>
+
+# 7 - tf2/agent
 
 ```python
 import numpy as np
@@ -645,7 +649,9 @@ class Agent:
 ```
 
 
-# tf2/main
+<br/>
+
+# 8 - tf2/main
 
 ```python
 
@@ -721,7 +727,9 @@ if __name__ == '__main__':
 ```
 
 
-# tf2/network
+<br/>
+
+# 9 - tf2/network
 
 ```python
 import tensorflow.keras as keras
@@ -754,7 +762,9 @@ class DeepQNetwork(keras.Model):
 ```
 
 
-# tf2/replay_memory
+<br/>
+
+# 10 - tf2/replay_memory
 
 ```python
 import numpy as np
@@ -795,7 +805,9 @@ class ReplayBuffer(object):
 ```
 
 
-# tf2/utils
+<br/>
+
+# 11- tf2/utils
 
 ```python
 import collections
