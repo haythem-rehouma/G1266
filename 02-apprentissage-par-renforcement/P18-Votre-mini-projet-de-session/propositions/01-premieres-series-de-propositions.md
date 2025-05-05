@@ -1,6 +1,6 @@
-# Autres projets
+# Premières séries de propoistions
 
-### **1. LunarLander (Facile à Moyen)**  
+# **1. LunarLander (Facile à Moyen)**  
 **Description :**  
 L'agent doit contrôler un module lunaire et le poser en toute sécurité sur une plateforme en ajustant sa poussée et son inclinaison.  
 
@@ -17,9 +17,9 @@ L'agent doit contrôler un module lunaire et le poser en toute sécurité sur un
 **Environnement :** `gym.make("LunarLander-v2")`  
 **Algorithme recommandé :** PPO ou DDPG  
 
----
+<br/>
 
-### **2. MountainCar (Facile)**  
+# **2. MountainCar (Facile)**  
 **Description :**  
 Un agent doit pousser une voiture hors d'une vallée en utilisant sa propre inertie pour atteindre le sommet.  
 
@@ -34,9 +34,9 @@ Un agent doit pousser une voiture hors d'une vallée en utilisant sa propre iner
 **Environnement :** `gym.make("MountainCar-v0")`  
 **Algorithme recommandé :** Q-Learning ou PPO  
 
----
+<br/>
 
-### **3. Flappy Bird (Moyen)**  
+# **3. Flappy Bird (Moyen)**  
 **Description :**  
 Créer un agent qui apprend à jouer au célèbre jeu Flappy Bird, où l'oiseau doit traverser des obstacles sans tomber ou heurter des tuyaux.  
 
@@ -51,9 +51,9 @@ Créer un agent qui apprend à jouer au célèbre jeu Flappy Bird, où l'oiseau 
 - Utiliser `gym-flappy-bird` ou recréer un environnement simple avec PyGame.  
 **Algorithme recommandé :** DQN avec CNN  
 
----
+<br/>
 
-### **4. Snake Game (Moyen)**  
+# **4. Snake Game (Moyen)**  
 **Description :**  
 Créer un agent capable de jouer au jeu Snake, en maximisant la longueur du serpent tout en évitant de se heurter à lui-même ou aux murs.  
 
@@ -68,9 +68,9 @@ Créer un agent capable de jouer au jeu Snake, en maximisant la longueur du serp
 - Créez un jeu Snake avec PyGame ou utilisez des packages existants.  
 **Algorithme recommandé :** DQN  
 
----
+<br/>
 
-### **5. Taxi-v3 (Facile)**  
+# **5. Taxi-v3 (Facile)**  
 **Description :**  
 Un taxi doit prendre et déposer des passagers à des emplacements désignés dans une grille, en minimisant le nombre de mouvements inutiles.  
 
@@ -85,9 +85,9 @@ Un taxi doit prendre et déposer des passagers à des emplacements désignés da
 **Environnement :** `gym.make("Taxi-v3")`  
 **Algorithme recommandé :** Q-Learning  
 
----
+<br/>
 
-### **6. FrozenLake (Facile)**  
+# **6. FrozenLake (Facile)**  
 **Description :**  
 Un agent doit traverser un lac gelé, représenté par une grille, sans tomber dans un trou. Les cases sont glissantes, ce qui ajoute un élément d'incertitude.  
 
@@ -101,9 +101,9 @@ Un agent doit traverser un lac gelé, représenté par une grille, sans tomber d
 **Environnement :** `gym.make("FrozenLake-v1")`  
 **Algorithme recommandé :** Q-Learning  
 
----
+<br/>
 
-### **7. Pong (Moyen à Avancé)**  
+# **7. Pong (Moyen à Avancé)**  
 **Description :**  
 Créer un agent qui apprend à jouer à Pong, un jeu classique où deux raquettes s'affrontent pour renvoyer une balle.  
 
@@ -118,9 +118,10 @@ Créer un agent qui apprend à jouer à Pong, un jeu classique où deux raquette
 **Environnement :** `gym.make("PongNoFrameskip-v4")`  
 **Algorithme recommandé :** DQN ou PPO  
 
----
 
-### **8. BipedalWalker (Avancé)**  
+<br/>
+
+# **8. BipedalWalker (Avancé)**  
 **Description :**  
 Un robot à deux jambes doit apprendre à marcher sur un terrain accidenté.  
 
@@ -135,11 +136,12 @@ Un robot à deux jambes doit apprendre à marcher sur un terrain accidenté.
 **Environnement :** `gym.make("BipedalWalker-v3")`  
 **Algorithme recommandé :** PPO ou DDPG  
 
----
+<br/>
 
-### **Projets personnalisés pour des étudiants débutants :**
+#**9. Projets sur mesure :**
 
-Si vous souhaitez proposer des projets sur mesure, voici quelques idées simples :  
+  
+
 1. **Labyrinthe (Maze Solver)** :  
    - Créez un labyrinthe où l'agent doit trouver le chemin vers la sortie.  
    - Introduisez des pièges ou des raccourcis.  
