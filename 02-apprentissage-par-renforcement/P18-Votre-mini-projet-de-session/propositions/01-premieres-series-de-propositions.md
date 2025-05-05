@@ -138,7 +138,7 @@ Un robot à deux jambes doit apprendre à marcher sur un terrain accidenté.
 
 <br/>
 
-#**9. Projets sur mesure :**
+# **9. Projets sur mesure (Facile):**
 
   
 
