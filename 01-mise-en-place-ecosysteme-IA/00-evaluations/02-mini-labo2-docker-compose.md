@@ -108,6 +108,6 @@ volumes:
 - **Fonctionnalité :** Vérifiez que l'application fonctionne correctement et peut se connecter à son service dépendant.
 
 #### Date limite : 
-Soumettez vos fichiers avant minuit, le mercredi 29 mai 2024.
+Soumettez vos fichiers avant minuit, le lundi 12 mai 2025.
 
 Bonne chance et n'hésitez pas à poser des questions si vous avez besoin d'aide !
