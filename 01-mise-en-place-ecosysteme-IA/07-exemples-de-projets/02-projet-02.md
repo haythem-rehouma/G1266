@@ -286,3 +286,91 @@ docker-compose run --rm \
 * **Portainer** affiche 4 conteneurs « running ».
 
 > Le projet est maintenant prêt pour vos expériences MLOps.
+
+
+# Annexe 1 - SÉRIE DE COMMANDES D’ESSAI — MLflow en ligne de commande
+
+> Objectif : lancer rapidement **18 runs** (6 ElasticNet, 6 Ridge, 6 Lasso) pour peupler l’interface MLflow et vérifier l’écriture dans PostgreSQL.
+> Chaque bloc peut être copié tel quel. Vous pouvez interrompre à tout moment : chaque commande est indépendante.
+
+---
+
+### 12.1 ElasticNet – balayage α / l1\_ratio
+
+```bash
+# α fixes (0.1 ; 0.5 ; 1.0) – l1_ratio fixes (0.2 ; 0.8)
+
+docker-compose run --rm -e MLFLOW_TRACKING_URI=http://mlflow:5000 mlflow \
+  python train_model.py --model elasticnet --alpha 0.1 --l1_ratio 0.2
+docker-compose run --rm -e MLFLOW_TRACKING_URI=http://mlflow:5000 mlflow \
+  python train_model.py --model elasticnet --alpha 0.1 --l1_ratio 0.8
+docker-compose run --rm -e MLFLOW_TRACKING_URI=http://mlflow:5000 mlflow \
+  python train_model.py --model elasticnet --alpha 0.5 --l1_ratio 0.2
+docker-compose run --rm -e MLFLOW_TRACKING_URI=http://mlflow:5000 mlflow \
+  python train_model.py --model elasticnet --alpha 0.5 --l1_ratio 0.8
+docker-compose run --rm -e MLFLOW_TRACKING_URI=http://mlflow:5000 mlflow \
+  python train_model.py --model elasticnet --alpha 1.0 --l1_ratio 0.2
+docker-compose run --rm -e MLFLOW_TRACKING_URI=http://mlflow:5000 mlflow \
+  python train_model.py --model elasticnet --alpha 1.0 --l1_ratio 0.8
+```
+
+---
+
+### 12.2 Ridge – balayage α
+
+```bash
+# α : 0.1 ; 0.3 ; 0.5 ; 0.7 ; 1.0 ; 2.0
+
+for a in 0.1 0.3 0.5 0.7 1.0 2.0; do
+  docker-compose run --rm -e MLFLOW_TRACKING_URI=http://mlflow:5000 mlflow \
+    python train_model.py --model ridge --alpha "$a"
+done
+```
+
+---
+
+### 12.3 Lasso – balayage α
+
+```bash
+# α : 0.05 ; 0.1 ; 0.3 ; 0.5 ; 0.8 ; 1.5
+
+for a in 0.05 0.1 0.3 0.5 0.8 1.5; do
+  docker-compose run --rm -e MLFLOW_TRACKING_URI=http://mlflow:5000 mlflow \
+    python train_model.py --model lasso --alpha "$a"
+done
+```
+
+---
+
+### 12.4 Boucle complète (18 runs enchaînés)
+
+Copiez‑collez le bloc suivant dans le terminal :
+
+```bash
+# --------- ElasticNet ----------
+for a in 0.1 0.5 1.0; do
+  for l1 in 0.2 0.8; do
+    docker-compose run --rm -e MLFLOW_TRACKING_URI=http://mlflow:5000 mlflow \
+      python train_model.py --model elasticnet --alpha "$a" --l1_ratio "$l1"
+  done
+done
+
+# --------- Ridge ----------
+for a in 0.1 0.3 0.5 0.7 1.0 2.0; do
+  docker-compose run --rm -e MLFLOW_TRACKING_URI=http://mlflow:5000 mlflow \
+    python train_model.py --model ridge --alpha "$a"
+done
+
+# --------- Lasso ----------
+for a in 0.05 0.1 0.3 0.5 0.8 1.5; do
+  docker-compose run --rm -e MLFLOW_TRACKING_URI=http://mlflow:5000 mlflow \
+    python train_model.py --model lasso --alpha "$a"
+done
+```
+
+Chaque run apparaîtra :
+
+* Dans **MLflow UI** (`http://IP_VM:5000`) → nouvel enregistrement avec hyperparamètres et métriques.
+* Dans **PostgreSQL** (`experiments`, `runs`, `metrics` via pgAdmin).
+
+Vous disposez ainsi d’un jeu de résultats suffisant pour comparer algorithmes et hyperparamètres.
