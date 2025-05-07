@@ -88,6 +88,8 @@ touch train_model.py                 # Script d'entraînement
 touch Dockerfile                     # Dockerfile pour builder l'image
 touch pgadmin_config_local.py        # Fix pgAdmin sessions
 touch docker-compose.yml             # Stack Docker complète
+apt install tree
+tree ../mlops-redwine
 ```
 
 ---
