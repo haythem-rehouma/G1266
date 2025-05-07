@@ -294,3 +294,31 @@ docker-compose restart pgadmin
 * Aucune erreur rouge n’apparaît dans les logs ✔️
 * Tu as bien compris où est stocké chaque modèle et métrique ✔️
 
+
+<br/>
+
+# Annexe 1 - Arborescence complète du projet `mlops-redwine/`
+
+
+### Étape 1
+```
+sudo -s
+apt install tree
+```
+
+### Étape 2
+
+```
+mlops-redwine/
+├── data/
+│   └── red-wine-quality.csv         ← Dataset téléchargé
+├── mlruns/                          ← Dossier local pour stocker les artefacts
+├── pgadmin_config_local.py          ← Fix sessions pgAdmin
+├── requirements.txt                 ← Dépendances Python
+├── Dockerfile                       ← Environnement d'entraînement
+├── train_model.py                   ← Script d'entraînement
+├── docker-compose.yml               ← Stack MLOps complète
+```
+
+
+
