@@ -1,6 +1,6 @@
 # GUIDE EXHAUSTIF – MLOps **Red Wine Quality**
 
-Docker + MLflow + PostgreSQL + pgAdmin + Portainer
+Docker + MLflow + PostgreSQL + pgAdmin + Portainer + CLI
 
 
 ---
