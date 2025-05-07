@@ -1,4 +1,4 @@
-# GUIDE EXHAUSTIF – MLOps **Red Wine Quality**
+# GUIDE – MLOps **Red Wine Quality**
 
 Docker + MLflow + PostgreSQL + pgAdmin + Portainer + **FastAPI** + **Streamlit**
 
@@ -8,8 +8,9 @@ Docker + MLflow + PostgreSQL + pgAdmin + Portainer + **FastAPI** + *
 > – Possibilité de lancer – depuis le navigateur – des entraînements MLflow avec hyper‑paramètres choisis à la volée, d’observer les runs en temps réel et de servir les prédictions.
 
 
+<br/>
 
-## 0. TABLE DES PORTS
+# 0. TABLE DES PORTS
 
 | Service    | Port conteneur | Port hôte | Description courte         |
 | ---------- | -------------- | --------- | -------------------------- |
@@ -24,7 +25,9 @@ Assurez‑vous d’ouvrir **5000, 8000, 8501, 8080, 9000** (TCP entrants
 
 
 
-## 1. FICHIERS À CRÉER / MODIFIER
+<br/>
+
+# 1. FICHIERS À CRÉER / MODIFIER
 
 ```
 mlops-redwine/
@@ -126,7 +129,7 @@ def predict(inp: PredictRequest):
     return {"quality_estimate": round(score, 2)}
 ```
 
----
+
 
 ### 1.5 `streamlit_app.py` — **Dashboard**
 
@@ -259,9 +262,9 @@ volumes:
   portainer_data:
 ```
 
+<br/>
 
-
-## 2. BUILD & LANCEMENT
+# 2. BUILD & LANCEMENT
 
 ```bash
 docker-compose pull
@@ -273,8 +276,9 @@ docker ps --format "table {{.Names}}\t{{.Ports}}"
 Vous devez voir **6 services** : `postgres`, `mlflow`, `api`, `streamlit`, `pgadmin`, `portainer`.
 
 
+<br/>
 
-## 3. UTILISATION
+# 3. UTILISATION
 
 | Étape | Action                                                                                                                                                                                                                                              |
 | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -299,9 +303,9 @@ curl -X POST http://<IP_VM>:8000/predict \
 
 Vous obtenez un JSON avec l’estimation de qualité.
 
+<br/>
 
-
-## 4. POINTS D’AMÉLIORATION (projets étudiants)
+# 4. POINTS D’AMÉLIORATION
 
 | Idée                         | Piste de mise en œuvre                                                                            |
 | ---------------------------- | ------------------------------------------------------------------------------------------------- |
@@ -311,8 +315,8 @@ Vous obtenez un JSON avec l’estimation de qualité.
 | Monitoring                   | Activer Prometheus + Grafana via Portainer pour CPU/RAM.                                          |
 | Tests unitaires              | Ajouter `pytest` + GitHub Actions CI/CD (build + docker push).                                    |
 
+<br/>
 
+#  5. Notre stack MLOps est prête !
 
-###  Votre stack MLOps “wow” est prête !
-
-Page Streamlit conviviale, API REST pour scripts externes, suivi MLflow complet, base PostgreSQL, pgAdmin, Portainer — le tout en **un seul `docker-compose up -d`**.
+- Page Streamlit conviviale, API REST pour scripts externes, suivi MLflow complet, base PostgreSQL, pgAdmin, Portainer — le tout en **un seul `docker-compose up -d`**.
