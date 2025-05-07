@@ -358,10 +358,110 @@ mlops-redwine/
 
 
 
+<br/>
+
+# Annexe 2 - Ports à ouvrir sur votre machine ou VM (Azure, AWS, etc.)
+
+Pour que les services soient accessibles depuis un navigateur web (local ou distant), les ports suivants doivent impérativement être **ouverts** dans :
+
+* Le pare-feu de votre système d'exploitation (Ubuntu, Windows, etc.)
+* Les règles de sécurité de votre fournisseur cloud (Azure NSG, AWS Security Groups, etc.)
+
+| Service           | Port interne (dans Docker) | Port externe (à exposer) | Nécessaire d’ouvrir               | Accès via navigateur |
+| ----------------- | -------------------------- | ------------------------ | --------------------------------- | -------------------- |
+| MLflow            | 5000                       | 5000                     | Oui                               | Oui                  |
+| pgAdmin           | 80                         | 8080                     | Oui                               | Oui                  |
+| PostgreSQL        | 5432                       | Facultatif               | Non (si usage interne uniquement) | Non                  |
+| Docker Remote API | 2375 / 2376                | Non                      | Non                               | Non                  |
+
+> Remarque : Le port PostgreSQL (5432) est uniquement requis si vous devez y accéder depuis un client externe (comme DBeaver). Pour ce projet, il est utilisé uniquement par MLflow dans le même réseau Docker, donc il n’est pas nécessaire de l’exposer à l’extérieur.
+
+---
+
+# Extrait à inclure dans `docker-compose.yml`
+
+Assurez-vous que les ports suivants sont bien mappés dans le fichier `docker-compose.yml` :
+
+```yaml
+services:
+
+  mlflow:
+    ports:
+      - "5000:5000"
+
+  pgadmin:
+    ports:
+      - "8080:80"
+
+  postgres:
+    ports:
+      - "5432:5432"  # peut être conservé mais pas nécessaire si pas d'accès externe
+```
+
+---
+
+# URLs à tester dans votre navigateur
+
+Selon que vous exécutez le projet **en local** ou sur une **machine virtuelle distante**, voici les adresses à tester :
+
+### Si le projet tourne localement
+
+| Service              | URL                                            | Authentification                                  |
+| -------------------- | ---------------------------------------------- | ------------------------------------------------- |
+| MLflow               | [http://localhost:5000](http://localhost:5000) | Aucune                                            |
+| pgAdmin              | [http://localhost:8080](http://localhost:8080) | Email : [admin@admin.com](mailto:admin@admin.com) |
+| Mot de passe : admin |                                                |                                                   |
+
+### Si le projet tourne sur une VM distante (ex. Azure, AWS)
+
+Admettons que l'adresse IP publique de votre VM soit `20.45.123.87` :
+
+| Service              | URL externe à tester                                 | Authentification                                  |
+| -------------------- | ---------------------------------------------------- | ------------------------------------------------- |
+| MLflow               | [http://20.45.123.87:5000](http://20.45.123.87:5000) | Aucune                                            |
+| pgAdmin              | [http://20.45.123.87:8080](http://20.45.123.87:8080) | Email : [admin@admin.com](mailto:admin@admin.com) |
+| Mot de passe : admin |                                                      |                                                   |
+
+> Si ces URL ne s’ouvrent pas, c’est probablement que les ports 5000 et 8080 ne sont pas encore autorisés dans la configuration de votre fournisseur cloud (NSG Azure ou Security Group AWS).
+
+---
+
+# Vérification des ports ouverts sur Linux
+
+Ouvrez un terminal et tapez :
+
+```bash
+sudo ss -tuln
+```
+
+Cela vous permettra de vérifier si vos services Docker écoutent bien sur les bons ports. Par exemple, vous devez voir des lignes comme :
+
+```
+LISTEN  0  128  0.0.0.0:5000  ...
+LISTEN  0  128  0.0.0.0:8080  ...
+```
+
+---
+
+# Vérification des règles de sécurité (exemple Azure)
+
+1. Connectez-vous à [https://portal.azure.com](https://portal.azure.com)
+2. Ouvrez la section de votre machine virtuelle.
+3. Allez dans l’onglet **Mise en réseau** ou **Network security group** (NSG).
+4. Cliquez sur **Ajouter une règle de port entrant**.
+5. Créez deux règles :
+
+   * **Nom** : `mlflow-rule` — Port : `5000` — Protocole : `TCP` — Action : `Autoriser`
+   * **Nom** : `pgadmin-rule` — Port : `8080` — Protocole : `TCP` — Action : `Autoriser`
+
+> Sans ces règles, les URL http\://\<ip\_publique>:5000 ou http\://\<ip\_publique>:8080 ne seront pas accessibles.
+
+
+
 
 <br/>
 
-# Annexe 2 - est-ce que j'ai besoin d'installer mlops sur la VM ?
+# Annexe 3 - est-ce que j'ai besoin d'installer mlops sur la VM ?
 
 
 Non, **ces commandes ne sont pas nécessaires pour installer ou lancer le projet MLOps basé sur Docker** avec MLflow, PostgreSQL, et pgAdmin.
