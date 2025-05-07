@@ -355,3 +355,63 @@ mlops-redwine/
 
 
 
+
+
+<br/>
+
+# Annexe 2 - est-ce que j'ai besoin d'installer mlops sur la VM ?
+
+
+Non, **ces commandes ne sont pas nécessaires pour installer ou lancer le projet MLOps basé sur Docker** avec MLflow, PostgreSQL, et pgAdmin.
+
+
+
+
+## ❌ Pourquoi ce script n’est **pas nécessaire** pour ce projet :
+
+Le projet que tu suis est **100 % basé sur Docker**. Cela signifie que :
+
+* **Toutes les dépendances Python sont gérées dans un conteneur Docker** (dans le `Dockerfile`).
+* **Tu ne travailles pas avec un environnement virtuel local** (`venv`) sur ta machine.
+* **Tu n’as pas besoin d’installer Python 3.9 manuellement**, car Docker télécharge une image Python (`python:3.11-slim`) et utilise un `pip install` isolé dans le conteneur.
+
+
+
+##  Cas où **ce script est utile** :
+
+Ce script est utile **seulement si** :
+
+1. Tu veux **installer manuellement Python 3.9 sur ton système Linux local** (hors Docker).
+2. Tu veux créer un **environnement virtuel local** (`venv`) avec Python 3.9 pour exécuter un projet **hors conteneur Docker**.
+3. Tu ne veux pas utiliser Docker du tout.
+
+
+
+##  Contenu du script analysé ligne par ligne :
+
+```bash
+rm -rf myenv                        # Supprime un ancien environnement virtuel
+sudo apt update                     # Met à jour les paquets
+sudo apt install software-properties-common -y
+sudo add-apt-repository ppa:deadsnakes/ppa -y
+sudo apt update
+sudo apt install python3.9 python3.9-venv python3.9-dev -y  # Installe Python 3.9 et les outils venv/dev
+python3.9 --version
+python3.9 -m venv myenv            # Crée un environnement virtuel
+source myenv/bin/activate          # Active l’environnement virtuel
+```
+
+
+##  Ce que tu dois faire dans ton projet actuel :
+
+Dans le contexte **du projet `mlops-redwine`**, tu dois simplement faire :
+
+```bash
+docker-compose up --build
+docker-compose run --rm mlflow
+```
+
+C’est tout.
+
+
+
