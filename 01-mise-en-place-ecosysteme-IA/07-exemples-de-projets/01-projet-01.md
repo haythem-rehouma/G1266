@@ -35,7 +35,7 @@ chmod +x install-docker.sh
 ./install-docker.sh
 #ou sh install-docker.sh
 docker version
-apt-install docker-compose
+sudo apt install docker-compose
 docker-compose version
 ```
 
