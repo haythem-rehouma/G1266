@@ -327,6 +327,79 @@ docker-compose restart pgadmin
 
 
 
+
+
+
+<br/>
+
+# Annexe 0 -  Modifications critiques à appliquer
+
+###  1. `requirements.txt` — Ajoute `psycopg2-binary`
+
+Remplace le contenu par :
+
+```txt
+pandas
+numpy
+scikit-learn
+mlflow
+psycopg2-binary
+```
+
+> Cela permet à MLflow de se connecter à PostgreSQL sans erreur.
+
+
+
+###  2. `pgadmin_config_local.py` — Remplace par une vraie config Python
+
+Corrige ce fichier avec ce contenu **valide** :
+
+```python
+import os
+
+DATA_DIR = "/var/lib/pgadmin"
+LOG_FILE = os.path.join(DATA_DIR, "pgadmin4.log")
+SQLITE_PATH = os.path.join(DATA_DIR, "pgadmin4.db")
+SESSION_DB_PATH = '/tmp/pgadmin_sessions'
+```
+
+> Cela évite l'erreur `[Errno 13] Permission denied`.
+
+---
+
+###  3. Rebuild complet du projet
+
+Après les modifications :
+
+```bash
+docker-compose down          # Arrêter proprement
+docker-compose build         # Rebuild avec psycopg2
+docker-compose up -d         # Relancer en mode détaché
+```
+
+
+
+##  Résumé des étapes MLOps
+
+```bash
+# 1. Crée la structure
+mkdir mlops-redwine && cd mlops-redwine
+mkdir data mlruns
+wget -O data/red-wine-quality.csv https://raw.githubusercontent.com/mlflow/mlflow/master/tests/datasets/winequality-red.csv
+touch requirements.txt train_model.py Dockerfile docker-compose.yml pgadmin_config_local.py
+
+# 2. Copie les bons contenus dans chaque fichier (inclus ci-dessus)
+
+# 3. Build et lance
+docker-compose up --build
+
+# 4. Lancement du script d’entraînement (3 modèles loggés dans MLflow)
+docker-compose run --rm mlflow
+```
+
+
+
+
 <br/>
 
 # Annexe 1 - Arborescence complète du projet `mlops-redwine/`
