@@ -181,10 +181,10 @@ docker-compose run --rm mlflow python train_model.py --model lasso --alpha 1.0
 
 Chaque ligne :
 
-✅ crée un run
-✅ enregistre les paramètres `alpha`, `l1_ratio`
-✅ sauvegarde les métriques dans PostgreSQL
-✅ stocke le modèle dans `/app/mlruns`
+ -  crée un run
+ -  enregistre les paramètres `alpha`, `l1_ratio`
+ -  sauvegarde les métriques dans PostgreSQL
+ -  stocke le modèle dans `/app/mlruns`
 
 
 
