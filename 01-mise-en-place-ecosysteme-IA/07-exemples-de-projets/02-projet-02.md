@@ -1,77 +1,80 @@
-# GUIDE DÉTAILLÉ – MLOps avec Docker + MLflow + PostgreSQL + pgAdmin + Portainer
+# GUIDE – MLOps **Red Wine**
 
-Document pensé pour des étudiants qui découvrent Linux et la ligne de commande.
-Chaque bloc “bash” doit être tapé exactement, sans supprimer ni ajouter d’options.
+Docker + MLflow + PostgreSQL + pgAdmin + Portainer
+
+> **Public visé** : étudiants débutants sur Linux.
+> **Règle d’or** : copier‑coller **chaque** commande exactement, sans supprimer ni ajouter d’options.
 
 
 
-## 0. PRÉ‑REQUIS
+# 0 . PRÉ‑REQUIS INDISPENSABLES
 
-* VM Ubuntu 22.04 (Azure, AWS, autre) disposant d’une IP publique.
-* Ports 5000, 8080, 9000 ouverts dans le pare‑feu cloud (NSG Azure ou Security Group AWS).
+| Élément            | Détails / Version minimale                                                    |
+| ------------------ | ----------------------------------------------------------------------------- |
+| **VM**             | Ubuntu 22.04 (Azure, AWS, GCP ou local) – IP publique obligatoire             |
+| **Ports ouverts**  | `5000` (MLflow) • `5432` (PostgreSQL) • `8080` (pgAdmin) • `9000` (Portainer) |
+| **RAM conseillée** | 4 Go (8 Go à l’aise)                                                          |
+| **Docker Engine**  | ≥ 20.10                                                                       |
+| **docker‑compose** | ≥ 1.29                                                                        |
 
-### 0.1 Vérifier que Docker et Docker Compose sont installés
+### 0.1 Vérification rapide
 
 ```bash
-docker --version
+docker --version        # doit afficher la version
 docker-compose --version
 ```
 
-Si l’une des deux lignes renvoie une erreur « command not found », installer :
+Si l’une des deux commandes renvoie « command not found » :
 
 ```bash
-sudo -s              # on passe root
+sudo -s                     # passer root
 git clone https://github.com/hrhouma/install-docker.git
 cd install-docker
 chmod +x install-docker.sh
-./install-docker.sh  # installe docker + compose v2
-exit                 # on sort du dépôt
+./install-docker.sh         # installe Docker + compose v2
+exit                        # revenir utilisateur normal
 ```
 
 
 
-## 1. CONNEXION À LA VM
+# 1 . CONNEXION SSH À LA VM
 
 ```bash
 ssh -i key.pem azureuser@IP_PUBLIQUE
 ```
 
-* `key.pem` : chemin vers votre clé privée.
-* `IP_PUBLIQUE` : adresse publique de la VM.
+* `key.pem` : chemin vers votre clé privée
+* `IP_PUBLIQUE` : adresse publique de la VM
 
----
 
-## 2. DOSSIER DE TRAVAIL
+
+# 2 . CRÉATION DU DOSSIER DE PROJET
 
 ```bash
-sudo -s                             # reste root pour éviter les sudo
+sudo -s                    # rester root ⇒ évite sudo répétés
 cd /home/azureuser
-mkdir mlops-redwine
+mkdir -p mlops-redwine
 cd mlops-redwine
-pwd                                  # doit afficher /home/azureuser/mlops-redwine
+pwd                        # → /home/azureuser/mlops-redwine
 ```
 
 
 
-## 3. ARBORESCENCE INITIALE
+# 3 . STRUCTURE INITIALe
 
 ```bash
-mkdir data          # jeu de données
-mkdir mlruns        # artefacts MLflow
-touch Dockerfile
-touch requirements.txt
-touch train_model.py
-touch docker-compose.yml
+mkdir data  mlruns
+touch Dockerfile requirements.txt train_model.py docker-compose.yml
 apt update && apt install -y tree
-tree
+tree -L 1
 ```
 
-Affichage attendu :
+Sortie attendue :
 
 ```
 .
-├── data
-├── mlruns
+├── data/
+├── mlruns/
 ├── Dockerfile
 ├── requirements.txt
 ├── train_model.py
@@ -80,30 +83,31 @@ Affichage attendu :
 
 
 
-## 4. TÉLÉCHARGER LE DATASET
+# 4 . DATASET – Red Wine Quality
 
 ```bash
 cd data
-wget -O red-wine-quality.csv https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv
-ls -lh red-wine-quality.csv   # ~82K
+wget -O red-wine-quality.csv \
+  https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv
+ls -lh red-wine-quality.csv   # ~82 Kio
 cd ..
 ```
 
 
 
-## 5. REMPLIR LES FICHIERS
+# 5 . CONTENU DES FICHIERS
 
-### 5.1 `requirements.txt`
+### 5.1 `requirements.txt`
 
 ```
 pandas
 numpy
 scikit-learn
 mlflow
-psycopg2-binary
+psycopg2-binary           # driver PostgreSQL
 ```
 
-### 5.2 `Dockerfile`
+### 5.2 `Dockerfile`
 
 ```dockerfile
 FROM python:3.11-slim
@@ -111,54 +115,60 @@ FROM python:3.11-slim
 WORKDIR /app
 COPY . .
 
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+RUN pip install --upgrade pip \
+ && pip install -r requirements.txt
 
-CMD ["bash"]            # le conteneur démarre sur un shell
+CMD ["bash"]    # conteneur démarre sur un shell
 ```
 
-### 5.3 `train_model.py`
+### 5.3 `train_model.py`
 
 ```python
-import argparse, os, sys, mlflow, mlflow.sklearn
+import argparse, os, sys
+import mlflow, mlflow.sklearn
 import pandas as pd, numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import ElasticNet, Ridge, Lasso
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
-# ---------- CLI ----------
-parser = argparse.ArgumentParser()
-parser.add_argument("--model",    required=True, choices=["elasticnet", "ridge", "lasso"])
-parser.add_argument("--alpha",    type=float, default=0.5)
-parser.add_argument("--l1_ratio", type=float, default=0.5)  # ignoré par Ridge/Lasso
-args = parser.parse_args()
+# ---------- 1. CLI ----------
+cli = argparse.ArgumentParser()
+cli.add_argument("--model",    required=True,
+                 choices=["elasticnet", "ridge", "lasso"])
+cli.add_argument("--alpha",    type=float, default=0.5)
+cli.add_argument("--l1_ratio", type=float, default=0.5)   # ignore par Ridge/Lasso
+args = cli.parse_args()
 
-# ---------- MLflow ----------
+# ---------- 2. MLflow ----------
 tracking_uri = os.getenv("MLFLOW_TRACKING_URI", "http://mlflow:5000")
 mlflow.set_tracking_uri(tracking_uri)
 mlflow.set_experiment(f"mlops_redwine_{args.model}")
 
-# ---------- Data ----------
+# ---------- 3. Données ----------
 csv_path = "data/red-wine-quality.csv"
 if not os.path.exists(csv_path):
-    sys.exit(f"Fichier introuvable : {csv_path}")
+    sys.exit(f"❌ Fichier introuvable : {csv_path}")
 df = pd.read_csv(csv_path)
 
 X = df.drop("quality", axis=1)
 y = df["quality"]
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.25, random_state=42
+)
 
-def calc_metrics(y_true, y_pred):
-    return dict(
-        rmse=np.sqrt(mean_squared_error(y_true, y_pred)),
-        mae =mean_absolute_error(y_true, y_pred),
-        r2  =r2_score(y_true, y_pred)
-    )
+def metrics(y_true, y_pred):
+    return {
+        "rmse": np.sqrt(mean_squared_error(y_true, y_pred)),
+        "mae":  mean_absolute_error(y_true, y_pred),
+        "r2":   r2_score(y_true, y_pred)
+    }
 
-# ---------- Entraînement ----------
+# ---------- 4. Entraînement ----------
 with mlflow.start_run():
     if args.model == "elasticnet":
-        model = ElasticNet(alpha=args.alpha, l1_ratio=args.l1_ratio, random_state=42)
+        model = ElasticNet(alpha=args.alpha,
+                           l1_ratio=args.l1_ratio,
+                           random_state=42)
         mlflow.log_param("l1_ratio", args.l1_ratio)
     elif args.model == "ridge":
         model = Ridge(alpha=args.alpha, random_state=42)
@@ -166,23 +176,23 @@ with mlflow.start_run():
         model = Lasso(alpha=args.alpha, random_state=42)
 
     mlflow.log_param("alpha", args.alpha)
-
     model.fit(X_train, y_train)
     preds = model.predict(X_test)
 
-    for k, v in calc_metrics(y_test, preds).items():
+    for k, v in metrics(y_test, preds).items():
         mlflow.log_metric(k, float(v))
 
     mlflow.sklearn.log_model(model, "model")
-    print(f"Terminé : {args.model}  alpha={args.alpha}")
+    print(f"✅ Terminé : {args.model}  alpha={args.alpha}")
 ```
 
-### 5.4 `docker-compose.yml`
+### 5.4 `docker-compose.yml`
 
 ```yaml
 version: "3.8"
 
 services:
+# --------------------- PostgreSQL ---------------------
   postgres:
     image: postgres:14
     restart: unless-stopped
@@ -195,11 +205,11 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+# --------------------- MLflow -------------------------
   mlflow:
     build: .
+    depends_on: [postgres]
     restart: unless-stopped
-    depends_on:
-      - postgres
     environment:
       MLFLOW_TRACKING_URI: http://mlflow:5000
     command: >
@@ -213,6 +223,7 @@ services:
       - ./mlruns:/app/mlruns
       - ./data:/app/data
 
+# --------------------- pgAdmin ------------------------
   pgadmin:
     image: dpage/pgadmin4
     restart: unless-stopped
@@ -224,6 +235,7 @@ services:
     volumes:
       - pgadmin_data:/var/lib/pgadmin
 
+# --------------------- Portainer ----------------------
   portainer:
     image: portainer/portainer-ce
     restart: unless-stopped
@@ -242,55 +254,51 @@ volumes:
 
 
 
-## 6. BUILD ET DÉMARRAGE
+# 6 . BUILD & LANCEMENT INITIAL
 
 ```bash
-docker-compose up -d --build
-docker ps        # vérifier les 4 conteneurs
+docker-compose pull              # récupère images officielles
+docker-compose build --no-cache mlflow   # construit l’image locale propre
+docker-compose up -d             # démarre les 4 services
+docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 ```
 
+Vous devez voir : `postgres`, `mlflow`, `pgadmin`, `portainer` « Up ».
 
 
-## 7. LANCER DES RUNS PARAMÉTRÉS
 
-Toujours ajouter `--network` et la variable d’environnement.
+# 7 . ENTRAÎNER UN MODÈLE
 
-### 7.1 Première exécution (ElasticNet)
+### 7.1 Méthode la plus simple (exec)
+
+```bash
+docker-compose exec mlflow \
+  python train_model.py --model elasticnet --alpha 0.3 --l1_ratio 0.2
+```
+
+### 7.2 Méthode conteneur éphémère (run)
 
 ```bash
 docker-compose run --rm \
-  --network mlops-redwine_default \
   -e MLFLOW_TRACKING_URI=http://mlflow:5000 \
-  mlflow python train_model.py --model elasticnet --alpha 0.3 --l1_ratio 0.2
-```
-
-### 7.2 Script de tests rapides
-
-```bash
-# ElasticNet
-docker-compose run --rm --network mlops-redwine_default -e MLFLOW_TRACKING_URI=http://mlflow:5000 mlflow python train_model.py --model elasticnet --alpha 0.2 --l1_ratio 0.2
-docker-compose run --rm --network mlops-redwine_default -e MLFLOW_TRACKING_URI=http://mlflow:5000 mlflow python train_model.py --model elasticnet --alpha 1.0 --l1_ratio 0.8
-# Ridge
-docker-compose run --rm --network mlops-redwine_default -e MLFLOW_TRACKING_URI=http://mlflow:5000 mlflow python train_model.py --model ridge --alpha 0.5
-# Lasso
-docker-compose run --rm --network mlops-redwine_default -e MLFLOW_TRACKING_URI=http://mlflow:5000 mlflow python train_model.py --model lasso --alpha 0.7
+  mlflow python train_model.py --model ridge --alpha 0.7
 ```
 
 
 
-## 8. ACCÈS AUX INTERFACES WEB
+# 8 . INTERFACES WEB
 
-| Service   | URL                          | Identifiants initiaux                             |
-| --------- | ---------------------------- | ------------------------------------------------- |
-| MLflow    | `http://IP_PUBLIQUE_VM:5000` | Aucun                                             |
-| pgAdmin   | `http://IP_PUBLIQUE_VM:8080` | Email : `admin@admin.com`, mot de passe : `admin` |
-| Portainer | `http://IP_PUBLIQUE_VM:9000` | Définir un mot de passe au premier accès          |
+| Service       | URL                                   | Authentification            |
+| ------------- | ------------------------------------- | --------------------------- |
+| **MLflow**    | `http://<IP_VM>:5000`                 | Aucune                      |
+| **pgAdmin**   | `http://<IP_VM>:8080`                 | `admin@admin.com` / `admin` |
+| **Portainer** | `http://<IP_VM>:9000` *premier accès* | Créez un mot de passe admin |
 
-### pgAdmin : ajouter le serveur PostgreSQL
+### Ajouter PostgreSQL dans pgAdmin
 
 1. `Add New Server`
-2. Onglet *General* → Name : `mlflow-db`
-3. Onglet *Connection* :
+2. **General → Name** : `mlflow-db`
+3. **Connection** :
 
 ```
 Host name/address : postgres
@@ -299,45 +307,37 @@ Username          : mlflow
 Password          : mlflow
 ```
 
-Valider. Dans `Databases > mlflow_db > Schemas > public`, vous verrez les tables : `experiments`, `runs`, `params`, `metrics`, `tags`, `latest_metrics`.
+
+
+# 9 . OUVERTURE DES PORTS (Azure NSG)
+
+| Port | Rôle                   | Règle NSG (TCP entrant)  |
+| ---- | ---------------------- | ------------------------ |
+| 5000 | MLflow                 | Autoriser                |
+| 8080 | pgAdmin                | Autoriser                |
+| 9000 | Portainer              | Autoriser                |
+| 5432 | (optionnel) Exposer DB | Laisser fermé (sécurité) |
 
 
 
-## 9. OUVERTURE DES PORTS DANS AZURE
+# 10 . MAINTENANCE & DÉPANNAGE
 
-| Port | Usage     | Action NSG            |
-| ---- | --------- | --------------------- |
-| 5000 | MLflow    | Autoriser TCP entrant |
-| 8080 | pgAdmin   | Autoriser TCP entrant |
-| 9000 | Portainer | Autoriser TCP entrant |
-
-Azure Portal → Ressource VM → Mise en réseau → “Ajouter une règle de port entrant”.
-
-
-
-## 10. COMMANDES DE MAINTENANCE
-
-```bash
-# Arrêter les conteneurs mais garder volumes
-docker-compose down
-
-# Arrêter et supprimer les volumes (réinitialise PostgreSQL)
-docker-compose down -v
-
-# Logs live d’un conteneur
-docker logs -f nom_conteneur
-```
+| Action                             | Commande                            |
+| ---------------------------------- | ----------------------------------- |
+| Arrêt propre (volumes conservés)   | `docker-compose down`               |
+| Réinitialisation complète          | `docker-compose down -v`            |
+| Logs d’un service                  | `docker-compose logs -f mlflow`     |
+| Accès shell conteneur              | `docker-compose exec mlflow bash`   |
+| Nettoyage images/volumes orphelins | `docker system prune -af --volumes` |
 
 
 
-## 11. CONTRÔLES FINAUX
+# 11 . CONTRÔLES FINAUX
 
-* Dataset présent : `/home/azureuser/mlops-redwine/data/red-wine-quality.csv`
-* Artefacts locaux : `/home/azureuser/mlops-redwine/mlruns`
-* Dans pgAdmin : tables MLflow remplies, lignes ajoutées après chaque run.
-* Portainer affiche les conteneurs et leur consommation de ressources.
-* Interface MLflow montre :
+* **Dataset** : `/home/azureuser/mlops-redwine/data/red-wine-quality.csv`
+* **Artefacts** : répertoire `mlruns/` plein de sous‑dossiers d’expériences
+* **pgAdmin** : tables `experiments`, `runs`, `metrics` peuplées
+* **MLflow UI** : expériences `mlops_redwine_*` et runs visibles
+* **Portainer** : quatre conteneurs en exécution, stats CPU/RAM OK
 
-  * Expériences : `mlops_redwine_elasticnet`, `mlops_redwine_ridge`, `mlops_redwine_lasso`.
-  * Runs avec paramètres et métriques correspondants.
-
+- Le projet est maintenant opérationnel, prêt pour vos expériences MLOps !
