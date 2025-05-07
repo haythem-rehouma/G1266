@@ -1,120 +1,160 @@
-# Projet 1 MLOps  – Docker + MLflow + PostgreSQL + pgAdmin + Modèle ML
+# PROJET 1 — MLOps avec Docker, MLflow, PostgreSQL et pgAdmin
 
-## Objectif :
+## Objectifs pédagogiques :
 
-À la fin de ce tutoriel, tu dois :
+À la fin de ce projet, vous serez capable de :
 
-* Lancer un environnement complet avec MLflow et pgAdmin
-* Enregistrer automatiquement 3 entraînements de modèles avec MLflow
-* Comprendre comment exécuter et observer les résultats dans une vraie interface
-* Résoudre les erreurs d’installation 
+1. Mettre en place un environnement MLOps local avec Docker.
+2. Lancer un serveur MLflow connecté à PostgreSQL.
+3. Visualiser les exécutions dans MLflow.
+4. Gérer la base de données via pgAdmin.
+5. Automatiser l'entraînement de 3 modèles avec un script Python.
+6. Identifier les erreurs d’installation et les résoudre.
 
+---
 
-# AVANT DE COMMENCER – EXIGENCES TECHNIQUES
+## AVANT DE COMMENCER – PRÉREQUIS TECHNIQUES
 
-Tu DOIS avoir :
+Vous devez absolument avoir les logiciels suivants installés :
 
-* Docker et Docker Compose installés
+* Docker
+* Docker Compose
 
-> Tape dans ton terminal (PowerShell, Ubuntu ou Terminal Mac) :
+### Vérification de l’installation :
+
+Dans un terminal, tapez :
 
 ```bash
 docker --version
 docker-compose --version
 ```
 
-Si ça ne fonctionne pas, **demande de l’aide immédiatement**. Ce projet ne peut pas être lancé sans Docker.
+Si ces commandes ne fonctionnent pas, installez Docker avec ce script :
 
 ```bash
-su
-#ou sudo -s
+su         # ou sudo -s
 pwd
 git clone https://github.com/hrhouma/install-docker.git
 cd install-docker/
 chmod +x install-docker.sh
 ./install-docker.sh
-#ou sh install-docker.sh
+```
+
+Puis vérifiez à nouveau :
+
+```bash
 docker version
-sudo apt install docker-compose
 docker-compose version
 ```
 
-# 1️ CRÉATION DU DOSSIER DU PROJET
+---
 
-> Ouvre ton terminal et tape exactement ceci :
+## STRUCTURE DU PROJET
+
+Le projet s'appelle **mlops-redwine**. Voici les dossiers/fichiers finaux que vous devez obtenir :
+
+```plaintext
+mlops-redwine/
+├── data/
+│   └── red-wine-quality.csv         # Fichier CSV avec les données
+├── mlruns/                          # Artefacts générés par MLflow
+├── pgadmin_config_local.py          # Fixe les sessions pgAdmin
+├── requirements.txt                 # Dépendances Python
+├── Dockerfile                       # Dockerfile pour l'environnement Python
+├── train_model.py                   # Script d'entraînement
+├── docker-compose.yml               # Orchestrateur Docker
+```
+
+---
+
+## PHASE 1 — CRÉATION DES DOSSIERS ET STRUCTURE
+
+Tapez ces commandes **une à une**, sans les modifier :
 
 ```bash
+sudo -s                              # Passe en superutilisateur
 mkdir mlops-redwine
 cd mlops-redwine
-mkdir data
+
+mkdir data                           # Contiendra le fichier CSV
+cd data
+wget -O red-wine-quality.csv https://raw.githubusercontent.com/mlflow/mlflow/master/tests/datasets/winequality-red.csv
+cd ..                                # Retour à la racine du projet
+
+mkdir mlruns                         # Contiendra les artefacts MLflow
+
+touch requirements.txt               # Dépendances Python
+touch train_model.py                 # Script d'entraînement
+touch Dockerfile                     # Dockerfile pour builder l'image
+touch pgadmin_config_local.py        # Fix pgAdmin sessions
+touch docker-compose.yml             # Stack Docker complète
 ```
 
+---
 
+## PHASE 2 — CONTENU DES FICHIERS (à copier dans chaque fichier)
 
-# 2 TÉLÉCHARGEMENT DU DATASET RED WINE
+### Fichier : `requirements.txt`
 
-> Toujours dans ton terminal :
-
-```bash
-wget -O data/red-wine-quality.csv https://raw.githubusercontent.com/mlflow/mlflow/master/tests/datasets/winequality-red.csv
-```
-
-
-
-# 3 CRÉATION DES FICHIERS DU PROJET
-
-> Tu vas créer **5 fichiers** obligatoires.
-
-
-
-### 3.1 `requirements.txt` (liste des dépendances)
-
-> Crée le fichier avec la commande suivante :
-
-```bash
-nano requirements.txt
-```
-
-> Colle exactement ceci :
-
-```
+```txt
 pandas
 numpy
 scikit-learn
 mlflow
 ```
 
-> Enregistre :
+---
 
-* CTRL + O (valide avec Entrée)
-* CTRL + X (pour quitter)
+### Fichier : `train_model.py`
 
+> Voici le code minimal pour entraîner automatiquement 3 modèles :
 
+```python
+import pandas as pd
+import numpy as np
+import mlflow
+import mlflow.sklearn
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import ElasticNet
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
-### 3.2 `train_model.py` (code d'entraînement ML)
+data = pd.read_csv("data/red-wine-quality.csv")
 
-> Crée le fichier :
+X = data.drop(["quality"], axis=1)
+y = data["quality"]
 
-```bash
-nano train_model.py
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+def eval_metrics(actual, pred):
+    rmse = np.sqrt(mean_squared_error(actual, pred))
+    mae = mean_absolute_error(actual, pred)
+    r2 = r2_score(actual, pred)
+    return rmse, mae, r2
+
+for i in range(3):
+    alpha = 0.4 + i * 0.1
+    l1_ratio = 0.5 + i * 0.1
+
+    with mlflow.start_run():
+        model = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
+        model.fit(X_train, y_train)
+        predicted = model.predict(X_test)
+
+        rmse, mae, r2 = eval_metrics(y_test, predicted)
+
+        mlflow.log_param("alpha", alpha)
+        mlflow.log_param("l1_ratio", l1_ratio)
+        mlflow.log_metric("rmse", rmse)
+        mlflow.log_metric("mae", mae)
+        mlflow.log_metric("r2", r2)
+        mlflow.sklearn.log_model(model, "model")
 ```
 
-> Colle [le code complet ici](https://chat.openai.com/share/212f8ac5-99a7-4ad0-87a1-b291ed8a1e92) (ou celui de la réponse précédente).
-> 💡 **Pas besoin de modifier l’IP**, le script utilisera automatiquement `http://mlflow:5000` (nom du conteneur Docker).
+---
 
-> Enregistre et quitte.
+### Fichier : `Dockerfile`
 
-
-
-### 3.3 `Dockerfile`
-
-```bash
-nano Dockerfile
-```
-
-Colle :
-
-```Dockerfile
+```dockerfile
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -125,29 +165,17 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 CMD ["python", "train_model.py"]
 ```
 
+---
 
-
-### 3.4 `pgadmin_config_local.py`
-
-```bash
-nano pgadmin_config_local.py
-```
-
-Colle :
+### Fichier : `pgadmin_config_local.py`
 
 ```python
 SESSION_DB_PATH = '/tmp/pgadmin_sessions'
 ```
 
+---
 
-
-### 3.5 `docker-compose.yml`
-
-```bash
-nano docker-compose.yml
-```
-
-Colle :
+### Fichier : `docker-compose.yml`
 
 ```yaml
 version: "3.8"
@@ -197,102 +225,104 @@ volumes:
   pgadmin_data:
 ```
 
+---
 
+## PHASE 3 — LANCEMENT DU PROJET
 
-# 4️ LANCEMENT DU PROJET
-
-> Tu vas maintenant tout démarrer :
+Dans le terminal :
 
 ```bash
 docker-compose up --build
 ```
 
-Attends jusqu’à ce que tout soit bien démarré. Laisse tourner dans un onglet.
+Attendez que les 3 services soient bien démarrés : `postgres`, `mlflow`, `pgadmin`.
 
+---
 
+## PHASE 4 — ACCÈS AUX INTERFACES
 
-# 5️ OUVERTURE DES INTERFACES
+### Interface MLflow :
 
-### ➤ MLflow :
+Ouvrir dans un navigateur :
 
-[http://localhost:5000](http://localhost:5000)
+```
+http://localhost:5000
+```
 
-### ➤ pgAdmin :
+---
 
-[http://localhost:8080](http://localhost:8080)
+### Interface pgAdmin :
+
+Ouvrir dans un navigateur :
+
+```
+http://localhost:8080
+```
+
+**Identifiants :**
 
 * Email : `admin@admin.com`
 * Mot de passe : `admin`
 
-Dans pgAdmin :
+**Ajout manuel de la base PostgreSQL dans pgAdmin :**
 
-1. Clique **"Add New Server"**
-2. Onglet *General* → Nom : `mlflow-db`
-3. Onglet *Connection* →
+1. Cliquez sur "Add New Server"
+2. Onglet "General" : Nom du serveur : `mlflow-db`
+3. Onglet "Connection" :
 
-   * Host: `postgres`
-   * Username: `mlflow`
-   * Password: `mlflow`
-   * Save
+   * Host : `postgres`
+   * Username : `mlflow`
+   * Password : `mlflow`
+4. Cliquez sur "Save"
 
+---
 
+## PHASE 5 — LANCEMENT DU SCRIPT D’ENTRAÎNEMENT
 
-# 6️ LANCEMENT DU SCRIPT D’ENTRAÎNEMENT
-
-> Dans un **nouveau terminal**, tape :
+Dans un nouveau terminal, dans le dossier du projet :
 
 ```bash
 docker-compose run --rm mlflow
 ```
 
-Tu verras les résultats des 3 exécutions.
-**Va dans MLflow** : tu verras les 3 *runs* loggués avec les métriques.
+Retournez sur l’interface MLflow : vous verrez 3 exécutions apparaître.
 
+---
 
-# 7️ (OPTIONNEL) CORRIGER L’ERREUR `pgadmin/sessions`
+## PHASE 6 — RÉPARATION DES ERREURS (pgAdmin sessions)
 
-Si tu vois cette erreur dans les logs de pgAdmin :
+Si vous voyez cette erreur :
 
 ```
 [Errno 13] Permission denied: '/var/lib/pgadmin/sessions'
 ```
 
-> Tu dois entrer dans le serveur et corriger les permissions.
-
-### Étapes **exhaustives** :
+Exécutez ces commandes dans l’ordre :
 
 ```bash
-# 1. Entrer dans le conteneur pgAdmin
 docker exec -it $(docker ps -qf "ancestor=dpage/pgadmin4") bash
-
-# 2. Passer root si nécessaire
 apt update && apt install sudo -y
 sudo -s
-
-# 3. Créer le bon dossier
 mkdir -p /var/lib/pgadmin/sessions
 chown -R pgadmin:pgadmin /var/lib/pgadmin/sessions
 chmod 700 /var/lib/pgadmin/sessions
-
-# 4. Quitter
 exit
 exit
-```
-
-Redémarre ensuite :
-
-```bash
 docker-compose restart pgadmin
 ```
 
+---
+
+## PHASE 7 — VÉRIFICATION FINALE
+
+### Vous avez réussi si :
+
+* MLflow s’ouvre sans erreur sur `http://localhost:5000`
+* Vous voyez les 3 runs avec les métriques
+* pgAdmin fonctionne sur `http://localhost:8080`
+* Vous accédez à la base `mlflow_db` via pgAdmin
 
 
-# TU AS RÉUSSI SI...
-
-* MLflow est accessible et montre 3 runs ✔️
-* pgAdmin fonctionne et affiche `mlflow_db` ✔️
-* Aucune erreur rouge n’apparaît dans les logs ✔️
-* Tu as bien compris où est stocké chaque modèle et métrique ✔️
 
 
 <br/>
@@ -301,9 +331,12 @@ docker-compose restart pgadmin
 
 
 ### Étape 1
+
 ```
 sudo -s
 apt install tree
+mkdir mlops-redwine
+tree mlops-redwine
 ```
 
 ### Étape 2
