@@ -43,7 +43,9 @@ chmod +x install-docker.sh
 Puis vérifiez à nouveau :
 
 ```bash
+sudo -s
 docker version
+apt install docker-compose
 docker-compose version
 ```
 
