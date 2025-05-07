@@ -374,3 +374,58 @@ Chaque run apparaîtra :
 * Dans **PostgreSQL** (`experiments`, `runs`, `metrics` via pgAdmin).
 
 Vous disposez ainsi d’un jeu de résultats suffisant pour comparer algorithmes et hyperparamètres.
+
+
+
+
+
+
+
+
+<br/>
+<br/>
+
+# Annexe 1
+
+```git
+root@dockerVM:/home/azureuser/proj2/proj2/projetsmlops-2# docker-compose run --rm \
+  -e MLFLOW_TRACKING_URI=http://mlflow:5000 \
+  mlflow python train_model.py --model ridge --alpha 0.7
+Creating projetsmlops-2_mlflow_run ... done
+2025/05/07 20:58:35 INFO mlflow.tracking.fluent: Experiment with name 'mlops_redwine_ridge' does not exist. Creating a new experiment.
+2025/05/07 20:58:35 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+
+2025/05/07 20:58:40 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.
+Terminé : ridge  alpha=0.7
+
+```
+
+- Il n’y a **pas d’erreur bloquante** : le script s’est exécuté jusqu’au bout et a logué le modèle.
+- Les lignes que vous voyez sont de simples **warnings**.
+
+| Message                                                                                 | Signification                                                                              | Impact                                                                                        | Comment corriger ou ignorer                                                                                        |
+| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `Experiment with name 'mlops_redwine_ridge' does not exist. Creating a new experiment.` | MLflow crée automatiquement l’expérience car elle n’existait pas encore.                   | Aucun problème.                                                                               | Normal au premier run d’un nouveau modèle.                                                                         |
+| `Failed to import Git … Git SHA is not available.`                                      | Le conteneur n’a pas le binaire `git`; MLflow ne peut donc pas enregistrer l’ID du commit. | Aucune incidence sur l’entraînement ou les métriques.                                         | *Optionnel* : ajouter `git` au conteneur :<br>`RUN apt-get update && apt-get install -y git` dans le `Dockerfile`. |
+| `Model logged without a signature and input example.`                                   | Vous n’avez pas fourni d’`input_example` à `mlflow.sklearn.log_model`.                     | Le modèle est bien enregistré, mais MLflow ne connaît pas automatiquement le schéma d’entrée. | *Optionnel* : ajouter :<br>`mlflow.sklearn.log_model(model, "model", input_example=X_test.head(1))`                |
+
+### Conclusion
+
+Le run est réussi ; les avertissements sont purement informatifs.
+Si vous n’avez pas besoin de la trace Git ni de la signature, vous pouvez les ignorer en toute sécurité.
+
