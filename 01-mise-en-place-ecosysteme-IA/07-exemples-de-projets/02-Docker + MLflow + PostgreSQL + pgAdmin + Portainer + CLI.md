@@ -266,6 +266,10 @@ docker-compose run --rm \
 
 *Dans pgAdmin, ajoutez un serveur PostgreSQL : host `postgres`, port `5432`, user `mlflow`, pwd `mlflow`.*
 
+
+```bash
+docker-compose restart portainer # en cas d'erreurs
+```
 ---
 
 ## 8. MAINTENANCE
