@@ -436,3 +436,135 @@ Terminé : ridge  alpha=0.7
 Le run est réussi ; les avertissements sont purement informatifs.
 Si vous n’avez pas besoin de la trace Git ni de la signature, vous pouvez les ignorer en toute sécurité.
 
+
+
+<br/>
+<br/>
+
+
+## Annexe 2 - Vérification de l'écriture dans PostgreSQL via pgAdmin ou psql
+
+> Objectif : vérifier que les expériences MLflow sont bien enregistrées dans PostgreSQL (`mlflow_db`) – tables `experiments`, `runs`, `params`, `metrics`, etc.
+
+
+
+### Annexe 2.1 Via pgAdmin
+
+1. Ouvrez `http://<IP_VM>:8080` (pgAdmin).
+
+2. Identifiants :
+
+   * Email : `admin@admin.com`
+   * Mot de passe : `admin`
+
+3. **Ajouter un serveur PostgreSQL** :
+
+   * **Name** : `mlflow_postgres`
+   * **Host** : `postgres`
+   * **Port** : `5432`
+   * **Database** : `**mlflow_db**`
+   * **Username** : `mlflow`
+   * **Password** : `mlflow`
+
+
+![image](https://github.com/user-attachments/assets/7706c289-fd32-4a4c-a0ed-5fd0e0c6e0c7)
+
+
+![image](https://github.com/user-attachments/assets/e0218115-a9ac-44fc-b513-3ccde27fad07)
+
+
+
+4. Naviguez vers :
+
+   ```
+   Servers > mlflow_postgres > Databases > mlflow_db > Schemas > public > Tables
+   ```
+
+5. Vous devriez voir les **tables MLflow** :
+
+   * `experiments`
+   * `runs`
+   * `params`
+   * `metrics`
+   * `tags`
+   * `latest_metrics`
+   * `model_versions`
+   * etc.
+
+
+
+### Annexe 2.2 Via ligne de commande psql (dans le conteneur PostgreSQL)
+
+```bash
+docker-compose exec postgres psql -U mlflow -d mlflow_db
+```
+
+Vous êtes maintenant dans l’interface `psql`.
+
+> Voici les commandes utiles à exécuter dans ce shell :
+
+####  Lister les tables
+
+```sql
+\dt
+```
+
+####  Voir les 5 dernières expériences
+
+```sql
+SELECT experiment_id, name, artifact_location, lifecycle_stage 
+FROM experiments 
+ORDER BY experiment_id DESC 
+LIMIT 5;
+```
+
+#### Voir les derniers runs enregistrés
+
+```sql
+SELECT run_uuid, experiment_id, status, start_time 
+FROM runs 
+ORDER BY start_time DESC 
+LIMIT 5;
+```
+
+####  Voir les paramètres d’un run
+
+```sql
+SELECT key, value 
+FROM params 
+WHERE run_uuid = '<RUN_ID>';
+```
+
+####  Voir les métriques d’un run
+
+```sql
+SELECT key, value, timestamp 
+FROM metrics 
+WHERE run_uuid = '<RUN_ID>';
+```
+
+####  Quitter `psql`
+
+```sql
+\q
+```
+
+
+
+###  Exemple pratique
+
+Pour retrouver tous les runs du modèle Ridge :
+
+```sql
+SELECT run_uuid FROM runs WHERE experiment_id IN (
+  SELECT experiment_id FROM experiments WHERE name LIKE 'mlops_redwine_ridge'
+);
+```
+
+Puis, pour inspecter un run :
+
+```sql
+SELECT key, value FROM metrics WHERE run_uuid = '...';
+```
+
+
