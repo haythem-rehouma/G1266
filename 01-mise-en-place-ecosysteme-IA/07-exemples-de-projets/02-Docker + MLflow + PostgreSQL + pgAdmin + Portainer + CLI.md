@@ -226,6 +226,7 @@ volumes:
 ## 5. BUILD ET DÉMARRAGE
 
 ```bash
+git clone https://github.com/haythem-rehouma/projetsmlops-2.git
 docker-compose pull                       # images officielles
 docker-compose build --no-cache mlflow    # image locale propre
 docker-compose up -d                      # 4 services en arrière‑plan
