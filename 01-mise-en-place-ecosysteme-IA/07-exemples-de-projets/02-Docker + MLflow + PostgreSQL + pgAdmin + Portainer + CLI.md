@@ -459,10 +459,9 @@ Si vous n’avez pas besoin de la trace Git ni de la signature, vous pouvez les 
 
 3. **Ajouter un serveur PostgreSQL** :
 
-   * **Name** : `mlflow_postgres`
-   * **Host** : `postgres`
+   * **Host name** : `postgres`
    * **Port** : `5432`
-   * **Database** : `**mlflow_db**`
+   * **Database** : `mlflow_db`
    * **Username** : `mlflow`
    * **Password** : `mlflow`
 
