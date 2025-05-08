@@ -227,6 +227,8 @@ volumes:
 
 ```bash
 git clone https://github.com/haythem-rehouma/projetsmlops-2.git
+cd projetsmlops-2
+tree ../projetsmlops-2
 docker-compose pull                       # images officielles
 docker-compose build --no-cache mlflow    # image locale propre
 docker-compose up -d                      # 4 services en arrière‑plan
