@@ -1,6 +1,4 @@
-Voici la **Leçon 8 – Ce qu’on peut faire ensuite**, dernière leçon de ce parcours ultra débutant. Elle présente des idées simples et motivantes pour prolonger l’apprentissage.
 
----
 
 ## **Leçon 8 – Ce qu’on peut faire ensuite**
 
@@ -10,7 +8,7 @@ Tu sais maintenant comment on **fait apprendre quelque chose à un agent**, éta
 
 Mais ce n’est **pas la fin**, c’est **le début de ce qu’on peut imaginer**.
 
----
+
 
 ### 1. Changer le but
 
@@ -23,7 +21,7 @@ Tu peux entraîner un agent pour :
 
 Il suffit de **changer le problème à résoudre**.
 
----
+
 
 ### 2. Changer la fonction de récompense
 
@@ -36,7 +34,7 @@ Tu peux modifier les règles :
 
 > Cela change **complètement le comportement de l’agent**.
 
----
+
 
 ### 3. Créer un petit défi avec d’autres étudiants
 
@@ -46,7 +44,7 @@ Tu peux modifier les règles :
 
 C’est amusant, motivant, et ça **fait réfléchir**.
 
----
+
 
 ### 4. Aller plus loin avec des capteurs ou des obstacles
 
@@ -56,7 +54,7 @@ On peut aussi imaginer :
 * Placer des **objets à éviter** sur la piste,
 * Simuler un **environnement plus réaliste** (brouillard, courbes serrées…).
 
----
+
 
 ### 5. Faire rouler la voiture pour de vrai
 
@@ -68,7 +66,7 @@ Quand le modèle fonctionne bien en simulation, tu peux :
 
 > Là, tu verras **le lien entre simulation et monde réel**.
 
----
+
 
 ### 6. Résumé visuel
 
@@ -81,6 +79,3 @@ Tu peux :
 → Aller plus loin, étape par étape
 ```
 
----
-
-Souhaites-tu que je compile maintenant ces **8 leçons ultra débutants** en un seul **document PDF ou HTML Bootstrap clair et imprimable** ?
