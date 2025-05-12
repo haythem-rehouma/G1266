@@ -1,6 +1,3 @@
-Voici la **Leçon 7 – Tester ce qu’il a appris**, toujours en style ultra débutant, clair et pédagogique.
-
----
 
 ## **Leçon 7 – Tester ce qu’il a appris**
 
@@ -10,7 +7,6 @@ Quand l’agent a terminé son entraînement, on veut **vérifier** s’il a **v
 
 > Le test permet de **voir ce qu’il a retenu** et **comment il se comporte**.
 
----
 
 ### 1. Tester, ce n’est plus apprendre
 
@@ -23,7 +19,7 @@ C’est comme :
 * passer un examen à la fin d’un cours,
 * jouer une partie avec les règles bien connues.
 
----
+
 
 ### 2. Ce qu’on regarde pendant le test
 
@@ -32,7 +28,7 @@ C’est comme :
 * Est-ce qu’il est **rapide et fluide** ?
 * Est-ce qu’il **fait moins d’erreurs qu’avant** ?
 
----
+
 
 ### 3. Exemple de test (voiture)
 
@@ -43,7 +39,6 @@ C’est comme :
 
 > Si tout cela fonctionne bien, on peut dire : **"l’agent a appris."**
 
----
 
 ### 4. Et si le test se passe mal ?
 
@@ -56,7 +51,6 @@ On peut alors :
 * **lancer un nouvel entraînement**,
 * ou **tester sur une piste plus simple**.
 
----
 
 ### 5. Résumé visuel
 
@@ -67,6 +61,4 @@ Entraînement terminé
 → Sinon → on peut améliorer et recommencer
 ```
 
----
 
-Souhaitez-vous que je rédige maintenant la **Leçon 8 – Ce qu’on peut faire ensuite** (extensions simples et projets possibles) ?
