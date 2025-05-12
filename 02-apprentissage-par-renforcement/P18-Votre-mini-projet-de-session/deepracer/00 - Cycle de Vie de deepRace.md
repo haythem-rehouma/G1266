@@ -12,11 +12,9 @@
 
 
 
-Très bonne question de la part de ton interlocuteur. Voici une explication claire et ultra pédagogique pour **comparer le cycle de vie d’un projet en apprentissage supervisé / non supervisé** à celui en **apprentissage par renforcement (RL)**, en particulier à travers l’exemple du **CartPole avec DQN**.
+# Annexe - Cycle de vie en **apprentissage par renforcement (RL)**
 
----
-
-## 🌱 Cycle de vie d’un projet en apprentissage **supervisé** / **non supervisé**
+# 1 - Cycle de vie d’un projet en apprentissage **supervisé** / **non supervisé**
 
 ### **Apprentissage supervisé**
 
@@ -40,7 +38,7 @@ Très bonne question de la part de ton interlocuteur. Voici une explication clai
 
 
 
-# Annexe - Cycle de vie en **apprentissage par renforcement (RL)**
+# 2 - **Apprentissage par renforcement (RL)**
 
 Là où ça change radicalement, c’est que **le modèle interagit avec un environnement**, il n’a **aucune donnée au début**, il **explore** par essais-erreurs.
 
