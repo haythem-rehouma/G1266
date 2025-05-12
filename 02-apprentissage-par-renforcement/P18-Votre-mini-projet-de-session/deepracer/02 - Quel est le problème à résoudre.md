@@ -1,7 +1,3 @@
-Voici la **Leçon 2 – Quel est le problème à résoudre ?**, en version **ultra débutant**, simple et très pédagogique.
-
----
-
 ## **Leçon 2 – Quel est le problème à résoudre ?**
 
 ### Pourquoi commencer par là ?
@@ -11,7 +7,7 @@ C’est comme poser une question claire à l’agent :
 
 > “Qu’est-ce que tu dois réussir à faire tout seul ?”
 
----
+
 
 ### 1. Exemple concret
 
@@ -23,7 +19,7 @@ C’est ça, le **problème à résoudre** :
 
 > Apprendre à **rester sur la route** du début à la fin, sans aide humaine.
 
----
+
 
 ### 2. Autres exemples simples
 
@@ -33,7 +29,7 @@ C’est ça, le **problème à résoudre** :
 | Drone                  | Voler jusqu’à un point sans tomber ni heurter  |
 | Personnage dans un jeu | Gagner la partie sans perdre de vie            |
 
----
+
 
 ### 3. Comment formuler le problème ?
 
@@ -51,7 +47,7 @@ Pour bien poser le problème, il faut répondre à trois questions simples :
 
 > Exemple : finir le tour sans sortir de la route
 
----
+
 
 ### 4. À retenir
 
@@ -59,7 +55,7 @@ Pour bien poser le problème, il faut répondre à trois questions simples :
 * Le problème doit être **simple au début**, avec **des règles compréhensibles**.
 * Si le problème est mal défini, l’agent ne pourra **rien apprendre d’utile**.
 
----
+
 
 ### Résumé visuel
 
@@ -69,6 +65,4 @@ Pour bien poser le problème, il faut répondre à trois questions simples :
 → C’est ce qu’on appelle : le problème à résoudre
 ```
 
----
 
-Souhaitez-vous que je continue avec la **Leçon 3 – Créer un environnement** ?
