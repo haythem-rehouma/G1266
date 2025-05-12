@@ -1,6 +1,4 @@
-Voici la **Leçon 6 – Laisser l’agent apprendre**, toujours en version ultra débutant, très accessible et progressive.
 
----
 
 ## **Leçon 6 – Laisser l’agent apprendre**
 
@@ -12,7 +10,7 @@ Et à chaque fois, il reçoit une **récompense**.
 
 > Petit à petit, il **comprend ce qui marche bien**… et **évite ce qui marche mal**.
 
----
+
 
 ### 1. Il apprend par essais et erreurs
 
@@ -24,7 +22,7 @@ C’est comme :
 * un bébé qui apprend à marcher,
 * ou quelqu’un qui apprend un jeu vidéo en jouant plusieurs fois.
 
----
+
 
 ### 2. Exemple très simple
 
@@ -33,7 +31,7 @@ La fois suivante, il tourne un peu moins → il reste sur la route → il gagne 
 
 > L’agent **mémorise cette expérience** : "tourner un peu moins est mieux".
 
----
+
 
 ### 3. L’agent ne réussit pas tout de suite
 
@@ -47,7 +45,7 @@ Ce processus prend :
 * beaucoup de **répétitions**,
 * et **beaucoup d’épisodes d’apprentissage** (des essais complets).
 
----
+
 
 ### 4. Comment on sait qu’il apprend ?
 
@@ -57,7 +55,7 @@ On regarde si :
 * Le **comportement devient plus stable**.
 * Il **réussit de plus en plus souvent**.
 
----
+
 
 ### 5. Résumé visuel
 
@@ -68,6 +66,3 @@ L’agent fait une action → reçoit un score
 → Il répète ce qui marche
 ```
 
----
-
-Souhaitez-vous que je rédige maintenant la **Leçon 7 – Tester ce qu’il a appris** ?
