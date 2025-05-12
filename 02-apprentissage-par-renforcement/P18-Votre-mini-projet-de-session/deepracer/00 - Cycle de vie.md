@@ -112,3 +112,28 @@ Voici les **7 étapes du cycle RL** illustrées avec l'exemple **CartPole (DQN)*
 | Exploration   | Inexistante                    | Cruciale (ε-greedy, etc.)            |
 
 
+
+
+
+
+# 03 - **Table comparative : Supervisé / Non supervisé / Renforcement**
+
+| **Étape**                     | **Apprentissage Supervisé**                        | **Apprentissage Non Supervisé**                        | **Apprentissage par Renforcement (RL)**                         |
+| ----------------------------- | -------------------------------------------------- | ------------------------------------------------------ | --------------------------------------------------------------- |
+| **1. Objectif**               | Prédire des étiquettes connues à partir d’exemples | Trouver des structures cachées dans les données        | Maximiser une récompense par interaction avec l’environnement   |
+| **2. Données**                | Données labellisées                                | Données non labellisées                                | Aucune donnée initiale, explorées au fil du temps               |
+| **3. Source de vérité**       | Étiquettes fournies (vérité terrain)               | Pas de vérité terrain explicite                        | Récompense reçue après action                                   |
+| **4. Type d’apprentissage**   | Supervisé                                          | Non supervisé                                          | Par essais-erreurs (exploration vs exploitation)                |
+| **5. Modèle utilisé**         | Régression, SVM, Réseaux de neurones, etc.         | K-means, PCA, clustering hiérarchique                  | DQN, PPO, A3C, SAC, etc.                                        |
+| **6. Environnement**          | Aucun environnement                                | Aucun environnement                                    | Environnement dynamique (ex. CartPole, DeepRacer…)              |
+| **7. Interaction**            | Pas d’interaction — modèle passif                  | Pas d’interaction — modèle passif                      | Agent actif : agit, observe, apprend                            |
+| **8. Données de test**        | Test sur un jeu de données séparé                  | Validation difficile (métriques indirectes)            | Testé dans l’environnement avec métriques de performance        |
+| **9. Boucle d’apprentissage** | Données → Modèle → Prédiction → Évaluation         | Données → Clustering → Évaluation visuelle ou métrique | Agent → Action → Récompense → Mise à jour de la politique       |
+| **10. Validation**            | Accuracy, F1-score, etc.                           | Silhouette, Davies-Bouldin, etc.                       | Moyenne de récompense, durée de survie, taux de succès          |
+| **11. Déploiement**           | Modèle prédictif prêt à l’emploi                   | Segments ou réductions dimensionnelles utilisées       | Politique entraînée (policy) déployée dans l’environnement réel |
+| **12. Difficultés typiques**  | Overfitting, sous-apprentissage                    | Interprétation des résultats                           | Instabilité, exploration excessive, sparsité des récompenses    |
+| **13. Besoin de labels**      | Oui                                                | Non                                                    | Non (récompense au lieu de label)                               |
+| **14. Exemple concret**       | Prédire si un email est spam                       | Grouper des clients par profil d’achat                 | Apprendre à jouer à CartPole, DeepRacer, Pong, etc.             |
+
+
+
