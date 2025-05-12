@@ -1,4 +1,4 @@
-# Premières séries de propoistions
+# Propositions de Projets
 
 # **1. LunarLander (Facile à Moyen)**  
 **Description :**  
