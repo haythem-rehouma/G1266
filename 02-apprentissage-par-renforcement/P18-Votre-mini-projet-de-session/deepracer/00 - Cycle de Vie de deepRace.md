@@ -1,8 +1,8 @@
 # État du parcours "Cycle de Vie d’un Projet RL"
 
-1. **Leçon 1** – Introduction générale au cycle RL
-2. **Leçon 2** – Quel est le problème à résoudre ?
-3. **Leçon 3** – Créer un environnement
+1. **Introduction générale au cycle RL**
+2. **Quel est le problème à résoudre ?**
+3. **Créer un environnement**
 4. **Choisir les actions possibles**
 5. **Définir les récompenses**
 6. **Laisser l’agent apprendre** (entraînement par essais/erreurs)
