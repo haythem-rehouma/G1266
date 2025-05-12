@@ -1,4 +1,4 @@
-# **Projet 1 : Apprentissage par renforcement avec un agent DQN (Deep Q-Network)**
+# **Exemple : Apprentissage par renforcement avec un agent DQN (Deep Q-Network)**
 
 # **Objectif :**
 
