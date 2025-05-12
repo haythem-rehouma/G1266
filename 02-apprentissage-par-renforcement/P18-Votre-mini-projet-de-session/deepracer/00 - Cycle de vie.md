@@ -116,7 +116,7 @@ Voici les **7 étapes du cycle RL** illustrées avec l'exemple **CartPole (DQN)*
 
 
 
-# 03 - **Table comparative : Supervisé / Non supervisé / Renforcement**
+# 3 - **Table comparative : Supervisé / Non supervisé / Renforcement**
 
 | **Étape**                     | **Apprentissage Supervisé**                        | **Apprentissage Non Supervisé**                        | **Apprentissage par Renforcement (RL)**                         |
 | ----------------------------- | -------------------------------------------------- | ------------------------------------------------------ | --------------------------------------------------------------- |
