@@ -148,9 +148,9 @@ def reward_function(params):
 
 
 
-# Ce que nous allons faire
+# Vous allez:
 
-1. **Montrer chaque étape au tableau ou dans un notebook.**
-2. **Expliquer ce que chaque ligne contrôle.**
+1. **Copier chaque étape au tableau ou dans un notebook.**
+2. **Expliquer en commentaire ce que chaque ligne contrôle.**
 3. **Modifier un paramètre et voir le résultat.**
-4. **Faire tester plusieurs variantes de fonctions.**
+4. **Tester plusieurs variantes de fonctions.**
