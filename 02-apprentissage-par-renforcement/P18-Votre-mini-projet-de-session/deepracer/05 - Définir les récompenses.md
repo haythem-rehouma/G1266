@@ -1,7 +1,3 @@
-Voici la **Leçon 5 – Définir les récompenses**, dans le même style ultra débutant, simple et très pédagogique.
-
----
-
 ## **Leçon 5 – Définir les récompenses**
 
 ### Pourquoi l’agent a besoin de récompenses ?
@@ -11,7 +7,7 @@ C’est à **nous de lui dire** ce qu’on attend de lui.
 
 > On le fait grâce à des **récompenses**.
 
----
+
 
 ### 1. Qu’est-ce qu’une récompense ?
 
@@ -26,7 +22,7 @@ Elle lui dit si l’action était **bonne**, **neutre** ou **mauvaise**.
 
 > L’agent **ne comprend pas les mots**, il comprend seulement les **nombres**.
 
----
+
 
 ### 2. Pourquoi les récompenses sont importantes ?
 
@@ -40,7 +36,7 @@ Il va :
 
 > **Pas de récompense = pas d’apprentissage.**
 
----
+
 
 ### 3. À quoi ressemble une bonne règle de récompense ?
 
@@ -52,7 +48,7 @@ Une bonne récompense doit :
   (sortir, tourner trop fort, heurter un mur)
 * Être **simple au début**
 
----
+
 
 ### 4. Exemple très simple
 
@@ -69,7 +65,7 @@ def reward_function(params):
 > * S’il est bien placé → +1
 > * S’il fait une erreur → -1
 
----
+
 
 ### 5. Résumé visuel
 
@@ -79,6 +75,4 @@ L’agent agit → Il reçoit un score (récompense)
 → Il évite ce qui donne des mauvais scores
 ```
 
----
 
-Souhaitez-vous que je continue avec la **Leçon 6 – Laisser l’agent apprendre** ?
