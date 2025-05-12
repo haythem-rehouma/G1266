@@ -1,6 +1,3 @@
-Voici la **Leçon 4 – Choisir les actions possibles**, toujours en version **ultra débutant**, claire et progressive.
-
----
 
 ## **Leçon 4 – Choisir les actions possibles**
 
@@ -11,7 +8,7 @@ Pour apprendre, il doit **essayer des choses** : avancer, tourner, freiner, etc.
 
 > Ces choses qu’il peut faire s’appellent des **actions**.
 
----
+
 
 ### 1. Qu’est-ce qu’une action ?
 
@@ -27,7 +24,7 @@ Exemple avec une voiture :
 
 L’agent **choisit une action**, puis l’environnement **réagit**.
 
----
+
 
 ### 2. On ne lui donne pas toutes les actions possibles
 
@@ -39,7 +36,7 @@ Pourquoi ?
 * Pour que l’apprentissage soit plus simple,
 * Pour éviter qu’il fasse des choses inutiles ou dangereuses.
 
----
+
 
 ### 3. Deux façons de choisir les actions
 
@@ -50,7 +47,7 @@ Pourquoi ?
 
 **Pour débuter**, on utilise presque toujours des **actions discrètes**, car c’est plus facile à gérer.
 
----
+
 
 ### 4. Pourquoi c’est important ?
 
@@ -59,7 +56,7 @@ Si tu en donnes trop, il mettra **plus de temps à apprendre**.
 
 > Il faut **trouver un bon équilibre** : assez pour agir, pas trop pour se perdre.
 
----
+
 
 ### 5. Résumé visuel
 
@@ -70,6 +67,3 @@ L’agent doit faire des choix
 → Il apprend en les testant dans son environnement
 ```
 
----
-
-Souhaites-tu que je continue avec la **Leçon 5 – Définir les récompenses** ?
