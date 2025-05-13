@@ -2,10 +2,11 @@
 git clone https://github.com/haythem-rehouma/HR-RL-DEMO2-DQN-PONG.git
 cd HR-RL-DEMO2-DQN-PONG/
 # Activez conda
+```
 
 ![image](https://github.com/user-attachments/assets/7d83d509-1fbd-4585-9705-def1f1d1d9c7)
 ![image](https://github.com/user-attachments/assets/6a02feec-0b33-4ac0-a913-384e59413b54)
-```
+
 
 
 ```python
