@@ -11,7 +11,7 @@ cd HR-RL-DEMO2-DQN-PONG/
 
 
 ```python
-(pong1) C:\Users\rehou>
+(pong1) C:\Users\rehou> pip install -r requirements.txt
 (pong1) C:\Users\rehou> python 1.py.txt  
 (pong1) C:\Users\rehou> python test_env.py
 (pong1) C:\Users\rehou> python test_env_1.py  
