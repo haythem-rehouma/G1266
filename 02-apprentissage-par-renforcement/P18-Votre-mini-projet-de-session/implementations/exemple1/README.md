@@ -22,3 +22,17 @@ cd HR-RL-DEMO2-DQN-PONG/
 
 ```
 
+# Commandes utiles 1
+
+```python
+pip install pipreqs
+pipreqs .
+```
+
+# Commandes utiles 2
+
+```python
+pip freeze > requirements.txt
+cat requirements.txt
+pip install -r requirements.txt
+```
