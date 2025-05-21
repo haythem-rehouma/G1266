@@ -75,34 +75,34 @@ env.close()
 
 
 
-### **Objectif général :**
+### *Objectif général :*
 
 Entraîner une intelligence artificielle (IA) à **équilibrer un bâton sur un chariot** dans un environnement appelé **CartPole-v1**, à l’aide de l’algorithme **PPO (Proximal Policy Optimization)**.
 
 
 
-###  **Étapes principales du programme :**
+###  *Étapes principales du programme :*
 
-1. ** Installation des bibliothèques nécessaires**
+1. **Installation des bibliothèques nécessaires**
 
    * `gym`, `gymnasium` : pour créer l’environnement de simulation (le jeu).
    * `stable-baselines3` : pour utiliser l’algorithme PPO.
 
-2. ** Création de l’environnement**
+2. **Création de l’environnement**
 
    * On initialise `CartPole-v1`, un jeu classique où un bâton doit rester en équilibre sur un chariot mobile.
 
-3. ** Visualisation d’un agent aléatoire**
+3. **Visualisation d’un agent aléatoire**
 
    * On fait jouer un agent qui prend des décisions au hasard (sans intelligence).
    * Résultat : il échoue souvent.
 
-4. ** Entraînement de l’agent avec PPO**
+4. **Entraînement de l’agent avec PPO**
 
    * On crée un modèle PPO et on l’entraîne pendant 20 000 itérations.
    * L’agent apprend progressivement comment garder le bâton droit.
 
-5. ** Évaluation de l’agent entraîné**
+5. **Évaluation de l’agent entraîné**
 
    * On teste l’agent après l’entraînement.
    * Cette fois, il réussit bien à garder le bâton en équilibre, car il a "appris" à jouer.
