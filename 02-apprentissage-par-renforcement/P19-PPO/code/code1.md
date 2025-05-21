@@ -245,3 +245,97 @@ env.close()
 * **Avant l’entraînement** → Agent agit au hasard → chute rapide.
 * **Après l’entraînement** → Agent agit de façon optimisée → stabilité prolongée.
 
+<br/>
+
+# Annexe 2
+
+
+
+```python
+!pip install gym gymnasium stable-baselines3      # Installe les bibliothèques Gym / Gymnasium et Stable-Baselines3
+```
+
+```python
+import gymnasium as gym                            # Importe Gymnasium (création d’environnements RL)
+from stable_baselines3 import PPO                 # Importe l’algorithme PPO (Proximal Policy Optimization)
+from stable_baselines3.common.vec_env import DummyVecEnv  # Wrapper pour vectoriser l’environnement
+import matplotlib.pyplot as plt                   # Bibliothèque d’affichage pour les images
+from IPython import display as ipythondisplay     # Permet d’afficher/effacer des figures dans un notebook
+import time                                       # Mesure du temps et pauses
+```
+
+```python
+env_name = 'CartPole-v1'                          # Nom de l’environnement choisi : CartPole-v1
+env = gym.make(env_name, render_mode='rgb_array') # Création de l’environnement, rendu sous forme d’images RGB
+```
+
+```python
+def show_frame(frame):                            # Déclaration d’une fonction utilitaire pour afficher une image
+    plt.figure(figsize=(8, 6))                    # 1) Définit la taille de la figure
+    plt.imshow(frame)                             # 2) Affiche l’image passée en paramètre
+    plt.axis('off')                               # 3) Supprime les axes pour un rendu propre
+    ipythondisplay.clear_output(wait=True)        # 4) Efface la figure précédente (effet vidéo fluide)
+    ipythondisplay.display(plt.gcf())             # 5) Affiche la figure courante
+    plt.close()                                   # 6) Ferme la figure pour libérer la mémoire
+```
+
+```python
+# ---- 1re phase : agent aléatoire ------------------------------------------
+for episode in range(1, 4):                       # Boucle sur 3 épisodes d’observation
+    score = 0                                     # Initialise le score (somme des récompenses)
+    state, _ = env.reset()                        # Réinitialise l’environnement et récupère l’état initial
+    done, truncated = False, False                # Flags de fin d’épisode
+
+    while not (done or truncated):                # Boucle jusqu’à la fin de l’épisode
+        frame = env.render()                      # Rendu visuel de l’environnement (image RGB)
+        show_frame(frame)                         # Affiche l’image
+        action = env.action_space.sample()        # Sélectionne une action au hasard
+        state, reward, done, truncated, _ = env.step(action)  # Applique l’action et récupère la transition
+        score += reward                           # Cumule la récompense
+    print(f"Épisode {episode} : score {score}")   # Affiche le score obtenu
+    time.sleep(1)                                 # Petite pause avant l’épisode suivant
+env.close()                                       # Ferme l’environnement (libère les ressources)
+```
+
+```python
+# ---- 2e phase : entraînement PPO ------------------------------------------
+env = DummyVecEnv([lambda: gym.make(env_name)])   # Vectorise l’environnement (même s’il n’y en a qu’un)
+model = PPO('MlpPolicy', env, verbose=1)          # Crée un agent PPO avec une politique réseau MLP
+model.learn(total_timesteps=20_000)               # Entraîne l’agent pendant 20 000 étapes
+model.save("/content/ppo_model")                  # Sauvegarde du modèle entraîné
+```
+
+```python
+# ---- 3e phase : évaluation du modèle entraîné -----------------------------
+env = gym.make(env_name, render_mode='rgb_array') # Nouveau CartPole pour l’évaluation
+obs, _ = env.reset()                              # État initial
+for episode in range(1, 2):                       # Un seul épisode d’évaluation
+    score, done, truncated = 0, False, False
+    start_time = time.time()                      # Point de départ du chronomètre
+    while not (done or truncated):
+        frame = env.render()                      # Rendu image
+        show_frame(frame)                         # Affiche l’image
+        action, _ = model.predict(obs)            # Action décidée par la politique PPO
+        obs, reward, done, truncated, _ = env.step(action)  # Transition environnementale
+        score += reward                           # Mise à jour du score
+        if time.time() - start_time >= 20:        # Coupe l’épisode après 20 s pour ne pas boucler trop longtemps
+            print(f"Épisode 1 : score {score} (limite de temps atteinte)")
+            break
+    if not (done or truncated):                   # Si l’épisode s’est terminé avant le timeout
+        print(f"Épisode 1 : score {score} (terminé normalement)")
+env.close()                                       # Ferme l’environnement
+```
+
+---
+
+### Lecture guidée
+
+1. **Installation** : première ligne, exécutable dans Colab ou Jupyter, installe trois dépendances essentielles.
+2. **Imports** : chargent les bibliothèques nécessaires (environnements, algorithmes RL, affichage, etc.).
+3. **Création de l’environnement** : `CartPole-v1` est démarré en mode visuel.
+4. **Fonction `show_frame`** : gère l’affichage fluide d’une image (frame).
+5. **Agent aléatoire** : démontre l’environnement avant apprentissage ; l’agent choisit ses actions au hasard.
+6. **Entraînement PPO** : le modèle apprend pendant 20 000 pas à garder le bâton en équilibre.
+7. **Évaluation** : on recharge l’environnement, on laisse l’agent entraîné jouer et on observe qu’il réussit mieux.
+
+
