@@ -1,8 +1,5 @@
 
 ```python
-# -*- coding: utf-8 -*-
-"""CartPole_Balancing.ipynb"""
-
 !pip install gym gymnasium stable-baselines3
 
 import gymnasium as gym
