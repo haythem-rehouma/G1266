@@ -27,6 +27,12 @@ model.save('/content/ppo_model')
 
 
 
+# Ensemble du code
+
+
+
+
+
 # Variantes à tester
 
 ### Variante 1 – Moins d’entraînement
