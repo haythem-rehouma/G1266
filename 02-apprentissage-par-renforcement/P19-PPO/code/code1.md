@@ -1,6 +1,15 @@
 
+### Installation des librairies nécessaires
+
 ```python
 !pip install gym gymnasium stable-baselines3
+
+
+```
+
+### import des librairies
+
+```python
 
 import gymnasium as gym
 from stable_baselines3 import PPO
@@ -9,6 +18,13 @@ import matplotlib.pyplot as plt
 from IPython import display as ipythondisplay
 import time
 
+```
+
+
+
+### Essai aléatoire
+
+```python
 env_name = 'CartPole-v1'
 env = gym.make(env_name, render_mode='rgb_array')
 
@@ -39,12 +55,24 @@ for episode in range(1, 10):
 
 env.close()
 
+```
+
+
+### entraînement du modèle
+
+```python
 # Training the PPO agent
 env = DummyVecEnv([lambda: gym.make(env_name)])
-model = PPO('MlpPolicy', env, verbose=1)
+model = PPO('MlpPolicy', env, verbose=1) ==
 model.learn(total_timesteps=20000)
 model.save('/content/ppo_model')
 
+```
+
+
+### Visiualisation du résultat final
+
+```python
 # Evaluate PPO Agent
 env = gym.make(env_name, render_mode='rgb_array')
 obs, _ = env.reset()
@@ -70,7 +98,32 @@ for episode in range(1, 2):
         print(f'Episode: {episode}, Score: {score} (Completed)')
 
 env.close()
+
 ```
+
+### Calculer le score et évaluation finale
+
+```python
+import time
+
+env_eval = gym.make(env_name, render_mode='rgb_array')
+obs, _ = env_eval.reset()
+score = 0
+done, truncated = False, False
+start_time = time.time()
+
+while not (done or truncated):
+    action, _ = model.predict(obs)
+    obs, reward, done, truncated, _ = env_eval.step(action)
+    score += reward
+    if time.time() - start_time >= 20:
+        break
+
+print(f"Score obtenu après entraînement court (20000 étapes) : {score}")
+env_eval.close()
+
+```
+
 
 
 
