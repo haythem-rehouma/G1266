@@ -2,6 +2,82 @@
 
 *(30 questions)*
 
+
+```python
+!pip install gym gymnasium stable-baselines3
+
+import gymnasium as gym
+from stable_baselines3 import PPO
+from stable_baselines3.common.vec_env import DummyVecEnv
+import matplotlib.pyplot as plt
+from IPython import display as ipythondisplay
+import time
+
+env_name = 'CartPole-v1'
+env = gym.make(env_name, render_mode='rgb_array')
+
+def show_frame(frame):
+    plt.figure(figsize=(8,6))
+    plt.imshow(frame)
+    plt.axis('off')
+    ipythondisplay.clear_output(wait=True)
+    ipythondisplay.display(plt.gcf())
+    plt.close()
+
+# Random Agent Visualization
+for episode in range(1, 10):
+    score = 0
+    state, _ = env.reset()
+    done = False
+    truncated = False
+
+    while not (done or truncated):
+        frame = env.render()
+        show_frame(frame)
+        action = env.action_space.sample()
+        n_state, reward, done, truncated, info = env.step(action)
+        score += reward
+
+    print(f'Episode: {episode}, Score: {score}')
+    time.sleep(2)
+
+env.close()
+
+# Training the PPO agent
+env = DummyVecEnv([lambda: gym.make(env_name)])
+model = PPO('MlpPolicy', env, verbose=1)
+model.learn(total_timesteps=20000)
+model.save('/content/ppo_model')
+
+# Evaluate PPO Agent
+env = gym.make(env_name, render_mode='rgb_array')
+obs, _ = env.reset()
+
+for episode in range(1, 2):
+    score = 0
+    done = False
+    truncated = False
+    start_time = time.time()
+
+    while not (done or truncated):
+        frame = env.render()
+        show_frame(frame)
+        action, _ = model.predict(obs)
+        obs, reward, done, truncated, info = env.step(action)
+        score += reward
+
+        if time.time() - start_time >= 20:
+            print(f'Episode: {episode}, Score: {score} (Timed out after 20 seconds)')
+            break
+
+    if not (done or truncated):
+        print(f'Episode: {episode}, Score: {score} (Completed)')
+
+env.close()
+```
+
+
+
 ### Instructions
 
 Répondez aux questions suivantes sans consulter le corrigé. Certaines sont à choix multiple, d’autres à réponse courte ou vrai/faux.
