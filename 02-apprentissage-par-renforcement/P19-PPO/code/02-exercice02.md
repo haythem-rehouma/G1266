@@ -1,0 +1,116 @@
+# Exercice : Expérimenter avec PPO et comparer les résultats
+
+
+
+- Notre objectif est de vomprendre l’impact des paramètres de configuration du modèle PPO (`Proximal Policy Optimization`) sur la qualité de l’apprentissage. 
+- À travers plusieurs variantes, vous êtes amenés à observer comment les performances de l’agent évoluent selon la durée d’entraînement, la taille du réseau de neurones, ou encore les paramètres d’exploration.
+
+
+
+# Consigne générale
+
+Partir du code suivant :
+
+```python
+env = DummyVecEnv([lambda: gym.make(env_name)])
+model = PPO('MlpPolicy', env, verbose=1)
+model.learn(total_timesteps=20000)
+model.save('/content/ppo_model')
+```
+
+À chaque nouvelle tentative :
+
+1. Modifier **un seul paramètre ou une seule ligne**.
+2. Réentraîner le modèle.
+3. Évaluer les performances en exécutant 1 ou 2 épisodes.
+4. Noter le score final et formuler une observation comparative.
+
+
+
+# Variantes à tester
+
+### Variante 1 – Moins d’entraînement
+
+```python
+model.learn(total_timesteps=5000)
+```
+
+Objectif : observer si le modèle apprend quelque chose en très peu de temps.
+
+
+
+### Variante 2 – Entraînement plus long
+
+```python
+model.learn(total_timesteps=50000)
+```
+
+Objectif : comparer les performances avec un apprentissage plus long.
+
+
+
+### Variante 3 – Réseau de neurones plus grand
+
+```python
+policy_kwargs = dict(net_arch=[128, 128])
+model = PPO('MlpPolicy', env, verbose=1, policy_kwargs=policy_kwargs)
+```
+
+Objectif : tester si un réseau plus profond permet d’obtenir de meilleures décisions.
+
+
+### Variante 4 – Réseau de neurones plus petit
+
+```python
+policy_kwargs = dict(net_arch=[32])
+model = PPO('MlpPolicy', env, verbose=1, policy_kwargs=policy_kwargs)
+```
+
+Objectif : vérifier si une architecture minimale peut tout de même apprendre.
+
+
+
+### Variante 5 – Renforcer l’exploration
+
+```python
+model = PPO('MlpPolicy', env, verbose=1, ent_coef=0.05)
+```
+
+Objectif : analyser si une exploration plus importante favorise l’apprentissage.
+
+
+
+### Variante 6 – Changer la taille des mini-lots
+
+```python
+model = PPO('MlpPolicy', env, verbose=1, n_steps=128, batch_size=64)
+```
+
+Objectif : comprendre l’effet du batch size sur la stabilité de l’apprentissage.
+
+
+
+## Tableau comparatif à compléter
+
+| Variante               | total\_timesteps | Architecture réseau | Autres paramètres            | Score moyen | Observation |
+| ---------------------- | ---------------- | ------------------- | ---------------------------- | ----------- | ----------- |
+| Version de base        | 20000            | Par défaut          | Aucun                        |             |             |
+| Moins d’entraînement   | 5000             | Par défaut          | Aucun                        |             |             |
+| Entraînement plus long | 50000            | Par défaut          | Aucun                        |             |             |
+| Réseau plus grand      | 20000            | \[128, 128]         | Aucun                        |             |             |
+| Réseau plus petit      | 20000            | \[32]               | Aucun                        |             |             |
+| Exploration renforcée  | 20000            | Par défaut          | `ent_coef=0.05`              |             |             |
+| Taille de lot modifiée | 20000            | Par défaut          | `n_steps=128, batch_size=64` |             |             |
+
+
+
+## Travail à remettre
+
+1. Le code modifié pour chaque variante.
+2. Le tableau rempli avec vos scores et observations.
+3. Une conclusion synthétique (5 lignes maximum) :
+
+   * Quel changement a eu l’effet le plus visible ?
+   * Quelles hypothèses pouvez-vous formuler ?
+
+
