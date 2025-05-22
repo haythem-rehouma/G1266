@@ -63,9 +63,9 @@ env.close()
 ```python
 # Training the PPO agent
 env = DummyVecEnv([lambda: gym.make(env_name)])
-model = PPO('MlpPolicy', env, verbose=1) ==
-model.learn(total_timesteps=20000)
-model.save('/content/ppo_model')
+model = PPO('MlpPolicy', env, verbose=1) <== Changez cette ligne pour l'exercice
+model.learn(total_timesteps=20000)  <== Changez cette ligne pour l'exercice
+model.save('/content/ppo_model') <== Changez cette ligne pour l'exercice
 
 ```
 
