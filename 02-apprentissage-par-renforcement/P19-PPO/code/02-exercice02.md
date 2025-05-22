@@ -193,3 +193,53 @@ Objectif : comprendre l’effet du batch size sur la stabilité de l’apprentis
    * Quelles hypothèses pouvez-vous formuler ?
 
 
+<br/>
+
+# Annexe 1 : Peut-on changer `MlpPolicy` dans PPO ?
+
+
+
+**Oui**, mais seulement par d’autres **politiques compatibles** avec le type d’environnement (ici, `CartPole-v1`, qui est **discret et basé sur des vecteurs**, pas sur des images).
+
+
+
+## Explication simple de `MlpPolicy`
+
+* `MlpPolicy` signifie **Multi-Layer Perceptron Policy**.
+* C’est un **réseau de neurones classique (dense)** adapté aux **observations sous forme de vecteurs numériques** (par exemple : `[position, vitesse, angle, vitesse angulaire]`).
+
+
+
+## Quelles sont les autres politiques possibles dans `stable-baselines3` ?
+
+| Politique          | Utilisation                            | Compatible avec CartPole ? |
+| ------------------ | -------------------------------------- | -------------------------- |
+| `MlpPolicy`        | Pour les vecteurs (comme CartPole)     | ✅ Oui                      |
+| `CnnPolicy`        | Pour les images (vision, jeux vidéo)   | ❌ Non                      |
+| `MultiInputPolicy` | Pour les observations complexes (dict) | ❌ Non                      |
+
+> Pour CartPole, **vous devez utiliser `MlpPolicy`**.
+> Changer par `CnnPolicy` ou `MultiInputPolicy` **plantera le code**, car l’observation n’est **pas une image**.
+
+
+
+## Comment modifier **l’intérieur** de `MlpPolicy` sans la changer complètement ?
+
+Vous pouvez personnaliser **la taille ou la forme du réseau** via `policy_kwargs`, sans changer de politique :
+
+```python
+policy_kwargs = dict(net_arch=[64, 64])
+model = PPO('MlpPolicy', env, verbose=1, policy_kwargs=policy_kwargs)
+```
+
+> Cela **modifie la structure interne** du réseau, tout en gardant une politique compatible.
+
+
+
+## À retenir
+
+* Oui, vous pouvez **modifier** les paramètres internes de `MlpPolicy`.
+* ❌ Non, vous **ne pouvez pas la remplacer** par `CnnPolicy` dans CartPole, car ce n’est **pas un environnement d’images**.
+*  Si vous utilisez un autre environnement **basé sur des images**, alors `CnnPolicy` devient possible.
+
+
