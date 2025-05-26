@@ -35,7 +35,7 @@ Vous devez concevoir un **projet complet de Machine Learning**, en totale libert
 | Critère                                         | Points  |
 | ----------------------------------------------- | ------- |
 | Fonctionnalité générale du projet               | 25      |
-| Cohérence technique globale                     | 20      |
+| Cohérence technique globale et réponses aux questions    | 20      |
 | Utilisation pertinente des bibliothèques/outils | 15      |
 | Qualité et organisation du code                 | 15      |
 | Documentation (`README.md`)                     | 10      |
@@ -56,22 +56,61 @@ Des points supplémentaires peuvent être accordés pour :
 
 <br/>
 
+
+
+
+
+
+
+
+
+
+
 # 5 - Livrables attendus
 
-1. **Code source complet** (ML, backend, frontend s’il y en a)
-2. Un fichier `docker-compose.yml` fonctionnel
-3. Un fichier `README.md` incluant :
+### 1. Code source complet
 
-   * Description claire du projet
-   * Instructions d’installation et d’exécution
-   * Technologies utilisées
-   * Commandes Docker
-   * (Facultatif) Instructions de pipeline CI/CD
-4. Une **documentation technique** :
+* Inclure tous les scripts et fichiers nécessaires (ML, backend, frontend s’il y a lieu)
+* Code clair, structuré, commenté et organisé par dossier
 
-   * Architecture générale
-   * Explication du modèle et de son fonctionnement
-   * Exemple(s) d’utilisation ou de requête API
+> ⚠ Un code très désorganisé entraînera des pertes de points.
+
+
+
+### 2. `docker-compose.yml` 
+
+* Permet de lancer l’ensemble du projet (API, ML, interface, etc.)
+* Peut inclure des volumes, réseaux, services, dépendances
+
+
+
+### 3. Fichier `README.md`
+
+Doit contenir obligatoirement :
+
+* Une **description claire** du projet
+* Les **étapes pour installer, exécuter et tester** le projet
+* Les **commandes Docker et Docker Compose**
+* Le **nom des bibliothèques principales** utilisées
+* (Optionnel) instructions CI/CD si applicable
+
+
+### 4. Documentation technique synthétique
+
+* Architecture générale - Structure de l’architecture (ML, API, frontend s’il y en a)
+* Explication du modèle et de son fonctionnement - Description du modèle de ML : type, but, format d’entrée/sortie
+* Comment le backend interagit avec le modèle et exemple(s) d’utilisation ou de requête API
+* Quels services sont lancés par `docker-compose`
+* Réponses aux questions techniques qui pourraient vous être posées à l’oral
+
+
+
+
+
+
+
+
+
 
 
 <br/>
@@ -87,5 +126,42 @@ Des points supplémentaires peuvent être accordés pour :
 * Le projet est à réalisé d'une façon individuelle.
 * Un projet simple mais bien structuré et déployé vaut mieux qu’un projet trop ambitieux non terminé
 * L’intégration d’un pipeline **CI/CD**, même minimal, sera **très bien vue**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
