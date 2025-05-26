@@ -84,7 +84,7 @@ Des points supplémentaires peuvent être accordés pour :
 
 
 
-### 3. Fichier `README.md`
+### 3. Fichier `README.md` ou rapport word/pdf/ppt
 
 Doit contenir obligatoirement :
 
