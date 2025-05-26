@@ -30,6 +30,7 @@ git clone https://github.com/hrhouma/install-docker.git
 cd install-docker
 chmod +x install-docker.sh
 ./install-docker.sh           # installe Docker + compose plugin v2
+apt install docker-compose
 exit
 ```
 
