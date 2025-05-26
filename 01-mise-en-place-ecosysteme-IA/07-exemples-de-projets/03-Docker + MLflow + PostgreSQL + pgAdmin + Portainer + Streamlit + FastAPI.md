@@ -267,6 +267,14 @@ volumes:
 # 2. BUILD & LANCEMENT
 
 ```bash
+sudo -s
+git clone https://github.com/hrhouma/install-docker.git
+cd install-docker
+chmod +x install-docker.sh
+./install-docker.sh           # installe Docker + compose plugin v2
+apt install docker-compose
+cd /home/azureuser/
+git clone https://github.com/haythem-rehouma/projetsmlops-3.git
 docker-compose pull
 docker-compose build --no-cache mlflow
 docker-compose up -d
