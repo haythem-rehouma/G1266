@@ -275,6 +275,7 @@ chmod +x install-docker.sh
 apt install docker-compose
 cd /home/azureuser/
 git clone https://github.com/haythem-rehouma/projetsmlops-3.git
+cd projetsmlops-3/
 docker-compose pull
 docker-compose build --no-cache mlflow
 docker-compose up -d
