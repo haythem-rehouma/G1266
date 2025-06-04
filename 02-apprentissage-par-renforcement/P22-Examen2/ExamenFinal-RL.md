@@ -13,7 +13,7 @@
 
 
 
-
+<br/>
 
 # **Question 1.** 
 
@@ -24,6 +24,8 @@
 * c) détermine les actions à choisir selon l'état.
 * d) est utilisée uniquement pour l’exploration.
 
+<br/>
+
 # **Question 2.** 
 
 - La notion d’état de Markov implique :
@@ -32,6 +34,8 @@
 * b) que l'état actuel contient toute l'information pertinente nécessaire pour prédire l'avenir.
 * c) qu'il faut nécessairement mémoriser tous les états passés.
 * d) une absence totale de récompenses immédiates.
+
+<br/>
 
 # **Question 3.** 
 
@@ -42,6 +46,8 @@
 * c) utilise toujours une politique déterministe.
 * d) ne permet pas d'actualiser progressivement les valeurs estimées.
 
+<br/>
+
 # **Question 4.** 
 
 - La différence principale entre Monte-Carlo et Temporal Difference (TD) est :
@@ -50,6 +56,8 @@
 * b) Monte-Carlo nécessite des épisodes complets, TD peut apprendre à chaque transition.
 * c) Monte-Carlo utilise toujours une politique stochastique, TD toujours une politique déterministe.
 * d) TD ne nécessite pas de politique initiale, contrairement à Monte-Carlo.
+
+<br/>
 
 # **Question 5.** 
 
@@ -60,6 +68,8 @@
 * c) n'a aucun impact sur l'apprentissage.
 * d) augmente systématiquement les récompenses futures.
 
+<br/>
+
 # **Question 6.** 
 
 - Le problème de l’exploration-exploitation concerne :
@@ -68,6 +78,8 @@
 * b) comment équilibrer la sélection d'actions connues et la découverte de nouvelles actions potentiellement meilleures.
 * c) uniquement l'exploration d'états jamais visités.
 * d) uniquement l’exploitation des meilleures actions déjà connues.
+
+<br/>
 
 # **Question 7.** 
 
@@ -78,6 +90,8 @@
 * c) qui donne toujours une unique action optimale.
 * d) qui ignore totalement les récompenses futures.
 
+<br/>
+
 # **Question 8.** 
 
 - L'équation de Bellman décrit :
@@ -87,6 +101,7 @@
 * c) comment sélectionner des états au hasard.
 * d) uniquement la fonction de récompense immédiate.
 
+<br/>
 
 # **Question 9.** 
 
@@ -97,22 +112,31 @@
 * c) qu’il n’y a plus de récompense immédiate.
 * d) que l'apprentissage est uniquement possible sur de petits espaces d’états.
 
+<br/>
 
 # **Question 10.** 
 
 - Expliquez la différence entre une politique déterministe et une politique stochastique.
 
+<br/>
+
 # **Question 11.** 
 
 - Quel est le rôle du paramètre d’apprentissage (learning rate) $\alpha$ dans les méthodes TD ?
+
+<br/>
 
 # **Question 12.** 
 
 - Définissez précisément l’équilibre exploration-exploitation et expliquez une méthode pratique pour gérer ce compromis.
 
+<br/>
+
 # **Question 13.** 
 
 - Expliquez en détail la méthode de Monte-Carlo pour l’évaluation de politique. Présentez ses avantages et limites majeures comparativement aux méthodes par différence temporelle (TD).
+
+<br/>
 
 # **Question 14.** 
 
@@ -121,9 +145,6 @@
 
 
 <br/>
-
-
-
 
 ## **Question 15**
 
@@ -217,12 +238,6 @@ Vous pouvez proposer des cas d’usage concrets pour chaque méthode, en expliqu
 
 
 
-
-
-
-
-
-
 <br/>
 
 ## <h1 id="q-22"> Question 22 
@@ -295,10 +310,6 @@ for visit in episode:
 3. Est-ce une méthode **à pas de temps unique** ou **basée sur des épisodes complets** ?
 4. Quelle est la différence entre **First-Visit** et **Every-Visit** ?
 5. Cette méthode a-t-elle besoin d’un modèle de l’environnement (modèle dynamique de `P(s’|s,a)`) ?
-
-
-
-
 
 
 
