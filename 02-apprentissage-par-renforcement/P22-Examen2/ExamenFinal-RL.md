@@ -146,7 +146,7 @@
 
 <br/>
 
-## **Question 15**
+# **Question 15**
 
 - Maison intelligente et stratégie énergétique
 
@@ -162,7 +162,7 @@ Pensez-vous que la pertinence de ces méthodes peut varier selon d'autres caract
 
 <br/>
 
-## **Question 16** 
+# **Question 16** 
 
 - Drone en environnement dynamique
 
@@ -176,7 +176,7 @@ Justifiez votre analyse à partir des caractéristiques du problème, de la natu
 
 <br/>
 
-## **Question 17**
+# **Question 17**
 
 - Anticipation des demandes en supermarché
 
@@ -189,7 +189,7 @@ Proposez un exemple d’utilisation dans un cas concret (ex. : pic de demande po
 
 <br/>
 
-## **Question 18 – IA pour jeu vidéo de combat**
+# **Question 18 – IA pour jeu vidéo de combat**
 
 > **Contexte :** Un agent IA est entraîné pour affronter un adversaire virtuel dans un jeu de combat. Les stratégies de l’adversaire évoluent au cours du temps de façon partiellement prévisible.
 
@@ -200,7 +200,7 @@ Donnez un exemple de situation où une méthode serait préférable à une autre
 
 <br/>
 
-## **Question 19 - Répartition de charge dans un réseau de serveurs**
+# **Question 19 - Répartition de charge dans un réseau de serveurs**
 
 > **Contexte :** Un système distribué doit répartir la charge de travail entre différents serveurs, en tenant compte de leur disponibilité, de la consommation énergétique, et du trafic réseau, qui varient dans le temps.
 
@@ -211,7 +211,7 @@ Proposez un exemple illustrant un scénario réaliste (ex. : surcharge le matin,
 
 <br/>
 
-## **Question 20 – Prédiction des tendances boursières**
+# **Question 20 – Prédiction des tendances boursières**
 
 > **Contexte :** Un algorithme de trading en ligne doit s’ajuster aux variations rapides des marchés boursiers en se basant sur des données historiques bruitées et parfois contradictoires.
 
@@ -222,7 +222,7 @@ Donnez un exemple d’une situation de marché où la mémoire pondérée du pas
 
 <br/>
 
-## **Question 21 – Comparaison globale des méthodes**
+# **Question 21 – Comparaison globale des méthodes**
 
 > **Contexte :** Vous êtes consultant en IA et devez recommander une méthode d’apprentissage par renforcement à une entreprise évoluant dans un environnement partiellement observable et sujet à des changements fréquents.
 
@@ -240,7 +240,7 @@ Vous pouvez proposer des cas d’usage concrets pour chaque méthode, en expliqu
 
 <br/>
 
-## <h1 id="q-22"> Question 22 
+# <h1 id="q-22"> Question 22 
 
 Identifier le type d’algorithme utilisé à partir de son code, et expliquer les caractéristiques clés qui permettent cette identification en répondant aux questions.
 
@@ -266,7 +266,7 @@ Q[s, a] = Q[s, a] + alpha * (r + gamma * np.max(Q[s_next]) - Q[s, a])
 
 <br/>
 
-## <h1 id="q-23"> Question 23
+# <h1 id="q-23"> Question 23
 
 
 Identifier le type d’algorithme utilisé à partir de son code, et expliquer les caractéristiques clés qui permettent cette identification en répondant aux questions.
@@ -289,7 +289,7 @@ Q[s, a] = Q[s, a] + alpha * (r + gamma * Q[s_next, a_next] - Q[s, a])
 
 <br/>
 
-## <h1 id="q-24"> Question 24
+# <h1 id="q-24"> Question 24
 
 Identifier le type d’algorithme utilisé à partir de son code, et expliquer les caractéristiques clés qui permettent cette identification en répondant aux questions.
 
@@ -315,7 +315,7 @@ for visit in episode:
 
 <br/>
 
-## <h1 id="q-25"> Question 25
+# <h1 id="q-25"> Question 25
 
 Identifier le type d’algorithme utilisé à partir de son code, et expliquer les caractéristiques clés qui permettent cette identification en répondant aux questions.
 
