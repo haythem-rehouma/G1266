@@ -20,7 +20,7 @@ $$
 
 
 # Question 3 : 
-- Choisissez une autre case dans la grille (non vide), et effectuez vous-même le calcul détaillé pour obtenir sa valeur.**
+- *Choisissez une autre case dans la grille (non vide), et effectuez vous-même le calcul détaillé pour obtenir sa valeur.*
 
 > Vous devez montrer **au moins 3 étapes de calcul** à partir des probabilités, récompenses et valeurs voisines.  
 > Il est possible de supposer des transitions vers les voisins haut/bas/gauche/droite en fonction du bruit et de la direction choisie.
