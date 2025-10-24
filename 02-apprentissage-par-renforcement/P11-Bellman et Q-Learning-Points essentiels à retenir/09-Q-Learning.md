@@ -60,4 +60,4 @@ L'algorithme **Q-Learning** est une méthode utilisée en **apprentissage par re
 - L'agent doit **explorer** d'abord pour apprendre, puis **exploiter** ses connaissances quand il est prêt, afin de maximiser ses gains.
 - Un bon équilibre entre **exploration** et **exploitation** est crucial pour que l'agent devienne performant dans l'environnement.
 
-En bref, le **Q-Learning** aide un agent à apprendre de ses expériences tout en ajustant progressivement ses actions pour maximiser ses récompenses sur le long terme. 😊
+> En bref, le **Q-Learning** aide un agent à apprendre de ses expériences tout en ajustant progressivement ses actions pour maximiser ses récompenses sur le long terme.
