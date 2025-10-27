@@ -41,6 +41,28 @@ python3.12 -m venv myenv312
    source myenv/bin/activate
    ```
 
+### Troubleshooting en cas de problèmes
+
+<img width="1892" height="234" alt="image" src="https://github.com/user-attachments/assets/8b4cbe41-c074-4ffc-90f7-cc064d8a2b86" />
+
+> Il se peut que vous ayez des restrictions Powershell pour la première fois.
+
+### Solution:
+
+- Exécutez en mode admin les commandes suivantes:
+
+  
+ ```bash
+ Set-ExecutionPolicy Unrestricted
+ ```
+
+ou 
+
+ ```bash
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+ ```
+
+
 # Étape 2 : Installation de Streamlit
 
 1. Avec l'environnement virtuel activé, installez Streamlit :
