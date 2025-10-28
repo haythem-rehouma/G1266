@@ -1,4 +1,4 @@
-# *Mini-lab 1 (5%)*
+# *Mini-lab 2*
 
 # Développement d'une Application de Visualisation de Données CSV avec Streamlit
 
