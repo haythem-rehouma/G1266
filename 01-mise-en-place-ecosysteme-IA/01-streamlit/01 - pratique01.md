@@ -43,7 +43,8 @@ python3.12 -m venv myenv312
 
 ### Troubleshooting en cas de problèmes
 
-<img width="1892" height="234" alt="image" src="https://github.com/user-attachments/assets/8b4cbe41-c074-4ffc-90f7-cc064d8a2b86" />
+<img width="1843" height="323" alt="image" src="https://github.com/user-attachments/assets/0f3a060f-faa9-4a2d-b1e7-6e4e2b0780a4" />
+
 
 > Il se peut que vous ayez des restrictions Powershell pour la première fois.
 
