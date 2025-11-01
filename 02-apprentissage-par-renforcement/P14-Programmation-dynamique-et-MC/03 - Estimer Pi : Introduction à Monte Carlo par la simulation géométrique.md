@@ -79,7 +79,8 @@ En suivant ces étapes, vous pouvez visualiser et estimer π efficacement grâce
 
 
 
-![image](https://github.com/user-attachments/assets/89711e73-f1d2-4a76-ae81-d01be50a5be5)
+<img width="655" height="644" alt="image" src="https://github.com/user-attachments/assets/152eaad5-81b7-4d31-89d9-7b9515eee006" />
+
 
 
 ## Principe de la méthode
@@ -117,3 +118,4 @@ La précision de cette estimation augmente avec le nombre de points générés. 
 Cette méthode de Monte Carlo offre une approche intuitive et visuelle pour estimer π. 
 Elle démontre comment des techniques probabilistes peuvent être utilisées pour résoudre des problèmes mathématiques complexes de manière approximative mais efficace. 
 C'est un excellent exemple de l'application des méthodes de simulation en mathématiques et en informatique.
+
