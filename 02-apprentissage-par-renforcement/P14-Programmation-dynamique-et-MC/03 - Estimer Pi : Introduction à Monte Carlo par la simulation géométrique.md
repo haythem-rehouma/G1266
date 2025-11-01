@@ -56,7 +56,9 @@ Voici les étapes pour estimer la valeur de **π** avec un programme Python en u
 
 3. **Initialiser un compteur** pour compter le nombre de points qui tombent dans le cercle.
 
-4. Pour chaque point aléatoire, **calculer la distance** de ce point à l'origine. Un point est à l'intérieur du cercle si sa distance est inférieure à 1 :
+4. Pour chaque point aléatoire, **calculer la distance** de ce point à l'origine. Un point est à l'intérieur du cercle si sa distance est inférieure à 1
+
+   
 
    $$
    d = \sqrt{x^2 + y^2}
@@ -64,13 +66,13 @@ Voici les étapes pour estimer la valeur de **π** avec un programme Python en u
 
    Si $$d < 1$$, le point est dans le cercle.
 
-5. **Compter les points** qui tombent dans le cercle.
+6. **Compter les points** qui tombent dans le cercle.
 
-6. **Tracer tous les points** et utiliser une couleur différente pour ceux qui sont dans le cercle.
+7. **Tracer tous les points** et utiliser une couleur différente pour ceux qui sont dans le cercle.
 
-7. **Dessiner le cercle** pour une meilleure visualisation.
+8. **Dessiner le cercle** pour une meilleure visualisation.
 
-8. Enfin, **calculer la valeur de **π** en utilisant la formule précédente**.
+9. Enfin, **calculer la valeur de **π** en utilisant la formule précédente**.
 
 En suivant ces étapes, vous pouvez visualiser et estimer π efficacement grâce à cette méthode intuitive et probabiliste.
 
@@ -118,4 +120,5 @@ La précision de cette estimation augmente avec le nombre de points générés. 
 Cette méthode de Monte Carlo offre une approche intuitive et visuelle pour estimer π. 
 Elle démontre comment des techniques probabilistes peuvent être utilisées pour résoudre des problèmes mathématiques complexes de manière approximative mais efficace. 
 C'est un excellent exemple de l'application des méthodes de simulation en mathématiques et en informatique.
+
 
