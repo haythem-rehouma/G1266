@@ -13,7 +13,7 @@
 
 <br/>
 
-# PARTIE 1 — QCM Docker
+# PARTIE 1 — QCM Docker (30%)
 
 
 
@@ -84,7 +84,7 @@
 
 
 
-# PARTIE 2 — Linux : **Écrire la commande**
+# PARTIE 2 — Linux : **Écrire la commande** (20%)
 
 > Consigne : écrivez **exactement** la commande demandée (une seule ligne, options minimales).
 > Exemple : pour lister les fichiers, répondez `ls`.
@@ -136,9 +136,14 @@
     `[réponse]`
 
 
+<br/>
+<br/>
 
+# Partie 3 (30%)
 
+> Décrire la pipeline ci-dessous et le rôle de chaque élément:
 
+<img width="1130" height="533" alt="image" src="https://github.com/user-attachments/assets/c708945e-b3e1-4ebc-a695-b239551144e3" />
 
 
 
@@ -148,7 +153,7 @@
 <br/>
 <br/>
 
-# PARTIE 3 — Docker Compose • Streamlit (FE) + FastAPI (BE) + PostgreSQL (DB)
+# PARTIE 4 — Docker Compose • Streamlit (FE) + FastAPI (BE) + PostgreSQL (DB) (20%)
 
 **Modalité**
 
