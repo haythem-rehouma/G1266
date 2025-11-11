@@ -78,7 +78,16 @@ mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./
 mlflow server --backend-store-uri sqlite:///database/mlflow.db --default-artifact-root=file:mlruns --host 0.0.0.0 --port 5000
 mlflow server --backend-store-uri sqlite:///database/mlflow.db  --default-artifact-root ~/mlflow-experiments --host 0.0.0.0 --port 5000
 ```
- 
+
+### Différence entre les commandes
+
+ | Commande                                                                                                                                 | Rôle                                                  | Backend (métadonnées)                        | Artifacts (fichiers, modèles…)                                | Host / Accès                                    | Usage typique                                                              |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------- |
+| `mlflow ui`                                                                                                                              | Interface rapide locale (sans vrai serveur configuré) | Dossier `./mlruns` par défaut                | `./mlruns` dans le dossier courant                            | `127.0.0.1` (local seulement)                   | Exploration rapide de runs sur sa machine perso                            |
+| `mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 127.0.0.1 --port 5000`                    | Serveur MLflow simple, tout dans le projet local      | Fichier `mlflow.db` dans **dossier courant** | Dossier `./mlruns` dans **dossier courant**                   | `127.0.0.1` (local uniquement)                  | Dev solo, petit projet, tout centralisé dans le repo                       |
+| `mlflow server --backend-store-uri sqlite:///database/mlflow.db --default-artifact-root=file:mlruns --host 0.0.0.0 --port 5000`          | Serveur MLflow accessible sur le réseau               | Fichier `mlflow.db` dans `./database/`       | URI `file:mlruns` → dossier `mlruns` local                    | `0.0.0.0` (accessible depuis d’autres machines) | Petit serveur partagé en LAN, structure un peu plus propre                 |
+| `mlflow server --backend-store-uri sqlite:///database/mlflow.db --default-artifact-root ~/mlflow-experiments --host 0.0.0.0 --port 5000` | Serveur MLflow “un peu plus prod”                     | Fichier `mlflow.db` dans `./database/`       | Dossier global `~/mlflow-experiments` (indépendant du projet) | `0.0.0.0` (réseau)                              | Serveur central pour plusieurs projets / utilisateurs sur une même machine |
+
 
 
 ### 6. Accéder à l'interface MLflow
