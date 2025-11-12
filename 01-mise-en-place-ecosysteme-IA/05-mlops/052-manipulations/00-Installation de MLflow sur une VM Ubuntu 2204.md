@@ -90,6 +90,101 @@ mlflow server --backend-store-uri sqlite:///database/mlflow.db  --default-artifa
 
 
 
+## Exercice 2
+
+### Étape 1
+
+> Terminal 1
+
+```bash
+mlflow server --backend-store-uri sqlite:///database/mlflow.db --default-artifact-root ~/mlflow-experiments --host 0.0.0.0 --port 5000
+```
+
+### Étape 2
+
+> Terminal 2
+> 
+```bash
+nano hello-world.py
+python3 hello-world.py
+```
+
+
+
+```python
+import mlflow
+
+# Optionally set the tracking URI
+mlflow.set_tracking_uri("http://127.0.0.1:5000")
+
+# Set the experiment name
+mlflow.set_experiment("Default")
+
+# Start a new MLflow run
+with mlflow.start_run():
+    mlflow.log_param("param1", 5)
+    mlflow.log_metric("metric1", 0.85)
+    mlflow.set_tag("tag1", "example")
+```
+
+
+### Étape 3
+
+### (optionnel) base de donnée sqlite
+
+## 1. Aller au bon dossier
+
+Selon ta commande :
+
+```bash
+mlflow server --backend-store-uri sqlite:///database/mlflow.db ...
+```
+
+la base est dans le dossier `database/` :
+
+```bash
+cd ~/mlflow-experiments/database
+ls
+# tu dois voir : mlflow.db
+```
+
+---
+
+## 2. Installer l’outil SQLite (une fois)
+
+```bash
+sudo apt update
+sudo apt install sqlite3 -y
+```
+
+---
+
+## 3. Ouvrir la base `mlflow.db`
+
+```bash
+sqlite3 mlflow.db
+```
+
+Tu arrives dans un prompt `sqlite>`.
+
+---
+
+## 4. Commandes utiles dans SQLite
+
+Dans le prompt :
+
+```sql
+.tables;                    -- liste les tables MLflow
+.schema experiments;        -- structure de la table des expériences
+SELECT * FROM experiments;  -- voir les expériences
+SELECT * FROM runs LIMIT 5; -- voir les premiers runs
+.quit                       -- pour sortir
+```
+
+🛑 **Conseil** : ne modifie rien (pas de DELETE/UPDATE) sinon tu risques de casser le tracking MLflow. Utilise ça seulement pour **consulter**.
+
+
+
 ### 6. Accéder à l'interface MLflow
 
 Par défaut, le serveur MLflow s'exécute sur le port 5000. Vous pouvez y accéder via votre navigateur web à l'adresse suivante :
