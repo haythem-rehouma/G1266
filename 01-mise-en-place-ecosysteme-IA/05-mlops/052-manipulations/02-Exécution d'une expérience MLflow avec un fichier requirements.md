@@ -163,3 +163,24 @@ pip freeze > requirements1.txt
 cat requirements1.txt
 ```
 
+
+# Annexe 2 - Correcxtion de l'erreur de mlflow-ui ( problème d'affichage des expériences)
+
+
+<img width="732" height="352" alt="image" src="https://github.com/user-attachments/assets/f431c8e2-3220-4251-9917-ab2b7b1cba52" />
+
+```python
+wget -O red-wine-quality.csv "https://raw.githubusercontent.com/haythem-rehouma/G1266/refs/heads/main/01-mise-en-place-ecosysteme-IA/05-mlops/050-fichiers/red-wine-quality.csv"
+```
+> Attention (Cette commande télécharge la page web au complet ! Il ne faut pas l'utiliser
+
+```python
+curl -L -o red-wine-quality.csv https://github.com/haythem-rehouma/G1266/blob/main/01-mise-en-place-ecosysteme-IA/05-mlops/050-fichiers/red-wine-quality.csv
+```
+
+Pour vérifier 
+
+```python
+head -50 red-wine-quality.csv
+```
+
