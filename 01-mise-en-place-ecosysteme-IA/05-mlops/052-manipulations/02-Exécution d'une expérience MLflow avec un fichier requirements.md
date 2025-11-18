@@ -164,7 +164,7 @@ cat requirements1.txt
 ```
 
 
-# Annexe 2 - Correcxtion de l'erreur de mlflow-ui ( problème d'affichage des expériences)
+# Annexe 2 - Correction de l'erreur de mlflow-ui ( problème d'affichage des expériences)
 
 
 <img width="732" height="352" alt="image" src="https://github.com/user-attachments/assets/f431c8e2-3220-4251-9917-ab2b7b1cba52" />
