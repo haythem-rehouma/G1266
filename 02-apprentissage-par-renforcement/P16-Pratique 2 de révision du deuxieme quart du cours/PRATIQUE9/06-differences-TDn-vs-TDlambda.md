@@ -12,9 +12,9 @@ $$
 
 Mise à jour typique :
 
-[
+$$
 V(S_t) \leftarrow V(S_t) + \alpha\big( G_t^{(n)} - V(S_t) \big)
-]
+$$
 
 Caractéristiques :
 
