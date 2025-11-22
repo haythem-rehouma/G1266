@@ -121,3 +121,75 @@ TD(λ) permet :
 > **TD(λ) évalue un employé en combinant intelligemment les performances récentes et les performances passées, avec un poids qui diminue progressivement, ce qui produit une évaluation stable, juste et réactive.**
 
 
+<br/>
+
+## Annexe 1 - Clarifier la différence entre TD(n) et TD(λ) avec l’exemple de l’employé
+
+Imagine que tu évalues le rendement d’un employé semaine après semaine.
+
+### 1. TD(n) : n est un **nombre de semaines**
+
+Avec **TD(n)**, tu décides **à l’avance** sur combien de semaines tu juges l’employé.
+Par exemple, **TD(3)** veut dire :
+
+> « Pour mettre à jour la note d’aujourd’hui, je regarde **exactement 3 semaines** de rendement de l’employé (par exemple les 3 dernières semaines), puis j’ajuste la note avec ça. »
+
+Ici, **n est clairement un nombre de pas / de semaines**.
+On ne parle que de TD(1), TD(2), TD(3), TD(4), etc., avec **n entier**.
+
+En résumé :
+
+* TD(3) = « je regarde un **bloc fixe** de 3 semaines, les autres ne comptent pas du tout dans cette mise à jour ».
+
+---
+
+### 2. TD(λ) : λ est un **coefficient de décroissance**, pas un nombre de semaines
+
+Avec **TD(λ)**, ce n’est plus la même logique :
+tu **ne choisis pas** un nombre fixe de semaines, tu dis plutôt :
+
+> « Je vais tenir compte de **toutes** les semaines passées, mais avec une importance qui diminue progressivement. »
+
+Par exemple, **TD(λ = 0.3)** veut dire :
+
+> « Je prends en compte toutes les semaines passées, mais avec des poids qui décroissent :
+> 1 pour la dernière semaine, 0.3 pour l’avant-dernière, 0.3² pour la semaine d’avant, 0.3³ pour encore avant, etc. »
+
+Ici, **0.3 n’est pas un nombre de semaines**, c’est un **coefficient de décroissance entre 0 et 1** qui contrôle à quelle vitesse le passé “s’efface”.
+
+En général :
+
+* Si **λ = 0**, seule la dernière semaine compte vraiment → on retombe sur le comportement de **TD(0)**, très focalisé sur la semaine la plus récente.
+* Quand **λ se rapproche de 1**, on donne presque autant d’importance à des semaines très anciennes qu’aux plus récentes → on se rapproche d’un comportement **type Monte Carlo**, où l’on juge l’employé sur une longue histoire complète.
+
+Donc **λ = 1 ne veut pas dire “1 semaine”** :
+λ = 1 correspond à « je prends pratiquement tout l’historique en compte », pas à « je regarde 1 pas ».
+
+---
+
+### 3. À ne pas confondre
+
+On ne doit donc **jamais** lire :
+
+* **TD(0.3)** comme si c’était **TD(3)**.
+
+Ce sont **deux familles de méthodes différentes**, avec deux paramètres de nature différente :
+
+* **TD(n)** :
+  n entier → **nombre de pas / de semaines**.
+* **TD(λ)** :
+  λ réel dans [0, 1] → **vitesse de décroissance de l’importance du passé**.
+
+
+
+### 4. Résumé
+
+
+| Méthode         | Paramètre      | Interprétation dans l’exemple de l’employé                          |
+|-----------------|----------------|------------------------------------------------------------------------|
+| TD(3)           | n = 3 (entier) | Je regarde **exactement les 3 dernières semaines**, le reste ignoré. |
+| TD(λ = 0.3)     | λ = 0.3        | Je regarde **toutes** les semaines, mais avec des poids 1, 0.3, 0.3²… |
+| TD(λ = 0)       | λ = 0          | Seule la dernière semaine compte → équivalent à **TD(0)**.            |
+| TD(λ → 1)       | λ ~ 1          | Presque tout l’historique compte → comportement proche Monte Carlo.   |
+
+
